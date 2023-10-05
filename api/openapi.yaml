@@ -1,0 +1,1134 @@
+openapi: 3.0.1
+info:
+  title: Uinsure.CustomerPortal.API
+  version: v1
+servers:
+- url: /
+security:
+- Bearer: []
+  oauth2:
+  - openid
+  - profile
+  - email
+  - uinsure.api.customer.write
+  - uinsure.api.customer.read
+paths:
+  /api/HealthCheck:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+          description: Success
+      summary: "The default endpoint.  \r\nThis is the default health check endpoint\
+        \ that can be used to assure that the system is correctly configured\r\nand\
+        \ recieving HTTP requests.\r\n\r\nThis healthcheck endpoint will return \"\
+        ok\" when everything is assumed to be working, and otherwise return \"not\
+        \ OK\"\r\nif something is misconfigured but it can still handle the request"
+      tags:
+      - HealthCheck
+  /api/HealthCheck/auth:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+          description: Success
+      security:
+      - oauth2:
+        - openid
+        - profile
+        - email
+        - uinsure.api.customer.read
+        - uinsure.api.customer.write
+      summary: "An additional healthcheck endpoint that validates an authorized request\
+        \ with api-read permission.\r\n\r\nThis healthcheck endpoint will return \"\
+        ok\" when everything is assumed to be working , and otherwise return \"not\
+        \ OK\" when it's not."
+      tags:
+      - HealthCheck
+    post:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: string
+            application/json:
+              schema:
+                type: string
+            text/json:
+              schema:
+                type: string
+          description: Success
+      security:
+      - oauth2:
+        - openid
+        - profile
+        - email
+        - uinsure.api.customer.read
+        - uinsure.api.customer.write
+      summary: "An additional healthcheck endpoint that validates an authorized request\
+        \ with api-write permission.\r\n\r\nThis healthcheck endpoint will return\
+        \ \"ok\" when everything is assumed to be working , \r\nand otherwise return\
+        \ \"not OK\" when it's not."
+      tags:
+      - HealthCheck
+  /api/admin/policies/find:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FindPoliciesRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/FindPoliciesRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/FindPoliciesRequest'
+        description: The search request
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/FindPoliciesResult'
+                type: array
+          description: Returns a collection of policies which satisfy the provided
+            filter.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: "If the request body is empty, or any provided filters are\
+            \ invalid."
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: If the request does not contain valid authorisation.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: If the server fails to process the request.
+      summary: "Finds policies matching any or all from agreement number, surname,\
+        \ date of birth, risk address postcode, telephone number or policy status."
+      tags:
+      - PoliciesQuery
+  /api/admin/policies/{policyNumber}:
+    get:
+      description: If the specified policy number is a renewal (policy number contains
+        a '/') then it must be URL encoded.
+      parameters:
+      - description: Sanitised URL-safe policy number
+        explode: false
+        in: path
+        name: policyNumber
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetPolicyDetailsResult'
+          description: Returns the policy details for a specified policy number.
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: If provided policy number is not of a valid format.
+        "401":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: If the request does not contain valid authorisation.
+        "500":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProblemDetails'
+          description: If the server fails to process the request.
+      summary: Returns the policy details for a specified policy number
+      tags:
+      - PoliciesQuery
+  /api/Renewals/opt-in:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                type: boolean
+            application/json:
+              schema:
+                type: boolean
+            text/json:
+              schema:
+                type: boolean
+          description: Success
+      security:
+      - oauth2:
+        - openid
+        - profile
+        - email
+        - uinsure.api.customer.read
+        - uinsure.api.customer.write
+      summary: Gets the opted in choice for the policy.
+      tags:
+      - RenewalsQuery
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OptInRequest'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/OptInRequest'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/OptInRequest'
+      responses:
+        "200":
+          description: Success
+      security:
+      - oauth2:
+        - openid
+        - profile
+        - email
+        - uinsure.api.customer.read
+        - uinsure.api.customer.write
+      summary: Updates the opt in choice for the policy renewal.
+      tags:
+      - Renewals
+  /api/Renewals/email/update:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateEmailAddress'
+          text/json:
+            schema:
+              $ref: '#/components/schemas/UpdateEmailAddress'
+          application/*+json:
+            schema:
+              $ref: '#/components/schemas/UpdateEmailAddress'
+      responses:
+        "200":
+          description: Success
+      security:
+      - oauth2:
+        - openid
+        - profile
+        - email
+        - uinsure.api.customer.read
+        - uinsure.api.customer.write
+      summary: Updates the email address for the policy renewal.
+      tags:
+      - Renewals
+  /api/Renewals/details:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                $ref: '#/components/schemas/RenewalDetails'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RenewalDetails'
+            text/json:
+              schema:
+                $ref: '#/components/schemas/RenewalDetails'
+          description: Success
+      security:
+      - oauth2:
+        - openid
+        - profile
+        - email
+        - uinsure.api.customer.read
+        - uinsure.api.customer.write
+      summary: Gets the renewal details for a customer's policy
+      tags:
+      - RenewalsQuery
+  /api/Renewals/download:
+    get:
+      responses:
+        "200":
+          content:
+            text/plain:
+              schema:
+                format: binary
+                type: string
+            application/json:
+              schema:
+                format: binary
+                type: string
+            text/json:
+              schema:
+                format: binary
+                type: string
+          description: Success
+      security:
+      - oauth2:
+        - openid
+        - profile
+        - email
+        - uinsure.api.customer.read
+        - uinsure.api.customer.write
+      summary: Download a renewal document for a given policy number
+      tags:
+      - RenewalsQuery
+components:
+  schemas:
+    Address:
+      additionalProperties: false
+      example:
+        AddressLine3: AddressLine3
+        AddressLine2: AddressLine2
+        AddressLine1: AddressLine1
+        AddressLine4: AddressLine4
+        Postcode: Postcode
+      properties:
+        AddressLine1:
+          nullable: true
+          type: string
+        AddressLine2:
+          nullable: true
+          type: string
+        AddressLine3:
+          nullable: true
+          type: string
+        AddressLine4:
+          nullable: true
+          type: string
+        Postcode:
+          nullable: true
+          type: string
+      type: object
+    Applicant:
+      additionalProperties: false
+      example:
+        DateOfBirth: 2000-01-23T04:56:07.000+00:00
+        FirstName: FirstName
+        FullName: FullName
+        Title: Title
+        LastName: LastName
+        TelephoneNumber: TelephoneNumber
+        EmailAddress: EmailAddress
+      properties:
+        Title:
+          nullable: true
+          type: string
+        FirstName:
+          nullable: true
+          type: string
+        LastName:
+          nullable: true
+          type: string
+        DateOfBirth:
+          format: date-time
+          nullable: true
+          type: string
+        TelephoneNumber:
+          nullable: true
+          type: string
+        EmailAddress:
+          nullable: true
+          type: string
+        FullName:
+          nullable: true
+          readOnly: true
+          type: string
+      type: object
+    FindPoliciesRequest:
+      additionalProperties: false
+      description: Represents a request from for a search query for using to find
+        policies
+      example:
+        DateOfBirth: 2000-01-23T04:56:07.000+00:00
+        AgreementNumber: AgreementNumber
+        PolicyStatus: PolicyStatus
+        PhoneNumber: PhoneNumber
+        RiskAddressPostcode: RiskAddressPostcode
+        Surname: Surname
+      properties:
+        AgreementNumber:
+          description: A full or partial agreement number or policy number.
+          nullable: true
+          pattern: "[A-z]*\\d+(\\/\\d)?"
+          type: string
+        Surname:
+          description: A full or partial Surname corresponding to either applicant
+            on a policy
+          maxLength: 100
+          minLength: 2
+          nullable: true
+          pattern: "(?i)^(?:(?![×Þß÷þø])[-'A-zÀ-ÿ\\s])*$"
+          type: string
+        DateOfBirth:
+          description: A valid date in the ISO 8601 format corresponding to either
+            applicant on a policy and must be in the past
+          format: date-time
+          nullable: true
+          type: string
+        RiskAddressPostcode:
+          description: A full or partial postcode corresponding to the risk address
+            on a policy
+          nullable: true
+          pattern: "^[a-zA-Z]{1,2}\\d{1,2}[a-zA-Z]?(\\s?\\d[a-zA-Z]{2})?$"
+          type: string
+        PhoneNumber:
+          description: A full or partial phone number associated to a policy
+          nullable: true
+          pattern: "^(\\+\\d{2}|0)7?\\d{9,10}$"
+          type: string
+        PolicyStatus:
+          description: A full match on the Policy status
+          nullable: true
+          pattern: ^(Live|Expired|Renewal|Future|Cancelled)$
+          type: string
+      type: object
+    FindPoliciesResult:
+      additionalProperties: false
+      example:
+        StartDate: 2000-01-23T04:56:07.000+00:00
+        PolicyType: PolicyType
+        PolicyNumber: PolicyNumber
+        PolicyStatus: PolicyStatus
+        Applicant1: Applicant1
+        Applicant2: Applicant2
+        RiskAddress:
+          AddressLine3: AddressLine3
+          AddressLine2: AddressLine2
+          AddressLine1: AddressLine1
+          AddressLine4: AddressLine4
+          Postcode: Postcode
+      properties:
+        PolicyNumber:
+          nullable: true
+          type: string
+        StartDate:
+          format: date-time
+          nullable: true
+          type: string
+        PolicyType:
+          nullable: true
+          type: string
+        PolicyStatus:
+          nullable: true
+          type: string
+        RiskAddress:
+          $ref: '#/components/schemas/Address'
+        Applicant1:
+          nullable: true
+          type: string
+        Applicant2:
+          nullable: true
+          type: string
+      type: object
+    GetPolicyDetailsResult:
+      additionalProperties: false
+      example:
+        Policy:
+          ContentsExcess: 5.637376656633329
+          ContentsCoverAmount: 5.962133916683182
+          ContentsAccidentalDamage: true
+          EligibleForRebroke: 1
+          BuildingsCoverAmount: 0.8008281904610115
+          ContentsUinsureCurrentClaimFreeTenure: 1
+          BuildingsNoClaimsYears: 1
+          ContentsNcdCurrentPolicy: 4
+          BuildingsUinsureCurrentClaimFreeTenure: 2
+          ContentsNcdNextRenewal: 7
+          IsFirstTimeBuyer: true
+          BuildingsAccidentalCover: true
+          PersonalBelongingsCover: 7.061401241503109
+          OriginalInceptionDate: 2000-01-23T04:56:07.000+00:00
+          BuildingsNcdCurrentPolicy: 9
+          BuildingsExcess: 6.027456183070403
+          BuildingsNcdNextRenewal: 3
+          ContentsNoClaimYears: 2
+        PolicyNumber: PolicyNumber
+        UnderwriterName: UnderwriterName
+        Issues:
+          DataQualityIssueFlag: true
+          PolicyIssueFlag: true
+        PolicyEndDate: 2000-01-23T04:56:07.000+00:00
+        CoverTypeName: CoverTypeName
+        ProductTypeName: ProductTypeName
+        Provider: Provider
+        UpcomingRenewalInceptionDate: 2000-01-23T04:56:07.000+00:00
+        CompanyName: CompanyName
+        PossiblyRelatedPolicies: PossiblyRelatedPolicies
+        UpcomingRenewalPolicyNumber: UpcomingRenewalPolicyNumber
+        PolicyStatus: PolicyStatus
+        PolicyStartDate: 2000-01-23T04:56:07.000+00:00
+        Policyholder:
+          Applicant1LastName: Applicant1LastName
+          Applicant2DateOfBirth: 2000-01-23T04:56:07.000+00:00
+          CorrespondenceRiskAddressMatch: true
+          Applicant1Deceased: true
+          Applicant2LastName: Applicant2LastName
+          IsRiskAddressDifferent: true
+          TelephoneNumber: TelephoneNumber
+          Applicant1Title: Applicant1Title
+          EmailAddress: EmailAddress
+          CustomerVulnerabilities:
+          - CustomerVulnerabilities
+          - CustomerVulnerabilities
+          Applicant2FirstName: Applicant2FirstName
+          CustomerVulnerability: CustomerVulnerability
+          TelephoneNumberType: TelephoneNumberType
+          Applicant1DateOfBirth: 2000-01-23T04:56:07.000+00:00
+          CorrespondenceAddressLine1: CorrespondenceAddressLine1
+          DoNotAutoRenew: true
+          Applicant2Title: Applicant2Title
+          CorrespondenceAddressLine3: CorrespondenceAddressLine3
+          CorrespondenceAddressLine2: CorrespondenceAddressLine2
+          CorrespondencePostcode: CorrespondencePostcode
+          Applicant1FirstName: Applicant1FirstName
+          PolicyDocument: PolicyDocument
+        AccountReference: AccountReference
+        PossiblyRelatedApplicant1: PossiblyRelatedApplicant1
+        Property:
+          RiskAddressLine1: RiskAddressLine1
+          RiskAddressLine2: RiskAddressLine2
+          RiskAddressLine3: RiskAddressLine3
+          RiskAddressPostcodeArea: RiskAddressPostcodeArea
+          RiskAddressLine4: RiskAddressLine4
+          PropertyTypeName: PropertyTypeName
+          Latitude: 6.84685269835264
+          YearOfConstruction: 1
+          Longitude: 1.4894159098541704
+          YearOfConstructionRange: YearOfConstructionRange
+          NumberOfBedrooms: 7
+          RiskAddressPostcode: RiskAddressPostcode
+          MortgageProvider: MortgageProvider
+          RiskAddressRoyalMailReference: RiskAddressRoyalMailReference
+          IsYearOfConstructionRange: true
+      properties:
+        PolicyNumber:
+          nullable: true
+          type: string
+        AccountReference:
+          nullable: true
+          type: string
+        UpcomingRenewalPolicyNumber:
+          nullable: true
+          type: string
+        UpcomingRenewalInceptionDate:
+          format: date-time
+          nullable: true
+          type: string
+        PolicyStartDate:
+          format: date-time
+          nullable: true
+          type: string
+        PolicyEndDate:
+          format: date-time
+          nullable: true
+          type: string
+        UnderwriterName:
+          nullable: true
+          type: string
+        CoverTypeName:
+          nullable: true
+          type: string
+        ProductTypeName:
+          nullable: true
+          type: string
+        Provider:
+          nullable: true
+          type: string
+        PossiblyRelatedPolicies:
+          nullable: true
+          type: string
+        PossiblyRelatedApplicant1:
+          nullable: true
+          type: string
+        CompanyName:
+          nullable: true
+          type: string
+        PolicyStatus:
+          nullable: true
+          type: string
+        Policyholder:
+          $ref: '#/components/schemas/Policyholder'
+        Policy:
+          $ref: '#/components/schemas/PolicyCover'
+        Property:
+          $ref: '#/components/schemas/RiskProperty'
+        Issues:
+          $ref: '#/components/schemas/PolicyIssue'
+      type: object
+    OptInRequest:
+      additionalProperties: false
+      description: Represents a request from a customer to either opt in or out of
+        digital renewals
+      example:
+        LinkSource: LinkSource
+        OptedIn: true
+      properties:
+        OptedIn:
+          description: Whether or not the customer has opted in
+          type: boolean
+        LinkSource:
+          nullable: true
+          type: string
+      type: object
+    PolicyCover:
+      additionalProperties: false
+      example:
+        ContentsExcess: 5.637376656633329
+        ContentsCoverAmount: 5.962133916683182
+        ContentsAccidentalDamage: true
+        EligibleForRebroke: 1
+        BuildingsCoverAmount: 0.8008281904610115
+        ContentsUinsureCurrentClaimFreeTenure: 1
+        BuildingsNoClaimsYears: 1
+        ContentsNcdCurrentPolicy: 4
+        BuildingsUinsureCurrentClaimFreeTenure: 2
+        ContentsNcdNextRenewal: 7
+        IsFirstTimeBuyer: true
+        BuildingsAccidentalCover: true
+        PersonalBelongingsCover: 7.061401241503109
+        OriginalInceptionDate: 2000-01-23T04:56:07.000+00:00
+        BuildingsNcdCurrentPolicy: 9
+        BuildingsExcess: 6.027456183070403
+        BuildingsNcdNextRenewal: 3
+        ContentsNoClaimYears: 2
+      properties:
+        IsFirstTimeBuyer:
+          nullable: true
+          type: boolean
+        BuildingsCoverAmount:
+          format: double
+          nullable: true
+          type: number
+        BuildingsAccidentalCover:
+          nullable: true
+          type: boolean
+        BuildingsExcess:
+          format: double
+          nullable: true
+          type: number
+        BuildingsNoClaimsYears:
+          format: int32
+          nullable: true
+          type: integer
+        ContentsCoverAmount:
+          format: double
+          nullable: true
+          type: number
+        ContentsAccidentalDamage:
+          nullable: true
+          type: boolean
+        ContentsExcess:
+          format: double
+          nullable: true
+          type: number
+        ContentsNoClaimYears:
+          format: int32
+          nullable: true
+          type: integer
+        PersonalBelongingsCover:
+          format: double
+          nullable: true
+          type: number
+        BuildingsNcdCurrentPolicy:
+          format: int32
+          nullable: true
+          type: integer
+        BuildingsNcdNextRenewal:
+          format: int32
+          nullable: true
+          type: integer
+        BuildingsUinsureCurrentClaimFreeTenure:
+          format: int32
+          nullable: true
+          type: integer
+        ContentsNcdCurrentPolicy:
+          format: int32
+          nullable: true
+          type: integer
+        ContentsNcdNextRenewal:
+          format: int32
+          nullable: true
+          type: integer
+        ContentsUinsureCurrentClaimFreeTenure:
+          format: int32
+          nullable: true
+          type: integer
+        EligibleForRebroke:
+          format: int32
+          nullable: true
+          type: integer
+        OriginalInceptionDate:
+          format: date-time
+          nullable: true
+          type: string
+      type: object
+    PolicyIssue:
+      additionalProperties: false
+      example:
+        DataQualityIssueFlag: true
+        PolicyIssueFlag: true
+      properties:
+        DataQualityIssueFlag:
+          nullable: true
+          type: boolean
+        PolicyIssueFlag:
+          nullable: true
+          type: boolean
+      type: object
+    Policyholder:
+      additionalProperties: false
+      example:
+        Applicant1LastName: Applicant1LastName
+        Applicant2DateOfBirth: 2000-01-23T04:56:07.000+00:00
+        CorrespondenceRiskAddressMatch: true
+        Applicant1Deceased: true
+        Applicant2LastName: Applicant2LastName
+        IsRiskAddressDifferent: true
+        TelephoneNumber: TelephoneNumber
+        Applicant1Title: Applicant1Title
+        EmailAddress: EmailAddress
+        CustomerVulnerabilities:
+        - CustomerVulnerabilities
+        - CustomerVulnerabilities
+        Applicant2FirstName: Applicant2FirstName
+        CustomerVulnerability: CustomerVulnerability
+        TelephoneNumberType: TelephoneNumberType
+        Applicant1DateOfBirth: 2000-01-23T04:56:07.000+00:00
+        CorrespondenceAddressLine1: CorrespondenceAddressLine1
+        DoNotAutoRenew: true
+        Applicant2Title: Applicant2Title
+        CorrespondenceAddressLine3: CorrespondenceAddressLine3
+        CorrespondenceAddressLine2: CorrespondenceAddressLine2
+        CorrespondencePostcode: CorrespondencePostcode
+        Applicant1FirstName: Applicant1FirstName
+        PolicyDocument: PolicyDocument
+      properties:
+        Applicant1Title:
+          nullable: true
+          type: string
+        Applicant1FirstName:
+          nullable: true
+          type: string
+        Applicant1LastName:
+          nullable: true
+          type: string
+        Applicant1DateOfBirth:
+          format: date-time
+          nullable: true
+          type: string
+        Applicant1Deceased:
+          nullable: true
+          type: boolean
+        Applicant2Title:
+          nullable: true
+          type: string
+        Applicant2FirstName:
+          nullable: true
+          type: string
+        Applicant2LastName:
+          nullable: true
+          type: string
+        Applicant2DateOfBirth:
+          format: date-time
+          nullable: true
+          type: string
+        EmailAddress:
+          nullable: true
+          type: string
+        TelephoneNumber:
+          nullable: true
+          type: string
+        TelephoneNumberType:
+          nullable: true
+          type: string
+        CorrespondenceAddressLine1:
+          nullable: true
+          type: string
+        CorrespondenceAddressLine2:
+          nullable: true
+          type: string
+        CorrespondenceAddressLine3:
+          nullable: true
+          type: string
+        CorrespondencePostcode:
+          nullable: true
+          type: string
+        DoNotAutoRenew:
+          nullable: true
+          type: boolean
+        PolicyDocument:
+          nullable: true
+          type: string
+        CorrespondenceRiskAddressMatch:
+          nullable: true
+          type: boolean
+        IsRiskAddressDifferent:
+          readOnly: true
+          type: boolean
+        CustomerVulnerability:
+          nullable: true
+          type: string
+        CustomerVulnerabilities:
+          items:
+            type: string
+          nullable: true
+          readOnly: true
+          type: array
+      type: object
+    ProblemDetails:
+      additionalProperties: {}
+      properties:
+        type:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+        status:
+          format: int32
+          nullable: true
+          type: integer
+        detail:
+          nullable: true
+          type: string
+        instance:
+          nullable: true
+          type: string
+      type: object
+    QuotePremium:
+      additionalProperties: false
+      example:
+        IsPayingMonthly: true
+        LastYearsMonthlyPremium: 1.4894159098541704
+        TotalAmountPayable: 7.386281948385884
+        LastYearsPremium: 1.2315135367772556
+        CreditCharge: 2.027123023002322
+        IsPremiumFunded: true
+        TotalMonthlyPremium: 4.145608029883936
+        Provider: Provider
+        LastYearsPremiumWithoutPremiumFunding: 1.0246457001441578
+      properties:
+        Provider:
+          nullable: true
+          type: string
+        CreditCharge:
+          format: double
+          type: number
+        TotalMonthlyPremium:
+          format: double
+          type: number
+        TotalAmountPayable:
+          format: double
+          type: number
+        LastYearsPremium:
+          format: double
+          type: number
+        LastYearsPremiumWithoutPremiumFunding:
+          format: double
+          type: number
+        LastYearsMonthlyPremium:
+          format: double
+          type: number
+        IsPayingMonthly:
+          type: boolean
+        IsPremiumFunded:
+          type: boolean
+      type: object
+    RenewalDetails:
+      additionalProperties: false
+      example:
+        RiskAddress:
+          AddressLine3: AddressLine3
+          AddressLine2: AddressLine2
+          AddressLine1: AddressLine1
+          AddressLine4: AddressLine4
+          Postcode: Postcode
+        HomeEmergencyCover: true
+        PropertyType: PropertyType
+        CorrespondenceAddress:
+          AddressLine3: AddressLine3
+          AddressLine2: AddressLine2
+          AddressLine1: AddressLine1
+          AddressLine4: AddressLine4
+          Postcode: Postcode
+        DoNotAutoRenew: true
+        RenewalInceptionDate: 2000-01-23T04:56:07.000+00:00
+        ContentsCoverIncluded: true
+        ContentsPersonalPossessionsValue: 3
+        BuildingsAccidentalDamageIncluded: true
+        ContentsExcess: 2
+        Client1:
+          DateOfBirth: 2000-01-23T04:56:07.000+00:00
+          FirstName: FirstName
+          FullName: FullName
+          Title: Title
+          LastName: LastName
+          TelephoneNumber: TelephoneNumber
+          EmailAddress: EmailAddress
+        Client2:
+          DateOfBirth: 2000-01-23T04:56:07.000+00:00
+          FirstName: FirstName
+          FullName: FullName
+          Title: Title
+          LastName: LastName
+          TelephoneNumber: TelephoneNumber
+          EmailAddress: EmailAddress
+        FamilyLegalProtection: true
+        YearOfConstructionRange: YearOfConstructionRange
+        BuildingsCoverLimit: 6
+        BuildingsNoClaimsYears: 5
+        QuoteReference: QuoteReference
+        QuotePremium:
+          IsPayingMonthly: true
+          LastYearsMonthlyPremium: 1.4894159098541704
+          TotalAmountPayable: 7.386281948385884
+          LastYearsPremium: 1.2315135367772556
+          CreditCharge: 2.027123023002322
+          IsPremiumFunded: true
+          TotalMonthlyPremium: 4.145608029883936
+          Provider: Provider
+          LastYearsPremiumWithoutPremiumFunding: 1.0246457001441578
+        ContentsNoClaimsYears: 7
+        ContentsSpecifiedItems:
+        - Type: Type
+          CoverAtHome: true
+          CoverAwayFromHome: true
+          Description: Description
+          Value: 9
+        - Type: Type
+          CoverAtHome: true
+          CoverAwayFromHome: true
+          Description: Description
+          Value: 9
+        NumberOfBedrooms: 0
+        PolicyStartDate: 2000-01-23T04:56:07.000+00:00
+        BuildingsCoverIncluded: true
+        ContentsAccidentalDamageIncluded: true
+        ContentsCoverLimit: 5
+        BuildingsExcess: 1
+      properties:
+        Client1:
+          $ref: '#/components/schemas/Applicant'
+        Client2:
+          $ref: '#/components/schemas/Applicant'
+        RiskAddress:
+          $ref: '#/components/schemas/Address'
+        PropertyType:
+          nullable: true
+          type: string
+        NumberOfBedrooms:
+          format: int32
+          type: integer
+        YearOfConstructionRange:
+          nullable: true
+          type: string
+        BuildingsCoverIncluded:
+          type: boolean
+        BuildingsAccidentalDamageIncluded:
+          type: boolean
+        BuildingsCoverLimit:
+          format: int32
+          type: integer
+        BuildingsExcess:
+          format: int32
+          type: integer
+        BuildingsNoClaimsYears:
+          format: int32
+          type: integer
+        ContentsCoverIncluded:
+          type: boolean
+        ContentsAccidentalDamageIncluded:
+          type: boolean
+        ContentsCoverLimit:
+          format: int32
+          type: integer
+        ContentsExcess:
+          format: int32
+          type: integer
+        ContentsNoClaimsYears:
+          format: int32
+          type: integer
+        ContentsSpecifiedItems:
+          items:
+            $ref: '#/components/schemas/SpecifiedItem'
+          nullable: true
+          type: array
+        ContentsPersonalPossessionsValue:
+          format: int32
+          type: integer
+        HomeEmergencyCover:
+          type: boolean
+        FamilyLegalProtection:
+          type: boolean
+        QuoteReference:
+          nullable: true
+          type: string
+        PolicyStartDate:
+          format: date-time
+          type: string
+        CorrespondenceAddress:
+          $ref: '#/components/schemas/Address'
+        QuotePremium:
+          $ref: '#/components/schemas/QuotePremium'
+        DoNotAutoRenew:
+          type: boolean
+        RenewalInceptionDate:
+          format: date-time
+          type: string
+      type: object
+    RiskProperty:
+      additionalProperties: false
+      example:
+        RiskAddressLine1: RiskAddressLine1
+        RiskAddressLine2: RiskAddressLine2
+        RiskAddressLine3: RiskAddressLine3
+        RiskAddressPostcodeArea: RiskAddressPostcodeArea
+        RiskAddressLine4: RiskAddressLine4
+        PropertyTypeName: PropertyTypeName
+        Latitude: 6.84685269835264
+        YearOfConstruction: 1
+        Longitude: 1.4894159098541704
+        YearOfConstructionRange: YearOfConstructionRange
+        NumberOfBedrooms: 7
+        RiskAddressPostcode: RiskAddressPostcode
+        MortgageProvider: MortgageProvider
+        RiskAddressRoyalMailReference: RiskAddressRoyalMailReference
+        IsYearOfConstructionRange: true
+      properties:
+        RiskAddressLine1:
+          nullable: true
+          type: string
+        RiskAddressLine2:
+          nullable: true
+          type: string
+        RiskAddressLine3:
+          nullable: true
+          type: string
+        RiskAddressLine4:
+          nullable: true
+          type: string
+        RiskAddressPostcode:
+          nullable: true
+          type: string
+        RiskAddressPostcodeArea:
+          nullable: true
+          type: string
+        Longitude:
+          format: double
+          nullable: true
+          type: number
+        Latitude:
+          format: double
+          nullable: true
+          type: number
+        PropertyTypeName:
+          nullable: true
+          type: string
+        NumberOfBedrooms:
+          format: int32
+          nullable: true
+          type: integer
+        YearOfConstruction:
+          format: int32
+          nullable: true
+          type: integer
+        YearOfConstructionRange:
+          nullable: true
+          type: string
+        IsYearOfConstructionRange:
+          nullable: true
+          type: boolean
+        RiskAddressRoyalMailReference:
+          nullable: true
+          type: string
+        MortgageProvider:
+          nullable: true
+          type: string
+      type: object
+    SpecifiedItem:
+      additionalProperties: false
+      example:
+        Type: Type
+        CoverAtHome: true
+        CoverAwayFromHome: true
+        Description: Description
+        Value: 9
+      properties:
+        Type:
+          nullable: true
+          type: string
+        Description:
+          nullable: true
+          type: string
+        Value:
+          format: int32
+          type: integer
+        CoverAtHome:
+          type: boolean
+        CoverAwayFromHome:
+          type: boolean
+      type: object
+    UpdateEmailAddress:
+      additionalProperties: false
+      description: Represents a request from a customer to change their email address
+      example:
+        EmailAddress: EmailAddress
+      properties:
+        EmailAddress:
+          nullable: true
+          pattern: "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"\
+            ]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\\
+            -0-9]+\\.)+[a-zA-Z]{2,}))$"
+          type: string
+      type: object
+  securitySchemes:
+    oauth2:
+      description: "IDS4 Authorization header using the Bearer scheme. Example: \"\
+        bearer {token}\""
+      flows:
+        authorizationCode:
+          authorizationUrl: https://localhost:44322/connect/authorize
+          scopes:
+            uinsure.api.customer.read: Customer Portal API - read access
+            uinsure.api.customer.write: Customer Portal API - write access
+            openid: Indicates that the OIDC will be used to verify user identity
+            profile: Grants access to the user profile
+            email: Grants access to the user email
+          tokenUrl: https://localhost:44322/connect/token
+      type: oauth2
+
