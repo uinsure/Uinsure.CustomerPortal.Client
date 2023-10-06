@@ -1,18 +1,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.3.32929.385
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uinsure.CustomerPortal.Client", "src\Uinsure.CustomerPortal.Client\Uinsure.CustomerPortal.Client.csproj", "{BC86DCB7-10DA-40EA-AE74-A7EDCABB10FE}"
+# Visual Studio 2012
+VisualStudioVersion = 12.0.0.0
+MinimumVisualStudioVersion = 10.0.0.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uinsure.CustomerPortal.Client", "src\Uinsure.CustomerPortal.Client\Uinsure.CustomerPortal.Client.csproj", "{5B549D0F-44D9-489E-8DE3-89695E43697F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uinsure.CustomerPortal.Client.Test", "src\Uinsure.CustomerPortal.Client.Test\Uinsure.CustomerPortal.Client.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uinsure.CustomerPortal.Client.Console", "src\Uinsure.CustomerPortal.Client.Console\Uinsure.CustomerPortal.Client.Console.csproj", "{416B89DF-6601-452A-ABD4-82A8E66BB724}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E0B3CE67-AA12-47FB-B17F-1FB5EED47133}"
-	ProjectSection(SolutionItems) = preProject
-		.gitignore = .gitignore
-		README.md = README.md
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uinsure.CustomerPortal.Client.Test", "src\Uinsure.CustomerPortal.Client.Test\Uinsure.CustomerPortal.Client.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,23 +12,16 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BC86DCB7-10DA-40EA-AE74-A7EDCABB10FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BC86DCB7-10DA-40EA-AE74-A7EDCABB10FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BC86DCB7-10DA-40EA-AE74-A7EDCABB10FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BC86DCB7-10DA-40EA-AE74-A7EDCABB10FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B549D0F-44D9-489E-8DE3-89695E43697F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B549D0F-44D9-489E-8DE3-89695E43697F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B549D0F-44D9-489E-8DE3-89695E43697F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B549D0F-44D9-489E-8DE3-89695E43697F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.Build.0 = Release|Any CPU
-		{416B89DF-6601-452A-ABD4-82A8E66BB724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{416B89DF-6601-452A-ABD4-82A8E66BB724}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{416B89DF-6601-452A-ABD4-82A8E66BB724}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{416B89DF-6601-452A-ABD4-82A8E66BB724}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {74375A6B-832B-4F08-8BB0-A69587FC2398}
 	EndGlobalSection
 EndGlobal
