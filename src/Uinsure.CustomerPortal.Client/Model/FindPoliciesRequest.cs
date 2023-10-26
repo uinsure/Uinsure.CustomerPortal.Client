@@ -40,7 +40,8 @@ namespace Uinsure.CustomerPortal.Client.Model
         /// <param name="riskAddressPostcode">A full or partial postcode corresponding to the risk address on a policy.</param>
         /// <param name="phoneNumber">A full or partial phone number associated to a policy.</param>
         /// <param name="policyStatus">A full match on the Policy status.</param>
-        public FindPoliciesRequest(string agreementNumber = default(string), string surname = default(string), DateTime? dateOfBirth = default(DateTime?), string riskAddressPostcode = default(string), string phoneNumber = default(string), string policyStatus = default(string))
+        /// <param name="showPoliciesWithIssues">Default returns policies with no issues but setting this flag to true will allow the result set to contain policies with issues as well.</param>
+        public FindPoliciesRequest(string agreementNumber = default(string), string surname = default(string), DateTime? dateOfBirth = default(DateTime?), string riskAddressPostcode = default(string), string phoneNumber = default(string), string policyStatus = default(string), bool? showPoliciesWithIssues = default(bool?))
         {
             this._AgreementNumber = agreementNumber;
             if (this.AgreementNumber != null)
@@ -71,6 +72,11 @@ namespace Uinsure.CustomerPortal.Client.Model
             if (this.PolicyStatus != null)
             {
                 this._flagPolicyStatus = true;
+            }
+            this._ShowPoliciesWithIssues = showPoliciesWithIssues;
+            if (this.ShowPoliciesWithIssues != null)
+            {
+                this._flagShowPoliciesWithIssues = true;
             }
         }
 
@@ -225,6 +231,31 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagPolicyStatus;
         }
         /// <summary>
+        /// Default returns policies with no issues but setting this flag to true will allow the result set to contain policies with issues as well
+        /// </summary>
+        /// <value>Default returns policies with no issues but setting this flag to true will allow the result set to contain policies with issues as well</value>
+        [DataMember(Name = "ShowPoliciesWithIssues", EmitDefaultValue = true)]
+        public bool? ShowPoliciesWithIssues
+        {
+            get{ return _ShowPoliciesWithIssues;}
+            set
+            {
+                _ShowPoliciesWithIssues = value;
+                _flagShowPoliciesWithIssues = true;
+            }
+        }
+        private bool? _ShowPoliciesWithIssues;
+        private bool _flagShowPoliciesWithIssues;
+
+        /// <summary>
+        /// Returns false as ShowPoliciesWithIssues should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeShowPoliciesWithIssues()
+        {
+            return _flagShowPoliciesWithIssues;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -238,6 +269,7 @@ namespace Uinsure.CustomerPortal.Client.Model
             sb.Append("  RiskAddressPostcode: ").Append(RiskAddressPostcode).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  PolicyStatus: ").Append(PolicyStatus).Append("\n");
+            sb.Append("  ShowPoliciesWithIssues: ").Append(ShowPoliciesWithIssues).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -302,6 +334,11 @@ namespace Uinsure.CustomerPortal.Client.Model
                     this.PolicyStatus == input.PolicyStatus ||
                     (this.PolicyStatus != null &&
                     this.PolicyStatus.Equals(input.PolicyStatus))
+                ) && 
+                (
+                    this.ShowPoliciesWithIssues == input.ShowPoliciesWithIssues ||
+                    (this.ShowPoliciesWithIssues != null &&
+                    this.ShowPoliciesWithIssues.Equals(input.ShowPoliciesWithIssues))
                 );
         }
 
@@ -337,6 +374,10 @@ namespace Uinsure.CustomerPortal.Client.Model
                 if (this.PolicyStatus != null)
                 {
                     hashCode = (hashCode * 59) + this.PolicyStatus.GetHashCode();
+                }
+                if (this.ShowPoliciesWithIssues != null)
+                {
+                    hashCode = (hashCode * 59) + this.ShowPoliciesWithIssues.GetHashCode();
                 }
                 return hashCode;
             }

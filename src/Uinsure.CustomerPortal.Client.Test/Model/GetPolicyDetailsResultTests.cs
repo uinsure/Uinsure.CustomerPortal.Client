@@ -215,5 +215,59 @@ namespace Uinsure.CustomerPortal.Client.Test.Model
         {
             // TODO unit test for the property 'Issues'
         }
+
+        /// <summary>
+        /// Test the property 'Ancillaries'
+        /// </summary>
+        [Fact]
+        public void AncillariesTest()
+        {
+            // TODO unit test for the property 'Ancillaries'
+        }
+
+        /// <summary>
+        /// Test the property 'Broker'
+        /// </summary>
+        [Fact]
+        public void BrokerTest()
+        {
+            // TODO unit test for the property 'Broker'
+        }
+
+        /// <summary>
+        /// Test the property 'Renewal'
+        /// </summary>
+        [Fact]
+        public void RenewalTest()
+        {
+            // TODO unit test for the property 'Renewal'
+        }
+
+        /// <summary>
+        /// Test the property 'Payments'
+        /// </summary>
+        [Fact]
+        public void PaymentsTest()
+        {
+            // TODO unit test for the property 'Payments'
+        }
+
+        /// <summary>
+        /// Test the property 'SpecifiedItems'
+        /// </summary>
+        [Fact]
+        public void SpecifiedItemsTest()
+        {
+            // TODO unit test for the property 'SpecifiedItems'
+        }
+
+        /// <summary>
+        /// Test the property 'Endorsements'
+        /// </summary>
+        [Fact]
+        public void EndorsementsTest()
+        {
+            // TODO unit test for the property 'Endorsements'
+        }
     }
 }

@@ -107,5 +107,14 @@ namespace Uinsure.CustomerPortal.Client.Test.Model
         {
             // TODO unit test for the property 'PolicyStatus'
         }
+
+        /// <summary>
+        /// Test the property 'ShowPoliciesWithIssues'
+        /// </summary>
+        [Fact]
+        public void ShowPoliciesWithIssuesTest()
+        {
+            // TODO unit test for the property 'ShowPoliciesWithIssues'
+        }
     }
 }

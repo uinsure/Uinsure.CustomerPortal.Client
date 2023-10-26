@@ -91,12 +91,12 @@ namespace Uinsure.CustomerPortal.Client.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'BuildingsNoClaimsYears'
+        /// Test the property 'BuildingsNoClaimYears'
         /// </summary>
         [Fact]
-        public void BuildingsNoClaimsYearsTest()
+        public void BuildingsNoClaimYearsTest()
         {
-            // TODO unit test for the property 'BuildingsNoClaimsYears'
+            // TODO unit test for the property 'BuildingsNoClaimYears'
         }
 
         /// <summary>

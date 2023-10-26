@@ -52,7 +52,13 @@ namespace Uinsure.CustomerPortal.Client.Model
         /// <param name="policy">policy.</param>
         /// <param name="property">property.</param>
         /// <param name="issues">issues.</param>
-        public GetPolicyDetailsResult(string policyNumber = default(string), string accountReference = default(string), string upcomingRenewalPolicyNumber = default(string), DateTime? upcomingRenewalInceptionDate = default(DateTime?), DateTime? policyStartDate = default(DateTime?), DateTime? policyEndDate = default(DateTime?), string underwriterName = default(string), string coverTypeName = default(string), string productTypeName = default(string), string provider = default(string), string possiblyRelatedPolicies = default(string), string possiblyRelatedApplicant1 = default(string), string companyName = default(string), string policyStatus = default(string), Policyholder policyholder = default(Policyholder), PolicyCover policy = default(PolicyCover), RiskProperty property = default(RiskProperty), PolicyIssue issues = default(PolicyIssue))
+        /// <param name="ancillaries">ancillaries.</param>
+        /// <param name="broker">broker.</param>
+        /// <param name="renewal">renewal.</param>
+        /// <param name="payments">payments.</param>
+        /// <param name="specifiedItems">specifiedItems.</param>
+        /// <param name="endorsements">endorsements.</param>
+        public GetPolicyDetailsResult(string policyNumber = default(string), string accountReference = default(string), string upcomingRenewalPolicyNumber = default(string), DateTime? upcomingRenewalInceptionDate = default(DateTime?), DateTime? policyStartDate = default(DateTime?), DateTime? policyEndDate = default(DateTime?), string underwriterName = default(string), string coverTypeName = default(string), string productTypeName = default(string), string provider = default(string), string possiblyRelatedPolicies = default(string), string possiblyRelatedApplicant1 = default(string), string companyName = default(string), string policyStatus = default(string), Policyholder policyholder = default(Policyholder), PolicyCover policy = default(PolicyCover), RiskProperty property = default(RiskProperty), PolicyIssue issues = default(PolicyIssue), Ancillaries ancillaries = default(Ancillaries), BrokerDetails broker = default(BrokerDetails), PolicyRenewalDetails renewal = default(PolicyRenewalDetails), PaymentDetails payments = default(PaymentDetails), List<SpecifiedItem> specifiedItems = default(List<SpecifiedItem>), List<Endorsement> endorsements = default(List<Endorsement>))
         {
             this._PolicyNumber = policyNumber;
             if (this.PolicyNumber != null)
@@ -143,6 +149,36 @@ namespace Uinsure.CustomerPortal.Client.Model
             if (this.Issues != null)
             {
                 this._flagIssues = true;
+            }
+            this._Ancillaries = ancillaries;
+            if (this.Ancillaries != null)
+            {
+                this._flagAncillaries = true;
+            }
+            this._Broker = broker;
+            if (this.Broker != null)
+            {
+                this._flagBroker = true;
+            }
+            this._Renewal = renewal;
+            if (this.Renewal != null)
+            {
+                this._flagRenewal = true;
+            }
+            this._Payments = payments;
+            if (this.Payments != null)
+            {
+                this._flagPayments = true;
+            }
+            this._SpecifiedItems = specifiedItems;
+            if (this.SpecifiedItems != null)
+            {
+                this._flagSpecifiedItems = true;
+            }
+            this._Endorsements = endorsements;
+            if (this.Endorsements != null)
+            {
+                this._flagEndorsements = true;
             }
         }
 
@@ -579,6 +615,150 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagIssues;
         }
         /// <summary>
+        /// Gets or Sets Ancillaries
+        /// </summary>
+        [DataMember(Name = "Ancillaries", EmitDefaultValue = false)]
+        public Ancillaries Ancillaries
+        {
+            get{ return _Ancillaries;}
+            set
+            {
+                _Ancillaries = value;
+                _flagAncillaries = true;
+            }
+        }
+        private Ancillaries _Ancillaries;
+        private bool _flagAncillaries;
+
+        /// <summary>
+        /// Returns false as Ancillaries should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeAncillaries()
+        {
+            return _flagAncillaries;
+        }
+        /// <summary>
+        /// Gets or Sets Broker
+        /// </summary>
+        [DataMember(Name = "Broker", EmitDefaultValue = false)]
+        public BrokerDetails Broker
+        {
+            get{ return _Broker;}
+            set
+            {
+                _Broker = value;
+                _flagBroker = true;
+            }
+        }
+        private BrokerDetails _Broker;
+        private bool _flagBroker;
+
+        /// <summary>
+        /// Returns false as Broker should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeBroker()
+        {
+            return _flagBroker;
+        }
+        /// <summary>
+        /// Gets or Sets Renewal
+        /// </summary>
+        [DataMember(Name = "Renewal", EmitDefaultValue = false)]
+        public PolicyRenewalDetails Renewal
+        {
+            get{ return _Renewal;}
+            set
+            {
+                _Renewal = value;
+                _flagRenewal = true;
+            }
+        }
+        private PolicyRenewalDetails _Renewal;
+        private bool _flagRenewal;
+
+        /// <summary>
+        /// Returns false as Renewal should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeRenewal()
+        {
+            return _flagRenewal;
+        }
+        /// <summary>
+        /// Gets or Sets Payments
+        /// </summary>
+        [DataMember(Name = "Payments", EmitDefaultValue = false)]
+        public PaymentDetails Payments
+        {
+            get{ return _Payments;}
+            set
+            {
+                _Payments = value;
+                _flagPayments = true;
+            }
+        }
+        private PaymentDetails _Payments;
+        private bool _flagPayments;
+
+        /// <summary>
+        /// Returns false as Payments should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializePayments()
+        {
+            return _flagPayments;
+        }
+        /// <summary>
+        /// Gets or Sets SpecifiedItems
+        /// </summary>
+        [DataMember(Name = "SpecifiedItems", EmitDefaultValue = true)]
+        public List<SpecifiedItem> SpecifiedItems
+        {
+            get{ return _SpecifiedItems;}
+            set
+            {
+                _SpecifiedItems = value;
+                _flagSpecifiedItems = true;
+            }
+        }
+        private List<SpecifiedItem> _SpecifiedItems;
+        private bool _flagSpecifiedItems;
+
+        /// <summary>
+        /// Returns false as SpecifiedItems should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeSpecifiedItems()
+        {
+            return _flagSpecifiedItems;
+        }
+        /// <summary>
+        /// Gets or Sets Endorsements
+        /// </summary>
+        [DataMember(Name = "Endorsements", EmitDefaultValue = true)]
+        public List<Endorsement> Endorsements
+        {
+            get{ return _Endorsements;}
+            set
+            {
+                _Endorsements = value;
+                _flagEndorsements = true;
+            }
+        }
+        private List<Endorsement> _Endorsements;
+        private bool _flagEndorsements;
+
+        /// <summary>
+        /// Returns false as Endorsements should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeEndorsements()
+        {
+            return _flagEndorsements;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -604,6 +784,12 @@ namespace Uinsure.CustomerPortal.Client.Model
             sb.Append("  Policy: ").Append(Policy).Append("\n");
             sb.Append("  Property: ").Append(Property).Append("\n");
             sb.Append("  Issues: ").Append(Issues).Append("\n");
+            sb.Append("  Ancillaries: ").Append(Ancillaries).Append("\n");
+            sb.Append("  Broker: ").Append(Broker).Append("\n");
+            sb.Append("  Renewal: ").Append(Renewal).Append("\n");
+            sb.Append("  Payments: ").Append(Payments).Append("\n");
+            sb.Append("  SpecifiedItems: ").Append(SpecifiedItems).Append("\n");
+            sb.Append("  Endorsements: ").Append(Endorsements).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -728,6 +914,38 @@ namespace Uinsure.CustomerPortal.Client.Model
                     this.Issues == input.Issues ||
                     (this.Issues != null &&
                     this.Issues.Equals(input.Issues))
+                ) && 
+                (
+                    this.Ancillaries == input.Ancillaries ||
+                    (this.Ancillaries != null &&
+                    this.Ancillaries.Equals(input.Ancillaries))
+                ) && 
+                (
+                    this.Broker == input.Broker ||
+                    (this.Broker != null &&
+                    this.Broker.Equals(input.Broker))
+                ) && 
+                (
+                    this.Renewal == input.Renewal ||
+                    (this.Renewal != null &&
+                    this.Renewal.Equals(input.Renewal))
+                ) && 
+                (
+                    this.Payments == input.Payments ||
+                    (this.Payments != null &&
+                    this.Payments.Equals(input.Payments))
+                ) && 
+                (
+                    this.SpecifiedItems == input.SpecifiedItems ||
+                    this.SpecifiedItems != null &&
+                    input.SpecifiedItems != null &&
+                    this.SpecifiedItems.SequenceEqual(input.SpecifiedItems)
+                ) && 
+                (
+                    this.Endorsements == input.Endorsements ||
+                    this.Endorsements != null &&
+                    input.Endorsements != null &&
+                    this.Endorsements.SequenceEqual(input.Endorsements)
                 );
         }
 
@@ -811,6 +1029,30 @@ namespace Uinsure.CustomerPortal.Client.Model
                 if (this.Issues != null)
                 {
                     hashCode = (hashCode * 59) + this.Issues.GetHashCode();
+                }
+                if (this.Ancillaries != null)
+                {
+                    hashCode = (hashCode * 59) + this.Ancillaries.GetHashCode();
+                }
+                if (this.Broker != null)
+                {
+                    hashCode = (hashCode * 59) + this.Broker.GetHashCode();
+                }
+                if (this.Renewal != null)
+                {
+                    hashCode = (hashCode * 59) + this.Renewal.GetHashCode();
+                }
+                if (this.Payments != null)
+                {
+                    hashCode = (hashCode * 59) + this.Payments.GetHashCode();
+                }
+                if (this.SpecifiedItems != null)
+                {
+                    hashCode = (hashCode * 59) + this.SpecifiedItems.GetHashCode();
+                }
+                if (this.Endorsements != null)
+                {
+                    hashCode = (hashCode * 59) + this.Endorsements.GetHashCode();
                 }
                 return hashCode;
             }

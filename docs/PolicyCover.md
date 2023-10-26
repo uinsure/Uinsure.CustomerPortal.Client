@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **BuildingsCoverAmount** | **double?** |  | [optional] 
 **BuildingsAccidentalCover** | **bool?** |  | [optional] 
 **BuildingsExcess** | **double?** |  | [optional] 
-**BuildingsNoClaimsYears** | **int?** |  | [optional] 
+**BuildingsNoClaimYears** | **int?** |  | [optional] 
 **ContentsCoverAmount** | **double?** |  | [optional] 
 **ContentsAccidentalDamage** | **bool?** |  | [optional] 
 **ContentsExcess** | **double?** |  | [optional] 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **ContentsNcdCurrentPolicy** | **int?** |  | [optional] 
 **ContentsNcdNextRenewal** | **int?** |  | [optional] 
 **ContentsUinsureCurrentClaimFreeTenure** | **int?** |  | [optional] 
-**EligibleForRebroke** | **int?** |  | [optional] 
+**EligibleForRebroke** | **bool?** |  | [optional] 
 **OriginalInceptionDate** | **DateTime?** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
