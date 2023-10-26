@@ -513,10 +513,10 @@ components:
         policies
       example:
         DateOfBirth: 2000-01-23T04:56:07.000+00:00
-        ShowPoliciesWithIssues: true
         AgreementNumber: AgreementNumber
         PolicyStatus: PolicyStatus
         PhoneNumber: PhoneNumber
+        IncludePoliciesWithIssues: true
         RiskAddressPostcode: RiskAddressPostcode
         Surname: Surname
       properties:
@@ -555,7 +555,7 @@ components:
           nullable: true
           pattern: ^(Live|Expired|Renewal|Future|Cancelled)$
           type: string
-        ShowPoliciesWithIssues:
+        IncludePoliciesWithIssues:
           description: Default returns policies with no issues but setting this flag
             to true will allow the result set to contain policies with issues as well
           nullable: true

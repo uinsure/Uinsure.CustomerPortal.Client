@@ -109,12 +109,12 @@ namespace Uinsure.CustomerPortal.Client.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'ShowPoliciesWithIssues'
+        /// Test the property 'IncludePoliciesWithIssues'
         /// </summary>
         [Fact]
-        public void ShowPoliciesWithIssuesTest()
+        public void IncludePoliciesWithIssuesTest()
         {
-            // TODO unit test for the property 'ShowPoliciesWithIssues'
+            // TODO unit test for the property 'IncludePoliciesWithIssues'
         }
     }
 }
