@@ -334,6 +334,35 @@ components:
           nullable: true
           type: string
       type: object
+    Ancillaries:
+      additionalProperties: false
+      example:
+        BTLTenantType: BTLTenantType
+        BTLRACover: true
+        IsFamilyLegalProtectionIncluded: true
+        IsHomeEmergencyCoverIncluded: true
+        BTLFlatDeclaration: BTLFlatDeclaration
+        BTLBuildingsManufactureOfDrugs: true
+      properties:
+        BTLBuildingsManufactureOfDrugs:
+          nullable: true
+          type: boolean
+        BTLFlatDeclaration:
+          nullable: true
+          type: string
+        BTLRACover:
+          nullable: true
+          type: boolean
+        BTLTenantType:
+          nullable: true
+          type: string
+        IsFamilyLegalProtectionIncluded:
+          nullable: true
+          type: boolean
+        IsHomeEmergencyCoverIncluded:
+          nullable: true
+          type: boolean
+      type: object
     Applicant:
       additionalProperties: false
       example:
@@ -369,6 +398,115 @@ components:
           readOnly: true
           type: string
       type: object
+    BrokerDetails:
+      additionalProperties: false
+      example:
+        UinsureDBOriginalBrokerLastName: UinsureDBOriginalBrokerLastName
+        UinsureDBOriginalCompanyName: UinsureDBOriginalCompanyName
+        NetworkCommissionRate: 4.965218492984954
+        BrokerCommissionRate: 1.1730742509559433
+        UinsureDBApplicationSource: UinsureDBApplicationSource
+        UinsureDBOriginalBrokerFirstName: UinsureDBOriginalBrokerFirstName
+        UinsureDBCompanyName: UinsureDBCompanyName
+        UinsureDBBrokerFirstName: UinsureDBBrokerFirstName
+        UinsureDBBrokerFullName: UinsureDBBrokerFullName
+        UinsureDBSaleType: UinsureDBSaleType
+        UinsureDBSource: UinsureDBSource
+        SaleTypeNew: SaleTypeNew
+        UinsureDBDistributionGroupName: UinsureDBDistributionGroupName
+        UinsureDBOriginalNetworkName: UinsureDBOriginalNetworkName
+        UinsureDBOriginalDistributionGroupName: UinsureDBOriginalDistributionGroupName
+        UinsureDBOriginalPolicyNumber: UinsureDBOriginalPolicyNumber
+        UinsureDBDrillDownStatus: UinsureDBDrillDownStatus
+        UinsureDBOriginalBrokerFullName: UinsureDBOriginalBrokerFullName
+        UinsureCommissionRate: 5.025004791520295
+        UinsureDBBrokerLastName: UinsureDBBrokerLastName
+        UinsureDBNetworkName: UinsureDBNetworkName
+      properties:
+        BrokerCommissionRate:
+          format: double
+          nullable: true
+          type: number
+        NetworkCommissionRate:
+          format: double
+          nullable: true
+          type: number
+        SaleTypeNew:
+          nullable: true
+          type: string
+        UinsureCommissionRate:
+          format: double
+          nullable: true
+          type: number
+        UinsureDBApplicationSource:
+          nullable: true
+          type: string
+        UinsureDBBrokerFirstName:
+          nullable: true
+          type: string
+        UinsureDBBrokerLastName:
+          nullable: true
+          type: string
+        UinsureDBBrokerFullName:
+          nullable: true
+          type: string
+        UinsureDBCompanyName:
+          nullable: true
+          type: string
+        UinsureDBDistributionGroupName:
+          nullable: true
+          type: string
+        UinsureDBDrillDownStatus:
+          nullable: true
+          type: string
+        UinsureDBNetworkName:
+          nullable: true
+          type: string
+        UinsureDBOriginalBrokerFirstName:
+          nullable: true
+          type: string
+        UinsureDBOriginalBrokerLastName:
+          nullable: true
+          type: string
+        UinsureDBOriginalBrokerFullName:
+          nullable: true
+          type: string
+        UinsureDBOriginalCompanyName:
+          nullable: true
+          type: string
+        UinsureDBOriginalDistributionGroupName:
+          nullable: true
+          type: string
+        UinsureDBOriginalNetworkName:
+          nullable: true
+          type: string
+        UinsureDBOriginalPolicyNumber:
+          nullable: true
+          type: string
+        UinsureDBSaleType:
+          nullable: true
+          type: string
+        UinsureDBSource:
+          nullable: true
+          type: string
+      type: object
+    Endorsement:
+      additionalProperties: false
+      example:
+        code: 5
+        description: description
+        title: title
+      properties:
+        code:
+          format: int32
+          type: integer
+        description:
+          nullable: true
+          type: string
+        title:
+          nullable: true
+          type: string
+      type: object
     FindPoliciesRequest:
       additionalProperties: false
       description: Represents a request from for a search query for using to find
@@ -378,6 +516,7 @@ components:
         AgreementNumber: AgreementNumber
         PolicyStatus: PolicyStatus
         PhoneNumber: PhoneNumber
+        IncludePoliciesWithIssues: true
         RiskAddressPostcode: RiskAddressPostcode
         Surname: Surname
       properties:
@@ -416,6 +555,11 @@ components:
           nullable: true
           pattern: ^(Live|Expired|Renewal|Future|Cancelled)$
           type: string
+        IncludePoliciesWithIssues:
+          description: Default returns policies with no issues but setting this flag
+            to true will allow the result set to contain policies with issues as well
+          nullable: true
+          type: boolean
       type: object
     FindPoliciesResult:
       additionalProperties: false
@@ -423,6 +567,8 @@ components:
         StartDate: 2000-01-23T04:56:07.000+00:00
         PolicyType: PolicyType
         PolicyNumber: PolicyNumber
+        DataQualityIssueFlag: true
+        PolicyIssueFlag: true
         PolicyStatus: PolicyStatus
         Applicant1: Applicant1
         Applicant2: Applicant2
@@ -454,18 +600,24 @@ components:
         Applicant2:
           nullable: true
           type: string
+        DataQualityIssueFlag:
+          nullable: true
+          type: boolean
+        PolicyIssueFlag:
+          nullable: true
+          type: boolean
       type: object
     GetPolicyDetailsResult:
       additionalProperties: false
       example:
         Policy:
           ContentsExcess: 5.637376656633329
+          BuildingsNoClaimYears: 1
           ContentsCoverAmount: 5.962133916683182
           ContentsAccidentalDamage: true
-          EligibleForRebroke: 1
+          EligibleForRebroke: true
           BuildingsCoverAmount: 0.8008281904610115
           ContentsUinsureCurrentClaimFreeTenure: 1
-          BuildingsNoClaimsYears: 1
           ContentsNcdCurrentPolicy: 4
           BuildingsUinsureCurrentClaimFreeTenure: 2
           ContentsNcdNextRenewal: 7
@@ -477,20 +629,84 @@ components:
           BuildingsExcess: 6.027456183070403
           BuildingsNcdNextRenewal: 3
           ContentsNoClaimYears: 2
+        Broker:
+          UinsureDBOriginalBrokerLastName: UinsureDBOriginalBrokerLastName
+          UinsureDBOriginalCompanyName: UinsureDBOriginalCompanyName
+          NetworkCommissionRate: 4.965218492984954
+          BrokerCommissionRate: 1.1730742509559433
+          UinsureDBApplicationSource: UinsureDBApplicationSource
+          UinsureDBOriginalBrokerFirstName: UinsureDBOriginalBrokerFirstName
+          UinsureDBCompanyName: UinsureDBCompanyName
+          UinsureDBBrokerFirstName: UinsureDBBrokerFirstName
+          UinsureDBBrokerFullName: UinsureDBBrokerFullName
+          UinsureDBSaleType: UinsureDBSaleType
+          UinsureDBSource: UinsureDBSource
+          SaleTypeNew: SaleTypeNew
+          UinsureDBDistributionGroupName: UinsureDBDistributionGroupName
+          UinsureDBOriginalNetworkName: UinsureDBOriginalNetworkName
+          UinsureDBOriginalDistributionGroupName: UinsureDBOriginalDistributionGroupName
+          UinsureDBOriginalPolicyNumber: UinsureDBOriginalPolicyNumber
+          UinsureDBDrillDownStatus: UinsureDBDrillDownStatus
+          UinsureDBOriginalBrokerFullName: UinsureDBOriginalBrokerFullName
+          UinsureCommissionRate: 5.025004791520295
+          UinsureDBBrokerLastName: UinsureDBBrokerLastName
+          UinsureDBNetworkName: UinsureDBNetworkName
         PolicyNumber: PolicyNumber
         UnderwriterName: UnderwriterName
         Issues:
           DataQualityIssueFlag: true
           PolicyIssueFlag: true
+        SpecifiedItems:
+        - Type: Type
+          CoverAtHome: true
+          CoverAwayFromHome: true
+          Description: Description
+          Value: 6
+        - Type: Type
+          CoverAtHome: true
+          CoverAwayFromHome: true
+          Description: Description
+          Value: 6
+        Payments:
+          MonthlyPremium: 9.018348186070783
+          ChequeBACS: true
+          FamilyLegalProtection: 2.8841621266687802
+          CardPayment: true
+          TotalAmountPayable: 8.762042012749001
+          PolicyAdministrationFee: 1.284659006116532
+          CreditCharge: 6.438423552598547
+          HomeEmergencyCover: 6.778324963048013
+          InsurancePremiumTax: 6.965117697638846
+          MonthlyPayments: true
+          PremiumFunded: true
+          InsurancePremium: 3.5571952270680973
         PolicyEndDate: 2000-01-23T04:56:07.000+00:00
         CoverTypeName: CoverTypeName
         ProductTypeName: ProductTypeName
+        Renewal:
+          FirstBounceDateTime: 2000-01-23T04:56:07.000+00:00
+          PackSentEmailAddress: PackSentEmailAddress
+          UpcomingRenewalInceptionDate: 2000-01-23T04:56:07.000+00:00
+          RenewalInceptionDate: 2000-01-23T04:56:07.000+00:00
+          LastYearsMonthlyPremium: 9.965781217890562
+          LastYearsPremiumWithoutPF: 6.683562403749608
+          PackNotSentDateTime: 2000-01-23T04:56:07.000+00:00
+          PackSentDateTime: 2000-01-23T04:56:07.000+00:00
+          LastYearsPremium: 9.369310271410669
+          UpcomingRenewalPolicyNumber: UpcomingRenewalPolicyNumber
         Provider: Provider
         UpcomingRenewalInceptionDate: 2000-01-23T04:56:07.000+00:00
         CompanyName: CompanyName
         PossiblyRelatedPolicies: PossiblyRelatedPolicies
         UpcomingRenewalPolicyNumber: UpcomingRenewalPolicyNumber
         PolicyStatus: PolicyStatus
+        Ancillaries:
+          BTLTenantType: BTLTenantType
+          BTLRACover: true
+          IsFamilyLegalProtectionIncluded: true
+          IsHomeEmergencyCoverIncluded: true
+          BTLFlatDeclaration: BTLFlatDeclaration
+          BTLBuildingsManufactureOfDrugs: true
         PolicyStartDate: 2000-01-23T04:56:07.000+00:00
         Policyholder:
           Applicant1LastName: Applicant1LastName
@@ -517,6 +733,13 @@ components:
           CorrespondencePostcode: CorrespondencePostcode
           Applicant1FirstName: Applicant1FirstName
           PolicyDocument: PolicyDocument
+        Endorsements:
+        - code: 5
+          description: description
+          title: title
+        - code: 5
+          description: description
+          title: title
         AccountReference: AccountReference
         PossiblyRelatedApplicant1: PossiblyRelatedApplicant1
         Property:
@@ -526,11 +749,11 @@ components:
           RiskAddressPostcodeArea: RiskAddressPostcodeArea
           RiskAddressLine4: RiskAddressLine4
           PropertyTypeName: PropertyTypeName
-          Latitude: 6.84685269835264
-          YearOfConstruction: 1
-          Longitude: 1.4894159098541704
+          Latitude: 1.4894159098541704
+          YearOfConstruction: 7
+          Longitude: 1.0246457001441578
           YearOfConstructionRange: YearOfConstructionRange
-          NumberOfBedrooms: 7
+          NumberOfBedrooms: 6
           RiskAddressPostcode: RiskAddressPostcode
           MortgageProvider: MortgageProvider
           RiskAddressRoyalMailReference: RiskAddressRoyalMailReference
@@ -589,6 +812,24 @@ components:
           $ref: '#/components/schemas/RiskProperty'
         Issues:
           $ref: '#/components/schemas/PolicyIssue'
+        Ancillaries:
+          $ref: '#/components/schemas/Ancillaries'
+        Broker:
+          $ref: '#/components/schemas/BrokerDetails'
+        Renewal:
+          $ref: '#/components/schemas/PolicyRenewalDetails'
+        Payments:
+          $ref: '#/components/schemas/PaymentDetails'
+        SpecifiedItems:
+          items:
+            $ref: '#/components/schemas/SpecifiedItem'
+          nullable: true
+          type: array
+        Endorsements:
+          items:
+            $ref: '#/components/schemas/Endorsement'
+          nullable: true
+          type: array
       type: object
     OptInRequest:
       additionalProperties: false
@@ -605,16 +846,77 @@ components:
           nullable: true
           type: string
       type: object
+    PaymentDetails:
+      additionalProperties: false
+      example:
+        MonthlyPremium: 9.018348186070783
+        ChequeBACS: true
+        FamilyLegalProtection: 2.8841621266687802
+        CardPayment: true
+        TotalAmountPayable: 8.762042012749001
+        PolicyAdministrationFee: 1.284659006116532
+        CreditCharge: 6.438423552598547
+        HomeEmergencyCover: 6.778324963048013
+        InsurancePremiumTax: 6.965117697638846
+        MonthlyPayments: true
+        PremiumFunded: true
+        InsurancePremium: 3.5571952270680973
+      properties:
+        TotalAmountPayable:
+          format: double
+          nullable: true
+          type: number
+        MonthlyPremium:
+          format: double
+          nullable: true
+          type: number
+        CardPayment:
+          nullable: true
+          type: boolean
+        ChequeBACS:
+          nullable: true
+          type: boolean
+        CreditCharge:
+          format: double
+          nullable: true
+          type: number
+        InsurancePremium:
+          format: double
+          nullable: true
+          type: number
+        InsurancePremiumTax:
+          format: double
+          nullable: true
+          type: number
+        MonthlyPayments:
+          nullable: true
+          type: boolean
+        PolicyAdministrationFee:
+          format: double
+          nullable: true
+          type: number
+        FamilyLegalProtection:
+          format: double
+          nullable: true
+          type: number
+        HomeEmergencyCover:
+          format: double
+          nullable: true
+          type: number
+        PremiumFunded:
+          nullable: true
+          type: boolean
+      type: object
     PolicyCover:
       additionalProperties: false
       example:
         ContentsExcess: 5.637376656633329
+        BuildingsNoClaimYears: 1
         ContentsCoverAmount: 5.962133916683182
         ContentsAccidentalDamage: true
-        EligibleForRebroke: 1
+        EligibleForRebroke: true
         BuildingsCoverAmount: 0.8008281904610115
         ContentsUinsureCurrentClaimFreeTenure: 1
-        BuildingsNoClaimsYears: 1
         ContentsNcdCurrentPolicy: 4
         BuildingsUinsureCurrentClaimFreeTenure: 2
         ContentsNcdNextRenewal: 7
@@ -641,7 +943,7 @@ components:
           format: double
           nullable: true
           type: number
-        BuildingsNoClaimsYears:
+        BuildingsNoClaimYears:
           format: int32
           nullable: true
           type: integer
@@ -689,9 +991,8 @@ components:
           nullable: true
           type: integer
         EligibleForRebroke:
-          format: int32
           nullable: true
-          type: integer
+          type: boolean
         OriginalInceptionDate:
           format: date-time
           nullable: true
@@ -709,6 +1010,59 @@ components:
         PolicyIssueFlag:
           nullable: true
           type: boolean
+      type: object
+    PolicyRenewalDetails:
+      additionalProperties: false
+      example:
+        FirstBounceDateTime: 2000-01-23T04:56:07.000+00:00
+        PackSentEmailAddress: PackSentEmailAddress
+        UpcomingRenewalInceptionDate: 2000-01-23T04:56:07.000+00:00
+        RenewalInceptionDate: 2000-01-23T04:56:07.000+00:00
+        LastYearsMonthlyPremium: 9.965781217890562
+        LastYearsPremiumWithoutPF: 6.683562403749608
+        PackNotSentDateTime: 2000-01-23T04:56:07.000+00:00
+        PackSentDateTime: 2000-01-23T04:56:07.000+00:00
+        LastYearsPremium: 9.369310271410669
+        UpcomingRenewalPolicyNumber: UpcomingRenewalPolicyNumber
+      properties:
+        FirstBounceDateTime:
+          format: date-time
+          nullable: true
+          type: string
+        LastYearsMonthlyPremium:
+          format: double
+          nullable: true
+          type: number
+        LastYearsPremium:
+          format: double
+          nullable: true
+          type: number
+        LastYearsPremiumWithoutPF:
+          format: double
+          nullable: true
+          type: number
+        PackNotSentDateTime:
+          format: date-time
+          nullable: true
+          type: string
+        PackSentDateTime:
+          format: date-time
+          nullable: true
+          type: string
+        PackSentEmailAddress:
+          nullable: true
+          type: string
+        RenewalInceptionDate:
+          format: date-time
+          nullable: true
+          type: string
+        UpcomingRenewalInceptionDate:
+          format: date-time
+          nullable: true
+          type: string
+        UpcomingRenewalPolicyNumber:
+          nullable: true
+          type: string
       type: object
     Policyholder:
       additionalProperties: false
@@ -834,14 +1188,14 @@ components:
       additionalProperties: false
       example:
         IsPayingMonthly: true
-        LastYearsMonthlyPremium: 1.4894159098541704
-        TotalAmountPayable: 7.386281948385884
-        LastYearsPremium: 1.2315135367772556
-        CreditCharge: 2.027123023002322
+        LastYearsMonthlyPremium: 1.0246457001441578
+        TotalAmountPayable: 4.145608029883936
+        LastYearsPremium: 7.386281948385884
+        CreditCharge: 3.616076749251911
         IsPremiumFunded: true
-        TotalMonthlyPremium: 4.145608029883936
+        TotalMonthlyPremium: 2.027123023002322
         Provider: Provider
-        LastYearsPremiumWithoutPremiumFunding: 1.0246457001441578
+        LastYearsPremiumWithoutPremiumFunding: 1.2315135367772556
       properties:
         Provider:
           nullable: true
@@ -889,7 +1243,7 @@ components:
         DoNotAutoRenew: true
         RenewalInceptionDate: 2000-01-23T04:56:07.000+00:00
         ContentsCoverIncluded: true
-        ContentsPersonalPossessionsValue: 3
+        ContentsPersonalPossessionsValue: 9
         BuildingsAccidentalDamageIncluded: true
         ContentsExcess: 2
         Client1:
@@ -915,26 +1269,26 @@ components:
         QuoteReference: QuoteReference
         QuotePremium:
           IsPayingMonthly: true
-          LastYearsMonthlyPremium: 1.4894159098541704
-          TotalAmountPayable: 7.386281948385884
-          LastYearsPremium: 1.2315135367772556
-          CreditCharge: 2.027123023002322
+          LastYearsMonthlyPremium: 1.0246457001441578
+          TotalAmountPayable: 4.145608029883936
+          LastYearsPremium: 7.386281948385884
+          CreditCharge: 3.616076749251911
           IsPremiumFunded: true
-          TotalMonthlyPremium: 4.145608029883936
+          TotalMonthlyPremium: 2.027123023002322
           Provider: Provider
-          LastYearsPremiumWithoutPremiumFunding: 1.0246457001441578
+          LastYearsPremiumWithoutPremiumFunding: 1.2315135367772556
         ContentsNoClaimsYears: 7
         ContentsSpecifiedItems:
         - Type: Type
           CoverAtHome: true
           CoverAwayFromHome: true
           Description: Description
-          Value: 9
+          Value: 6
         - Type: Type
           CoverAtHome: true
           CoverAwayFromHome: true
           Description: Description
-          Value: 9
+          Value: 6
         NumberOfBedrooms: 0
         PolicyStartDate: 2000-01-23T04:56:07.000+00:00
         BuildingsCoverIncluded: true
@@ -1020,11 +1374,11 @@ components:
         RiskAddressPostcodeArea: RiskAddressPostcodeArea
         RiskAddressLine4: RiskAddressLine4
         PropertyTypeName: PropertyTypeName
-        Latitude: 6.84685269835264
-        YearOfConstruction: 1
-        Longitude: 1.4894159098541704
+        Latitude: 1.4894159098541704
+        YearOfConstruction: 7
+        Longitude: 1.0246457001441578
         YearOfConstructionRange: YearOfConstructionRange
-        NumberOfBedrooms: 7
+        NumberOfBedrooms: 6
         RiskAddressPostcode: RiskAddressPostcode
         MortgageProvider: MortgageProvider
         RiskAddressRoyalMailReference: RiskAddressRoyalMailReference
@@ -1087,7 +1441,7 @@ components:
         CoverAtHome: true
         CoverAwayFromHome: true
         Description: Description
-        Value: 9
+        Value: 6
       properties:
         Type:
           nullable: true

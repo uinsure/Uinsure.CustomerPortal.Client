@@ -131,13 +131,18 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Model.Address](docs/Address.md)
+ - [Model.Ancillaries](docs/Ancillaries.md)
  - [Model.Applicant](docs/Applicant.md)
+ - [Model.BrokerDetails](docs/BrokerDetails.md)
+ - [Model.Endorsement](docs/Endorsement.md)
  - [Model.FindPoliciesRequest](docs/FindPoliciesRequest.md)
  - [Model.FindPoliciesResult](docs/FindPoliciesResult.md)
  - [Model.GetPolicyDetailsResult](docs/GetPolicyDetailsResult.md)
  - [Model.OptInRequest](docs/OptInRequest.md)
+ - [Model.PaymentDetails](docs/PaymentDetails.md)
  - [Model.PolicyCover](docs/PolicyCover.md)
  - [Model.PolicyIssue](docs/PolicyIssue.md)
+ - [Model.PolicyRenewalDetails](docs/PolicyRenewalDetails.md)
  - [Model.Policyholder](docs/Policyholder.md)
  - [Model.ProblemDetails](docs/ProblemDetails.md)
  - [Model.QuotePremium](docs/QuotePremium.md)

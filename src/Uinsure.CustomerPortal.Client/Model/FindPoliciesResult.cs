@@ -41,7 +41,9 @@ namespace Uinsure.CustomerPortal.Client.Model
         /// <param name="riskAddress">riskAddress.</param>
         /// <param name="applicant1">applicant1.</param>
         /// <param name="applicant2">applicant2.</param>
-        public FindPoliciesResult(string policyNumber = default(string), DateTime? startDate = default(DateTime?), string policyType = default(string), string policyStatus = default(string), Address riskAddress = default(Address), string applicant1 = default(string), string applicant2 = default(string))
+        /// <param name="dataQualityIssueFlag">dataQualityIssueFlag.</param>
+        /// <param name="policyIssueFlag">policyIssueFlag.</param>
+        public FindPoliciesResult(string policyNumber = default(string), DateTime? startDate = default(DateTime?), string policyType = default(string), string policyStatus = default(string), Address riskAddress = default(Address), string applicant1 = default(string), string applicant2 = default(string), bool? dataQualityIssueFlag = default(bool?), bool? policyIssueFlag = default(bool?))
         {
             this._PolicyNumber = policyNumber;
             if (this.PolicyNumber != null)
@@ -77,6 +79,16 @@ namespace Uinsure.CustomerPortal.Client.Model
             if (this.Applicant2 != null)
             {
                 this._flagApplicant2 = true;
+            }
+            this._DataQualityIssueFlag = dataQualityIssueFlag;
+            if (this.DataQualityIssueFlag != null)
+            {
+                this._flagDataQualityIssueFlag = true;
+            }
+            this._PolicyIssueFlag = policyIssueFlag;
+            if (this.PolicyIssueFlag != null)
+            {
+                this._flagPolicyIssueFlag = true;
             }
         }
 
@@ -249,6 +261,54 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagApplicant2;
         }
         /// <summary>
+        /// Gets or Sets DataQualityIssueFlag
+        /// </summary>
+        [DataMember(Name = "DataQualityIssueFlag", EmitDefaultValue = true)]
+        public bool? DataQualityIssueFlag
+        {
+            get{ return _DataQualityIssueFlag;}
+            set
+            {
+                _DataQualityIssueFlag = value;
+                _flagDataQualityIssueFlag = true;
+            }
+        }
+        private bool? _DataQualityIssueFlag;
+        private bool _flagDataQualityIssueFlag;
+
+        /// <summary>
+        /// Returns false as DataQualityIssueFlag should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeDataQualityIssueFlag()
+        {
+            return _flagDataQualityIssueFlag;
+        }
+        /// <summary>
+        /// Gets or Sets PolicyIssueFlag
+        /// </summary>
+        [DataMember(Name = "PolicyIssueFlag", EmitDefaultValue = true)]
+        public bool? PolicyIssueFlag
+        {
+            get{ return _PolicyIssueFlag;}
+            set
+            {
+                _PolicyIssueFlag = value;
+                _flagPolicyIssueFlag = true;
+            }
+        }
+        private bool? _PolicyIssueFlag;
+        private bool _flagPolicyIssueFlag;
+
+        /// <summary>
+        /// Returns false as PolicyIssueFlag should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializePolicyIssueFlag()
+        {
+            return _flagPolicyIssueFlag;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -263,6 +323,8 @@ namespace Uinsure.CustomerPortal.Client.Model
             sb.Append("  RiskAddress: ").Append(RiskAddress).Append("\n");
             sb.Append("  Applicant1: ").Append(Applicant1).Append("\n");
             sb.Append("  Applicant2: ").Append(Applicant2).Append("\n");
+            sb.Append("  DataQualityIssueFlag: ").Append(DataQualityIssueFlag).Append("\n");
+            sb.Append("  PolicyIssueFlag: ").Append(PolicyIssueFlag).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -332,6 +394,16 @@ namespace Uinsure.CustomerPortal.Client.Model
                     this.Applicant2 == input.Applicant2 ||
                     (this.Applicant2 != null &&
                     this.Applicant2.Equals(input.Applicant2))
+                ) && 
+                (
+                    this.DataQualityIssueFlag == input.DataQualityIssueFlag ||
+                    (this.DataQualityIssueFlag != null &&
+                    this.DataQualityIssueFlag.Equals(input.DataQualityIssueFlag))
+                ) && 
+                (
+                    this.PolicyIssueFlag == input.PolicyIssueFlag ||
+                    (this.PolicyIssueFlag != null &&
+                    this.PolicyIssueFlag.Equals(input.PolicyIssueFlag))
                 );
         }
 
@@ -371,6 +443,14 @@ namespace Uinsure.CustomerPortal.Client.Model
                 if (this.Applicant2 != null)
                 {
                     hashCode = (hashCode * 59) + this.Applicant2.GetHashCode();
+                }
+                if (this.DataQualityIssueFlag != null)
+                {
+                    hashCode = (hashCode * 59) + this.DataQualityIssueFlag.GetHashCode();
+                }
+                if (this.PolicyIssueFlag != null)
+                {
+                    hashCode = (hashCode * 59) + this.PolicyIssueFlag.GetHashCode();
                 }
                 return hashCode;
             }

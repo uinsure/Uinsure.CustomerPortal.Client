@@ -38,7 +38,7 @@ namespace Uinsure.CustomerPortal.Client.Model
         /// <param name="buildingsCoverAmount">buildingsCoverAmount.</param>
         /// <param name="buildingsAccidentalCover">buildingsAccidentalCover.</param>
         /// <param name="buildingsExcess">buildingsExcess.</param>
-        /// <param name="buildingsNoClaimsYears">buildingsNoClaimsYears.</param>
+        /// <param name="buildingsNoClaimYears">buildingsNoClaimYears.</param>
         /// <param name="contentsCoverAmount">contentsCoverAmount.</param>
         /// <param name="contentsAccidentalDamage">contentsAccidentalDamage.</param>
         /// <param name="contentsExcess">contentsExcess.</param>
@@ -52,7 +52,7 @@ namespace Uinsure.CustomerPortal.Client.Model
         /// <param name="contentsUinsureCurrentClaimFreeTenure">contentsUinsureCurrentClaimFreeTenure.</param>
         /// <param name="eligibleForRebroke">eligibleForRebroke.</param>
         /// <param name="originalInceptionDate">originalInceptionDate.</param>
-        public PolicyCover(bool? isFirstTimeBuyer = default(bool?), double? buildingsCoverAmount = default(double?), bool? buildingsAccidentalCover = default(bool?), double? buildingsExcess = default(double?), int? buildingsNoClaimsYears = default(int?), double? contentsCoverAmount = default(double?), bool? contentsAccidentalDamage = default(bool?), double? contentsExcess = default(double?), int? contentsNoClaimYears = default(int?), double? personalBelongingsCover = default(double?), int? buildingsNcdCurrentPolicy = default(int?), int? buildingsNcdNextRenewal = default(int?), int? buildingsUinsureCurrentClaimFreeTenure = default(int?), int? contentsNcdCurrentPolicy = default(int?), int? contentsNcdNextRenewal = default(int?), int? contentsUinsureCurrentClaimFreeTenure = default(int?), int? eligibleForRebroke = default(int?), DateTime? originalInceptionDate = default(DateTime?))
+        public PolicyCover(bool? isFirstTimeBuyer = default(bool?), double? buildingsCoverAmount = default(double?), bool? buildingsAccidentalCover = default(bool?), double? buildingsExcess = default(double?), int? buildingsNoClaimYears = default(int?), double? contentsCoverAmount = default(double?), bool? contentsAccidentalDamage = default(bool?), double? contentsExcess = default(double?), int? contentsNoClaimYears = default(int?), double? personalBelongingsCover = default(double?), int? buildingsNcdCurrentPolicy = default(int?), int? buildingsNcdNextRenewal = default(int?), int? buildingsUinsureCurrentClaimFreeTenure = default(int?), int? contentsNcdCurrentPolicy = default(int?), int? contentsNcdNextRenewal = default(int?), int? contentsUinsureCurrentClaimFreeTenure = default(int?), bool? eligibleForRebroke = default(bool?), DateTime? originalInceptionDate = default(DateTime?))
         {
             this._IsFirstTimeBuyer = isFirstTimeBuyer;
             if (this.IsFirstTimeBuyer != null)
@@ -74,10 +74,10 @@ namespace Uinsure.CustomerPortal.Client.Model
             {
                 this._flagBuildingsExcess = true;
             }
-            this._BuildingsNoClaimsYears = buildingsNoClaimsYears;
-            if (this.BuildingsNoClaimsYears != null)
+            this._BuildingsNoClaimYears = buildingsNoClaimYears;
+            if (this.BuildingsNoClaimYears != null)
             {
-                this._flagBuildingsNoClaimsYears = true;
+                this._flagBuildingsNoClaimYears = true;
             }
             this._ContentsCoverAmount = contentsCoverAmount;
             if (this.ContentsCoverAmount != null)
@@ -243,28 +243,28 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagBuildingsExcess;
         }
         /// <summary>
-        /// Gets or Sets BuildingsNoClaimsYears
+        /// Gets or Sets BuildingsNoClaimYears
         /// </summary>
-        [DataMember(Name = "BuildingsNoClaimsYears", EmitDefaultValue = true)]
-        public int? BuildingsNoClaimsYears
+        [DataMember(Name = "BuildingsNoClaimYears", EmitDefaultValue = true)]
+        public int? BuildingsNoClaimYears
         {
-            get{ return _BuildingsNoClaimsYears;}
+            get{ return _BuildingsNoClaimYears;}
             set
             {
-                _BuildingsNoClaimsYears = value;
-                _flagBuildingsNoClaimsYears = true;
+                _BuildingsNoClaimYears = value;
+                _flagBuildingsNoClaimYears = true;
             }
         }
-        private int? _BuildingsNoClaimsYears;
-        private bool _flagBuildingsNoClaimsYears;
+        private int? _BuildingsNoClaimYears;
+        private bool _flagBuildingsNoClaimYears;
 
         /// <summary>
-        /// Returns false as BuildingsNoClaimsYears should not be serialized given that it's read-only.
+        /// Returns false as BuildingsNoClaimYears should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeBuildingsNoClaimsYears()
+        public bool ShouldSerializeBuildingsNoClaimYears()
         {
-            return _flagBuildingsNoClaimsYears;
+            return _flagBuildingsNoClaimYears;
         }
         /// <summary>
         /// Gets or Sets ContentsCoverAmount
@@ -534,7 +534,7 @@ namespace Uinsure.CustomerPortal.Client.Model
         /// Gets or Sets EligibleForRebroke
         /// </summary>
         [DataMember(Name = "EligibleForRebroke", EmitDefaultValue = true)]
-        public int? EligibleForRebroke
+        public bool? EligibleForRebroke
         {
             get{ return _EligibleForRebroke;}
             set
@@ -543,7 +543,7 @@ namespace Uinsure.CustomerPortal.Client.Model
                 _flagEligibleForRebroke = true;
             }
         }
-        private int? _EligibleForRebroke;
+        private bool? _EligibleForRebroke;
         private bool _flagEligibleForRebroke;
 
         /// <summary>
@@ -590,7 +590,7 @@ namespace Uinsure.CustomerPortal.Client.Model
             sb.Append("  BuildingsCoverAmount: ").Append(BuildingsCoverAmount).Append("\n");
             sb.Append("  BuildingsAccidentalCover: ").Append(BuildingsAccidentalCover).Append("\n");
             sb.Append("  BuildingsExcess: ").Append(BuildingsExcess).Append("\n");
-            sb.Append("  BuildingsNoClaimsYears: ").Append(BuildingsNoClaimsYears).Append("\n");
+            sb.Append("  BuildingsNoClaimYears: ").Append(BuildingsNoClaimYears).Append("\n");
             sb.Append("  ContentsCoverAmount: ").Append(ContentsCoverAmount).Append("\n");
             sb.Append("  ContentsAccidentalDamage: ").Append(ContentsAccidentalDamage).Append("\n");
             sb.Append("  ContentsExcess: ").Append(ContentsExcess).Append("\n");
@@ -660,9 +660,9 @@ namespace Uinsure.CustomerPortal.Client.Model
                     this.BuildingsExcess.Equals(input.BuildingsExcess))
                 ) && 
                 (
-                    this.BuildingsNoClaimsYears == input.BuildingsNoClaimsYears ||
-                    (this.BuildingsNoClaimsYears != null &&
-                    this.BuildingsNoClaimsYears.Equals(input.BuildingsNoClaimsYears))
+                    this.BuildingsNoClaimYears == input.BuildingsNoClaimYears ||
+                    (this.BuildingsNoClaimYears != null &&
+                    this.BuildingsNoClaimYears.Equals(input.BuildingsNoClaimYears))
                 ) && 
                 (
                     this.ContentsCoverAmount == input.ContentsCoverAmount ||
@@ -756,9 +756,9 @@ namespace Uinsure.CustomerPortal.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.BuildingsExcess.GetHashCode();
                 }
-                if (this.BuildingsNoClaimsYears != null)
+                if (this.BuildingsNoClaimYears != null)
                 {
-                    hashCode = (hashCode * 59) + this.BuildingsNoClaimsYears.GetHashCode();
+                    hashCode = (hashCode * 59) + this.BuildingsNoClaimYears.GetHashCode();
                 }
                 if (this.ContentsCoverAmount != null)
                 {
