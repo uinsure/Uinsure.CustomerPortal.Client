@@ -235,15 +235,6 @@ namespace Uinsure.CustomerPortal.Client.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'CustomerVulnerability'
-        /// </summary>
-        [Fact]
-        public void CustomerVulnerabilityTest()
-        {
-            // TODO unit test for the property 'CustomerVulnerability'
-        }
-
-        /// <summary>
         /// Test the property 'CustomerVulnerabilities'
         /// </summary>
         [Fact]

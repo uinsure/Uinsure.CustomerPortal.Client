@@ -26,7 +26,7 @@ using OpenAPIDateConverter = Uinsure.CustomerPortal.Client.Client.OpenAPIDateCon
 namespace Uinsure.CustomerPortal.Client.Model
 {
     /// <summary>
-    /// Endorsement
+    /// DTO with details relating to an Endorsement
     /// </summary>
     [DataContract(Name = "Endorsement")]
     public partial class Endorsement : IEquatable<Endorsement>, IValidatableObject
@@ -34,9 +34,9 @@ namespace Uinsure.CustomerPortal.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Endorsement" /> class.
         /// </summary>
-        /// <param name="code">code.</param>
-        /// <param name="description">description.</param>
-        /// <param name="title">title.</param>
+        /// <param name="code">Endorsement code.</param>
+        /// <param name="description">Endorsement description.</param>
+        /// <param name="title">Endorsement title.</param>
         public Endorsement(int code = default(int), string description = default(string), string title = default(string))
         {
             this._Code = code;
@@ -57,8 +57,9 @@ namespace Uinsure.CustomerPortal.Client.Model
         }
 
         /// <summary>
-        /// Gets or Sets Code
+        /// Endorsement code
         /// </summary>
+        /// <value>Endorsement code</value>
         [DataMember(Name = "code", EmitDefaultValue = false)]
         public int Code
         {
@@ -81,8 +82,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagCode;
         }
         /// <summary>
-        /// Gets or Sets Description
+        /// Endorsement description
         /// </summary>
+        /// <value>Endorsement description</value>
         [DataMember(Name = "description", EmitDefaultValue = true)]
         public string Description
         {
@@ -105,8 +107,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagDescription;
         }
         /// <summary>
-        /// Gets or Sets Title
+        /// Endorsement title
         /// </summary>
+        /// <value>Endorsement title</value>
         [DataMember(Name = "title", EmitDefaultValue = true)]
         public string Title
         {

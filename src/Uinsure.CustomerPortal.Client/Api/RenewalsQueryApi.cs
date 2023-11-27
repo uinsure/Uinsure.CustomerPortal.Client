@@ -32,8 +32,8 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// </summary>
         /// <exception cref="Uinsure.CustomerPortal.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>RenewalDetails</returns>
-        RenewalDetails ApiRenewalsDetailsGet(int operationIndex = 0);
+        /// <returns>UinsureCustomerPortalInfrastructureQueryDTORenewalDetails</returns>
+        UinsureCustomerPortalInfrastructureQueryDTORenewalDetails ApiRenewalsDetailsGet(int operationIndex = 0);
 
         /// <summary>
         /// Gets the renewal details for a customer&#39;s policy
@@ -43,8 +43,8 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// </remarks>
         /// <exception cref="Uinsure.CustomerPortal.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of RenewalDetails</returns>
-        ApiResponse<RenewalDetails> ApiRenewalsDetailsGetWithHttpInfo(int operationIndex = 0);
+        /// <returns>ApiResponse of UinsureCustomerPortalInfrastructureQueryDTORenewalDetails</returns>
+        ApiResponse<UinsureCustomerPortalInfrastructureQueryDTORenewalDetails> ApiRenewalsDetailsGetWithHttpInfo(int operationIndex = 0);
         /// <summary>
         /// Download a renewal document for a given policy number
         /// </summary>
@@ -99,8 +99,8 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// <exception cref="Uinsure.CustomerPortal.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RenewalDetails</returns>
-        System.Threading.Tasks.Task<RenewalDetails> ApiRenewalsDetailsGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of UinsureCustomerPortalInfrastructureQueryDTORenewalDetails</returns>
+        System.Threading.Tasks.Task<UinsureCustomerPortalInfrastructureQueryDTORenewalDetails> ApiRenewalsDetailsGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Gets the renewal details for a customer&#39;s policy
@@ -111,8 +111,8 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// <exception cref="Uinsure.CustomerPortal.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RenewalDetails)</returns>
-        System.Threading.Tasks.Task<ApiResponse<RenewalDetails>> ApiRenewalsDetailsGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (UinsureCustomerPortalInfrastructureQueryDTORenewalDetails)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UinsureCustomerPortalInfrastructureQueryDTORenewalDetails>> ApiRenewalsDetailsGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Download a renewal document for a given policy number
         /// </summary>
@@ -284,10 +284,10 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// </summary>
         /// <exception cref="Uinsure.CustomerPortal.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>RenewalDetails</returns>
-        public RenewalDetails ApiRenewalsDetailsGet(int operationIndex = 0)
+        /// <returns>UinsureCustomerPortalInfrastructureQueryDTORenewalDetails</returns>
+        public UinsureCustomerPortalInfrastructureQueryDTORenewalDetails ApiRenewalsDetailsGet(int operationIndex = 0)
         {
-            Uinsure.CustomerPortal.Client.Client.ApiResponse<RenewalDetails> localVarResponse = ApiRenewalsDetailsGetWithHttpInfo();
+            Uinsure.CustomerPortal.Client.Client.ApiResponse<UinsureCustomerPortalInfrastructureQueryDTORenewalDetails> localVarResponse = ApiRenewalsDetailsGetWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -296,8 +296,8 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// </summary>
         /// <exception cref="Uinsure.CustomerPortal.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of RenewalDetails</returns>
-        public Uinsure.CustomerPortal.Client.Client.ApiResponse<RenewalDetails> ApiRenewalsDetailsGetWithHttpInfo(int operationIndex = 0)
+        /// <returns>ApiResponse of UinsureCustomerPortalInfrastructureQueryDTORenewalDetails</returns>
+        public Uinsure.CustomerPortal.Client.Client.ApiResponse<UinsureCustomerPortalInfrastructureQueryDTORenewalDetails> ApiRenewalsDetailsGetWithHttpInfo(int operationIndex = 0)
         {
             Uinsure.CustomerPortal.Client.Client.RequestOptions localVarRequestOptions = new Uinsure.CustomerPortal.Client.Client.RequestOptions();
 
@@ -345,7 +345,7 @@ namespace Uinsure.CustomerPortal.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<RenewalDetails>("/api/Renewals/details", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<UinsureCustomerPortalInfrastructureQueryDTORenewalDetails>("/api/Renewals/details", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ApiRenewalsDetailsGet", localVarResponse);
@@ -364,10 +364,10 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// <exception cref="Uinsure.CustomerPortal.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of RenewalDetails</returns>
-        public async System.Threading.Tasks.Task<RenewalDetails> ApiRenewalsDetailsGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of UinsureCustomerPortalInfrastructureQueryDTORenewalDetails</returns>
+        public async System.Threading.Tasks.Task<UinsureCustomerPortalInfrastructureQueryDTORenewalDetails> ApiRenewalsDetailsGetAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Uinsure.CustomerPortal.Client.Client.ApiResponse<RenewalDetails> localVarResponse = await ApiRenewalsDetailsGetWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            Uinsure.CustomerPortal.Client.Client.ApiResponse<UinsureCustomerPortalInfrastructureQueryDTORenewalDetails> localVarResponse = await ApiRenewalsDetailsGetWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -377,8 +377,8 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// <exception cref="Uinsure.CustomerPortal.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (RenewalDetails)</returns>
-        public async System.Threading.Tasks.Task<Uinsure.CustomerPortal.Client.Client.ApiResponse<RenewalDetails>> ApiRenewalsDetailsGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (UinsureCustomerPortalInfrastructureQueryDTORenewalDetails)</returns>
+        public async System.Threading.Tasks.Task<Uinsure.CustomerPortal.Client.Client.ApiResponse<UinsureCustomerPortalInfrastructureQueryDTORenewalDetails>> ApiRenewalsDetailsGetWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Uinsure.CustomerPortal.Client.Client.RequestOptions localVarRequestOptions = new Uinsure.CustomerPortal.Client.Client.RequestOptions();
@@ -427,7 +427,7 @@ namespace Uinsure.CustomerPortal.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<RenewalDetails>("/api/Renewals/details", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<UinsureCustomerPortalInfrastructureQueryDTORenewalDetails>("/api/Renewals/details", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

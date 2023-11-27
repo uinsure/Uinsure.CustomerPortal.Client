@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **DateOfBirth** | **DateTime?** | A valid date in the ISO 8601 format corresponding to either applicant on a policy and must be in the past | [optional] 
 **RiskAddressPostcode** | **string** | A full or partial postcode corresponding to the risk address on a policy | [optional] 
 **PhoneNumber** | **string** | A full or partial phone number associated to a policy | [optional] 
-**PolicyStatus** | **string** | A full match on the Policy status | [optional] 
+**PolicyStatus** | **string** | A full match on the Policy status  This accepts one or more values but will reject if duplicates are provided | [optional] 
 **IncludePoliciesWithIssues** | **bool?** | Default returns policies with no issues but setting this flag to true will allow the result set to contain policies with issues as well | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

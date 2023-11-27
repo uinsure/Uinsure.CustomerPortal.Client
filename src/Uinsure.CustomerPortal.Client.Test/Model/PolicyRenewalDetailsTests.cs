@@ -82,12 +82,12 @@ namespace Uinsure.CustomerPortal.Client.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'LastYearsPremiumWithoutPF'
+        /// Test the property 'LastYearsPremiumWithoutPf'
         /// </summary>
         [Fact]
-        public void LastYearsPremiumWithoutPFTest()
+        public void LastYearsPremiumWithoutPfTest()
         {
-            // TODO unit test for the property 'LastYearsPremiumWithoutPF'
+            // TODO unit test for the property 'LastYearsPremiumWithoutPf'
         }
 
         /// <summary>

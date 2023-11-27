@@ -26,7 +26,7 @@ using OpenAPIDateConverter = Uinsure.CustomerPortal.Client.Client.OpenAPIDateCon
 namespace Uinsure.CustomerPortal.Client.Model
 {
     /// <summary>
-    /// PolicyRenewalDetails
+    /// DTO with details relating to this policy&#39;s renewal.
     /// </summary>
     [DataContract(Name = "PolicyRenewalDetails")]
     public partial class PolicyRenewalDetails : IEquatable<PolicyRenewalDetails>, IValidatableObject
@@ -34,17 +34,17 @@ namespace Uinsure.CustomerPortal.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PolicyRenewalDetails" /> class.
         /// </summary>
-        /// <param name="firstBounceDateTime">firstBounceDateTime.</param>
-        /// <param name="lastYearsMonthlyPremium">lastYearsMonthlyPremium.</param>
-        /// <param name="lastYearsPremium">lastYearsPremium.</param>
-        /// <param name="lastYearsPremiumWithoutPF">lastYearsPremiumWithoutPF.</param>
-        /// <param name="packNotSentDateTime">packNotSentDateTime.</param>
-        /// <param name="packSentDateTime">packSentDateTime.</param>
-        /// <param name="packSentEmailAddress">packSentEmailAddress.</param>
-        /// <param name="renewalInceptionDate">renewalInceptionDate.</param>
-        /// <param name="upcomingRenewalInceptionDate">upcomingRenewalInceptionDate.</param>
-        /// <param name="upcomingRenewalPolicyNumber">upcomingRenewalPolicyNumber.</param>
-        public PolicyRenewalDetails(DateTime? firstBounceDateTime = default(DateTime?), double? lastYearsMonthlyPremium = default(double?), double? lastYearsPremium = default(double?), double? lastYearsPremiumWithoutPF = default(double?), DateTime? packNotSentDateTime = default(DateTime?), DateTime? packSentDateTime = default(DateTime?), string packSentEmailAddress = default(string), DateTime? renewalInceptionDate = default(DateTime?), DateTime? upcomingRenewalInceptionDate = default(DateTime?), string upcomingRenewalPolicyNumber = default(string))
+        /// <param name="firstBounceDateTime">Timestamp if the renewal pack email bounced..</param>
+        /// <param name="lastYearsMonthlyPremium">Monthly premium of last year&#39;s renewal..</param>
+        /// <param name="lastYearsPremium">Total amount payable of last year&#39;s premium..</param>
+        /// <param name="lastYearsPremiumWithoutPf">Total amount payable of last year&#39;s premium with premium finance..</param>
+        /// <param name="packNotSentDateTime">Timestamp for when a renewal pack failed to be delivered by email..</param>
+        /// <param name="packSentDateTime">Timestamp for when a renewal pack email delivery was attempted..</param>
+        /// <param name="packSentEmailAddress">Email address that a renewal pack delivery attempt was sent to..</param>
+        /// <param name="renewalInceptionDate">Renewal inception date..</param>
+        /// <param name="upcomingRenewalInceptionDate">Upcoming renewal inception date..</param>
+        /// <param name="upcomingRenewalPolicyNumber">Policy number for the upcoming renewal..</param>
+        public PolicyRenewalDetails(DateTime? firstBounceDateTime = default(DateTime?), double? lastYearsMonthlyPremium = default(double?), double? lastYearsPremium = default(double?), double? lastYearsPremiumWithoutPf = default(double?), DateTime? packNotSentDateTime = default(DateTime?), DateTime? packSentDateTime = default(DateTime?), string packSentEmailAddress = default(string), DateTime? renewalInceptionDate = default(DateTime?), DateTime? upcomingRenewalInceptionDate = default(DateTime?), string upcomingRenewalPolicyNumber = default(string))
         {
             this._FirstBounceDateTime = firstBounceDateTime;
             if (this.FirstBounceDateTime != null)
@@ -61,10 +61,10 @@ namespace Uinsure.CustomerPortal.Client.Model
             {
                 this._flagLastYearsPremium = true;
             }
-            this._LastYearsPremiumWithoutPF = lastYearsPremiumWithoutPF;
-            if (this.LastYearsPremiumWithoutPF != null)
+            this._LastYearsPremiumWithoutPf = lastYearsPremiumWithoutPf;
+            if (this.LastYearsPremiumWithoutPf != null)
             {
-                this._flagLastYearsPremiumWithoutPF = true;
+                this._flagLastYearsPremiumWithoutPf = true;
             }
             this._PackNotSentDateTime = packNotSentDateTime;
             if (this.PackNotSentDateTime != null)
@@ -99,8 +99,9 @@ namespace Uinsure.CustomerPortal.Client.Model
         }
 
         /// <summary>
-        /// Gets or Sets FirstBounceDateTime
+        /// Timestamp if the renewal pack email bounced.
         /// </summary>
+        /// <value>Timestamp if the renewal pack email bounced.</value>
         [DataMember(Name = "FirstBounceDateTime", EmitDefaultValue = true)]
         public DateTime? FirstBounceDateTime
         {
@@ -123,8 +124,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagFirstBounceDateTime;
         }
         /// <summary>
-        /// Gets or Sets LastYearsMonthlyPremium
+        /// Monthly premium of last year&#39;s renewal.
         /// </summary>
+        /// <value>Monthly premium of last year&#39;s renewal.</value>
         [DataMember(Name = "LastYearsMonthlyPremium", EmitDefaultValue = true)]
         public double? LastYearsMonthlyPremium
         {
@@ -147,8 +149,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagLastYearsMonthlyPremium;
         }
         /// <summary>
-        /// Gets or Sets LastYearsPremium
+        /// Total amount payable of last year&#39;s premium.
         /// </summary>
+        /// <value>Total amount payable of last year&#39;s premium.</value>
         [DataMember(Name = "LastYearsPremium", EmitDefaultValue = true)]
         public double? LastYearsPremium
         {
@@ -171,32 +174,34 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagLastYearsPremium;
         }
         /// <summary>
-        /// Gets or Sets LastYearsPremiumWithoutPF
+        /// Total amount payable of last year&#39;s premium with premium finance.
         /// </summary>
-        [DataMember(Name = "LastYearsPremiumWithoutPF", EmitDefaultValue = true)]
-        public double? LastYearsPremiumWithoutPF
+        /// <value>Total amount payable of last year&#39;s premium with premium finance.</value>
+        [DataMember(Name = "LastYearsPremiumWithoutPf", EmitDefaultValue = true)]
+        public double? LastYearsPremiumWithoutPf
         {
-            get{ return _LastYearsPremiumWithoutPF;}
+            get{ return _LastYearsPremiumWithoutPf;}
             set
             {
-                _LastYearsPremiumWithoutPF = value;
-                _flagLastYearsPremiumWithoutPF = true;
+                _LastYearsPremiumWithoutPf = value;
+                _flagLastYearsPremiumWithoutPf = true;
             }
         }
-        private double? _LastYearsPremiumWithoutPF;
-        private bool _flagLastYearsPremiumWithoutPF;
+        private double? _LastYearsPremiumWithoutPf;
+        private bool _flagLastYearsPremiumWithoutPf;
 
         /// <summary>
-        /// Returns false as LastYearsPremiumWithoutPF should not be serialized given that it's read-only.
+        /// Returns false as LastYearsPremiumWithoutPf should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeLastYearsPremiumWithoutPF()
+        public bool ShouldSerializeLastYearsPremiumWithoutPf()
         {
-            return _flagLastYearsPremiumWithoutPF;
+            return _flagLastYearsPremiumWithoutPf;
         }
         /// <summary>
-        /// Gets or Sets PackNotSentDateTime
+        /// Timestamp for when a renewal pack failed to be delivered by email.
         /// </summary>
+        /// <value>Timestamp for when a renewal pack failed to be delivered by email.</value>
         [DataMember(Name = "PackNotSentDateTime", EmitDefaultValue = true)]
         public DateTime? PackNotSentDateTime
         {
@@ -219,8 +224,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagPackNotSentDateTime;
         }
         /// <summary>
-        /// Gets or Sets PackSentDateTime
+        /// Timestamp for when a renewal pack email delivery was attempted.
         /// </summary>
+        /// <value>Timestamp for when a renewal pack email delivery was attempted.</value>
         [DataMember(Name = "PackSentDateTime", EmitDefaultValue = true)]
         public DateTime? PackSentDateTime
         {
@@ -243,8 +249,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagPackSentDateTime;
         }
         /// <summary>
-        /// Gets or Sets PackSentEmailAddress
+        /// Email address that a renewal pack delivery attempt was sent to.
         /// </summary>
+        /// <value>Email address that a renewal pack delivery attempt was sent to.</value>
         [DataMember(Name = "PackSentEmailAddress", EmitDefaultValue = true)]
         public string PackSentEmailAddress
         {
@@ -267,8 +274,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagPackSentEmailAddress;
         }
         /// <summary>
-        /// Gets or Sets RenewalInceptionDate
+        /// Renewal inception date.
         /// </summary>
+        /// <value>Renewal inception date.</value>
         [DataMember(Name = "RenewalInceptionDate", EmitDefaultValue = true)]
         public DateTime? RenewalInceptionDate
         {
@@ -291,8 +299,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagRenewalInceptionDate;
         }
         /// <summary>
-        /// Gets or Sets UpcomingRenewalInceptionDate
+        /// Upcoming renewal inception date.
         /// </summary>
+        /// <value>Upcoming renewal inception date.</value>
         [DataMember(Name = "UpcomingRenewalInceptionDate", EmitDefaultValue = true)]
         public DateTime? UpcomingRenewalInceptionDate
         {
@@ -315,8 +324,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagUpcomingRenewalInceptionDate;
         }
         /// <summary>
-        /// Gets or Sets UpcomingRenewalPolicyNumber
+        /// Policy number for the upcoming renewal.
         /// </summary>
+        /// <value>Policy number for the upcoming renewal.</value>
         [DataMember(Name = "UpcomingRenewalPolicyNumber", EmitDefaultValue = true)]
         public string UpcomingRenewalPolicyNumber
         {
@@ -349,7 +359,7 @@ namespace Uinsure.CustomerPortal.Client.Model
             sb.Append("  FirstBounceDateTime: ").Append(FirstBounceDateTime).Append("\n");
             sb.Append("  LastYearsMonthlyPremium: ").Append(LastYearsMonthlyPremium).Append("\n");
             sb.Append("  LastYearsPremium: ").Append(LastYearsPremium).Append("\n");
-            sb.Append("  LastYearsPremiumWithoutPF: ").Append(LastYearsPremiumWithoutPF).Append("\n");
+            sb.Append("  LastYearsPremiumWithoutPf: ").Append(LastYearsPremiumWithoutPf).Append("\n");
             sb.Append("  PackNotSentDateTime: ").Append(PackNotSentDateTime).Append("\n");
             sb.Append("  PackSentDateTime: ").Append(PackSentDateTime).Append("\n");
             sb.Append("  PackSentEmailAddress: ").Append(PackSentEmailAddress).Append("\n");
@@ -407,9 +417,9 @@ namespace Uinsure.CustomerPortal.Client.Model
                     this.LastYearsPremium.Equals(input.LastYearsPremium))
                 ) && 
                 (
-                    this.LastYearsPremiumWithoutPF == input.LastYearsPremiumWithoutPF ||
-                    (this.LastYearsPremiumWithoutPF != null &&
-                    this.LastYearsPremiumWithoutPF.Equals(input.LastYearsPremiumWithoutPF))
+                    this.LastYearsPremiumWithoutPf == input.LastYearsPremiumWithoutPf ||
+                    (this.LastYearsPremiumWithoutPf != null &&
+                    this.LastYearsPremiumWithoutPf.Equals(input.LastYearsPremiumWithoutPf))
                 ) && 
                 (
                     this.PackNotSentDateTime == input.PackNotSentDateTime ||
@@ -464,9 +474,9 @@ namespace Uinsure.CustomerPortal.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.LastYearsPremium.GetHashCode();
                 }
-                if (this.LastYearsPremiumWithoutPF != null)
+                if (this.LastYearsPremiumWithoutPf != null)
                 {
-                    hashCode = (hashCode * 59) + this.LastYearsPremiumWithoutPF.GetHashCode();
+                    hashCode = (hashCode * 59) + this.LastYearsPremiumWithoutPf.GetHashCode();
                 }
                 if (this.PackNotSentDateTime != null)
                 {

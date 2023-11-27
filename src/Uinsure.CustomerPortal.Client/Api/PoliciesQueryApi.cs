@@ -33,8 +33,8 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// <exception cref="Uinsure.CustomerPortal.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="findPoliciesRequest">The search request (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;FindPoliciesResult&gt;</returns>
-        List<FindPoliciesResult> ApiAdminPoliciesFindPost(FindPoliciesRequest? findPoliciesRequest = default(FindPoliciesRequest?), int operationIndex = 0);
+        /// <returns>List&lt;UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult&gt;</returns>
+        List<UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult> ApiAdminPoliciesFindPost(FindPoliciesRequest? findPoliciesRequest = default(FindPoliciesRequest?), int operationIndex = 0);
 
         /// <summary>
         /// Finds policies matching any or all from agreement number, surname, date of birth, risk address postcode, telephone number or policy status.
@@ -45,8 +45,8 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// <exception cref="Uinsure.CustomerPortal.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="findPoliciesRequest">The search request (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;FindPoliciesResult&gt;</returns>
-        ApiResponse<List<FindPoliciesResult>> ApiAdminPoliciesFindPostWithHttpInfo(FindPoliciesRequest? findPoliciesRequest = default(FindPoliciesRequest?), int operationIndex = 0);
+        /// <returns>ApiResponse of List&lt;UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult&gt;</returns>
+        ApiResponse<List<UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult>> ApiAdminPoliciesFindPostWithHttpInfo(FindPoliciesRequest? findPoliciesRequest = default(FindPoliciesRequest?), int operationIndex = 0);
         /// <summary>
         /// Returns the policy details for a specified policy number
         /// </summary>
@@ -55,9 +55,11 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// </remarks>
         /// <exception cref="Uinsure.CustomerPortal.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyNumber">Sanitised URL-safe policy number</param>
+        /// <param name="useAccountReference">An optional flag to determine whether or not to search for details using the Policy Number or the Account Reference  The policy number can contain version information (e.g. UINH0123456/7) whereas an Account Reference should never contain  it (e.g. UINH0123456) (optional)</param>
+        /// <param name="policyStatus">An optional filter parameter which will look for any details matching a valid policy status. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetPolicyDetailsResult</returns>
-        GetPolicyDetailsResult ApiAdminPoliciesPolicyNumberGet(string policyNumber, int operationIndex = 0);
+        /// <returns>GetPolicyDetailsResponse</returns>
+        GetPolicyDetailsResponse ApiAdminPoliciesPolicyNumberGet(string policyNumber, bool? useAccountReference = default(bool?), string? policyStatus = default(string?), int operationIndex = 0);
 
         /// <summary>
         /// Returns the policy details for a specified policy number
@@ -67,9 +69,11 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// </remarks>
         /// <exception cref="Uinsure.CustomerPortal.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyNumber">Sanitised URL-safe policy number</param>
+        /// <param name="useAccountReference">An optional flag to determine whether or not to search for details using the Policy Number or the Account Reference  The policy number can contain version information (e.g. UINH0123456/7) whereas an Account Reference should never contain  it (e.g. UINH0123456) (optional)</param>
+        /// <param name="policyStatus">An optional filter parameter which will look for any details matching a valid policy status. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetPolicyDetailsResult</returns>
-        ApiResponse<GetPolicyDetailsResult> ApiAdminPoliciesPolicyNumberGetWithHttpInfo(string policyNumber, int operationIndex = 0);
+        /// <returns>ApiResponse of GetPolicyDetailsResponse</returns>
+        ApiResponse<GetPolicyDetailsResponse> ApiAdminPoliciesPolicyNumberGetWithHttpInfo(string policyNumber, bool? useAccountReference = default(bool?), string? policyStatus = default(string?), int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -89,8 +93,8 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// <param name="findPoliciesRequest">The search request (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;FindPoliciesResult&gt;</returns>
-        System.Threading.Tasks.Task<List<FindPoliciesResult>> ApiAdminPoliciesFindPostAsync(FindPoliciesRequest? findPoliciesRequest = default(FindPoliciesRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of List&lt;UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult&gt;</returns>
+        System.Threading.Tasks.Task<List<UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult>> ApiAdminPoliciesFindPostAsync(FindPoliciesRequest? findPoliciesRequest = default(FindPoliciesRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Finds policies matching any or all from agreement number, surname, date of birth, risk address postcode, telephone number or policy status.
@@ -102,8 +106,8 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// <param name="findPoliciesRequest">The search request (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;FindPoliciesResult&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<FindPoliciesResult>>> ApiAdminPoliciesFindPostWithHttpInfoAsync(FindPoliciesRequest? findPoliciesRequest = default(FindPoliciesRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (List&lt;UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult>>> ApiAdminPoliciesFindPostWithHttpInfoAsync(FindPoliciesRequest? findPoliciesRequest = default(FindPoliciesRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Returns the policy details for a specified policy number
         /// </summary>
@@ -112,10 +116,12 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// </remarks>
         /// <exception cref="Uinsure.CustomerPortal.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyNumber">Sanitised URL-safe policy number</param>
+        /// <param name="useAccountReference">An optional flag to determine whether or not to search for details using the Policy Number or the Account Reference  The policy number can contain version information (e.g. UINH0123456/7) whereas an Account Reference should never contain  it (e.g. UINH0123456) (optional)</param>
+        /// <param name="policyStatus">An optional filter parameter which will look for any details matching a valid policy status. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetPolicyDetailsResult</returns>
-        System.Threading.Tasks.Task<GetPolicyDetailsResult> ApiAdminPoliciesPolicyNumberGetAsync(string policyNumber, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of GetPolicyDetailsResponse</returns>
+        System.Threading.Tasks.Task<GetPolicyDetailsResponse> ApiAdminPoliciesPolicyNumberGetAsync(string policyNumber, bool? useAccountReference = default(bool?), string? policyStatus = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// Returns the policy details for a specified policy number
@@ -125,10 +131,12 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// </remarks>
         /// <exception cref="Uinsure.CustomerPortal.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyNumber">Sanitised URL-safe policy number</param>
+        /// <param name="useAccountReference">An optional flag to determine whether or not to search for details using the Policy Number or the Account Reference  The policy number can contain version information (e.g. UINH0123456/7) whereas an Account Reference should never contain  it (e.g. UINH0123456) (optional)</param>
+        /// <param name="policyStatus">An optional filter parameter which will look for any details matching a valid policy status. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetPolicyDetailsResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<GetPolicyDetailsResult>> ApiAdminPoliciesPolicyNumberGetWithHttpInfoAsync(string policyNumber, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (GetPolicyDetailsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GetPolicyDetailsResponse>> ApiAdminPoliciesPolicyNumberGetWithHttpInfoAsync(string policyNumber, bool? useAccountReference = default(bool?), string? policyStatus = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -255,10 +263,10 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// <exception cref="Uinsure.CustomerPortal.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="findPoliciesRequest">The search request (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>List&lt;FindPoliciesResult&gt;</returns>
-        public List<FindPoliciesResult> ApiAdminPoliciesFindPost(FindPoliciesRequest? findPoliciesRequest = default(FindPoliciesRequest?), int operationIndex = 0)
+        /// <returns>List&lt;UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult&gt;</returns>
+        public List<UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult> ApiAdminPoliciesFindPost(FindPoliciesRequest? findPoliciesRequest = default(FindPoliciesRequest?), int operationIndex = 0)
         {
-            Uinsure.CustomerPortal.Client.Client.ApiResponse<List<FindPoliciesResult>> localVarResponse = ApiAdminPoliciesFindPostWithHttpInfo(findPoliciesRequest);
+            Uinsure.CustomerPortal.Client.Client.ApiResponse<List<UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult>> localVarResponse = ApiAdminPoliciesFindPostWithHttpInfo(findPoliciesRequest);
             return localVarResponse.Data;
         }
 
@@ -268,8 +276,8 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// <exception cref="Uinsure.CustomerPortal.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="findPoliciesRequest">The search request (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of List&lt;FindPoliciesResult&gt;</returns>
-        public Uinsure.CustomerPortal.Client.Client.ApiResponse<List<FindPoliciesResult>> ApiAdminPoliciesFindPostWithHttpInfo(FindPoliciesRequest? findPoliciesRequest = default(FindPoliciesRequest?), int operationIndex = 0)
+        /// <returns>ApiResponse of List&lt;UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult&gt;</returns>
+        public Uinsure.CustomerPortal.Client.Client.ApiResponse<List<UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult>> ApiAdminPoliciesFindPostWithHttpInfo(FindPoliciesRequest? findPoliciesRequest = default(FindPoliciesRequest?), int operationIndex = 0)
         {
             Uinsure.CustomerPortal.Client.Client.RequestOptions localVarRequestOptions = new Uinsure.CustomerPortal.Client.Client.RequestOptions();
 
@@ -319,7 +327,7 @@ namespace Uinsure.CustomerPortal.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<List<FindPoliciesResult>>("/api/admin/policies/find", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<List<UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult>>("/api/admin/policies/find", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ApiAdminPoliciesFindPost", localVarResponse);
@@ -339,10 +347,10 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// <param name="findPoliciesRequest">The search request (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of List&lt;FindPoliciesResult&gt;</returns>
-        public async System.Threading.Tasks.Task<List<FindPoliciesResult>> ApiAdminPoliciesFindPostAsync(FindPoliciesRequest? findPoliciesRequest = default(FindPoliciesRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of List&lt;UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult&gt;</returns>
+        public async System.Threading.Tasks.Task<List<UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult>> ApiAdminPoliciesFindPostAsync(FindPoliciesRequest? findPoliciesRequest = default(FindPoliciesRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Uinsure.CustomerPortal.Client.Client.ApiResponse<List<FindPoliciesResult>> localVarResponse = await ApiAdminPoliciesFindPostWithHttpInfoAsync(findPoliciesRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Uinsure.CustomerPortal.Client.Client.ApiResponse<List<UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult>> localVarResponse = await ApiAdminPoliciesFindPostWithHttpInfoAsync(findPoliciesRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -353,8 +361,8 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// <param name="findPoliciesRequest">The search request (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (List&lt;FindPoliciesResult&gt;)</returns>
-        public async System.Threading.Tasks.Task<Uinsure.CustomerPortal.Client.Client.ApiResponse<List<FindPoliciesResult>>> ApiAdminPoliciesFindPostWithHttpInfoAsync(FindPoliciesRequest? findPoliciesRequest = default(FindPoliciesRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (List&lt;UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult&gt;)</returns>
+        public async System.Threading.Tasks.Task<Uinsure.CustomerPortal.Client.Client.ApiResponse<List<UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult>>> ApiAdminPoliciesFindPostWithHttpInfoAsync(FindPoliciesRequest? findPoliciesRequest = default(FindPoliciesRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Uinsure.CustomerPortal.Client.Client.RequestOptions localVarRequestOptions = new Uinsure.CustomerPortal.Client.Client.RequestOptions();
@@ -405,7 +413,7 @@ namespace Uinsure.CustomerPortal.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<List<FindPoliciesResult>>("/api/admin/policies/find", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<List<UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult>>("/api/admin/policies/find", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -424,11 +432,13 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// </summary>
         /// <exception cref="Uinsure.CustomerPortal.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyNumber">Sanitised URL-safe policy number</param>
+        /// <param name="useAccountReference">An optional flag to determine whether or not to search for details using the Policy Number or the Account Reference  The policy number can contain version information (e.g. UINH0123456/7) whereas an Account Reference should never contain  it (e.g. UINH0123456) (optional)</param>
+        /// <param name="policyStatus">An optional filter parameter which will look for any details matching a valid policy status. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>GetPolicyDetailsResult</returns>
-        public GetPolicyDetailsResult ApiAdminPoliciesPolicyNumberGet(string policyNumber, int operationIndex = 0)
+        /// <returns>GetPolicyDetailsResponse</returns>
+        public GetPolicyDetailsResponse ApiAdminPoliciesPolicyNumberGet(string policyNumber, bool? useAccountReference = default(bool?), string? policyStatus = default(string?), int operationIndex = 0)
         {
-            Uinsure.CustomerPortal.Client.Client.ApiResponse<GetPolicyDetailsResult> localVarResponse = ApiAdminPoliciesPolicyNumberGetWithHttpInfo(policyNumber);
+            Uinsure.CustomerPortal.Client.Client.ApiResponse<GetPolicyDetailsResponse> localVarResponse = ApiAdminPoliciesPolicyNumberGetWithHttpInfo(policyNumber, useAccountReference, policyStatus);
             return localVarResponse.Data;
         }
 
@@ -437,9 +447,11 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// </summary>
         /// <exception cref="Uinsure.CustomerPortal.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyNumber">Sanitised URL-safe policy number</param>
+        /// <param name="useAccountReference">An optional flag to determine whether or not to search for details using the Policy Number or the Account Reference  The policy number can contain version information (e.g. UINH0123456/7) whereas an Account Reference should never contain  it (e.g. UINH0123456) (optional)</param>
+        /// <param name="policyStatus">An optional filter parameter which will look for any details matching a valid policy status. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
-        /// <returns>ApiResponse of GetPolicyDetailsResult</returns>
-        public Uinsure.CustomerPortal.Client.Client.ApiResponse<GetPolicyDetailsResult> ApiAdminPoliciesPolicyNumberGetWithHttpInfo(string policyNumber, int operationIndex = 0)
+        /// <returns>ApiResponse of GetPolicyDetailsResponse</returns>
+        public Uinsure.CustomerPortal.Client.Client.ApiResponse<GetPolicyDetailsResponse> ApiAdminPoliciesPolicyNumberGetWithHttpInfo(string policyNumber, bool? useAccountReference = default(bool?), string? policyStatus = default(string?), int operationIndex = 0)
         {
             // verify the required parameter 'policyNumber' is set
             if (policyNumber == null)
@@ -470,6 +482,14 @@ namespace Uinsure.CustomerPortal.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("policyNumber", Uinsure.CustomerPortal.Client.Client.ClientUtils.ParameterToString(policyNumber)); // path parameter
+            if (useAccountReference != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Uinsure.CustomerPortal.Client.Client.ClientUtils.ParameterToMultiMap("", "useAccountReference", useAccountReference));
+            }
+            if (policyStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Uinsure.CustomerPortal.Client.Client.ClientUtils.ParameterToMultiMap("", "policyStatus", policyStatus));
+            }
 
             localVarRequestOptions.Operation = "PoliciesQueryApi.ApiAdminPoliciesPolicyNumberGet";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -492,7 +512,7 @@ namespace Uinsure.CustomerPortal.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<GetPolicyDetailsResult>("/api/admin/policies/{policyNumber}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<GetPolicyDetailsResponse>("/api/admin/policies/{policyNumber}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ApiAdminPoliciesPolicyNumberGet", localVarResponse);
@@ -510,12 +530,14 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// </summary>
         /// <exception cref="Uinsure.CustomerPortal.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyNumber">Sanitised URL-safe policy number</param>
+        /// <param name="useAccountReference">An optional flag to determine whether or not to search for details using the Policy Number or the Account Reference  The policy number can contain version information (e.g. UINH0123456/7) whereas an Account Reference should never contain  it (e.g. UINH0123456) (optional)</param>
+        /// <param name="policyStatus">An optional filter parameter which will look for any details matching a valid policy status. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of GetPolicyDetailsResult</returns>
-        public async System.Threading.Tasks.Task<GetPolicyDetailsResult> ApiAdminPoliciesPolicyNumberGetAsync(string policyNumber, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of GetPolicyDetailsResponse</returns>
+        public async System.Threading.Tasks.Task<GetPolicyDetailsResponse> ApiAdminPoliciesPolicyNumberGetAsync(string policyNumber, bool? useAccountReference = default(bool?), string? policyStatus = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Uinsure.CustomerPortal.Client.Client.ApiResponse<GetPolicyDetailsResult> localVarResponse = await ApiAdminPoliciesPolicyNumberGetWithHttpInfoAsync(policyNumber, operationIndex, cancellationToken).ConfigureAwait(false);
+            Uinsure.CustomerPortal.Client.Client.ApiResponse<GetPolicyDetailsResponse> localVarResponse = await ApiAdminPoliciesPolicyNumberGetWithHttpInfoAsync(policyNumber, useAccountReference, policyStatus, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -524,10 +546,12 @@ namespace Uinsure.CustomerPortal.Client.Api
         /// </summary>
         /// <exception cref="Uinsure.CustomerPortal.Client.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyNumber">Sanitised URL-safe policy number</param>
+        /// <param name="useAccountReference">An optional flag to determine whether or not to search for details using the Policy Number or the Account Reference  The policy number can contain version information (e.g. UINH0123456/7) whereas an Account Reference should never contain  it (e.g. UINH0123456) (optional)</param>
+        /// <param name="policyStatus">An optional filter parameter which will look for any details matching a valid policy status. (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (GetPolicyDetailsResult)</returns>
-        public async System.Threading.Tasks.Task<Uinsure.CustomerPortal.Client.Client.ApiResponse<GetPolicyDetailsResult>> ApiAdminPoliciesPolicyNumberGetWithHttpInfoAsync(string policyNumber, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (GetPolicyDetailsResponse)</returns>
+        public async System.Threading.Tasks.Task<Uinsure.CustomerPortal.Client.Client.ApiResponse<GetPolicyDetailsResponse>> ApiAdminPoliciesPolicyNumberGetWithHttpInfoAsync(string policyNumber, bool? useAccountReference = default(bool?), string? policyStatus = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'policyNumber' is set
             if (policyNumber == null)
@@ -559,6 +583,14 @@ namespace Uinsure.CustomerPortal.Client.Api
             }
 
             localVarRequestOptions.PathParameters.Add("policyNumber", Uinsure.CustomerPortal.Client.Client.ClientUtils.ParameterToString(policyNumber)); // path parameter
+            if (useAccountReference != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Uinsure.CustomerPortal.Client.Client.ClientUtils.ParameterToMultiMap("", "useAccountReference", useAccountReference));
+            }
+            if (policyStatus != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Uinsure.CustomerPortal.Client.Client.ClientUtils.ParameterToMultiMap("", "policyStatus", policyStatus));
+            }
 
             localVarRequestOptions.Operation = "PoliciesQueryApi.ApiAdminPoliciesPolicyNumberGet";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -581,7 +613,7 @@ namespace Uinsure.CustomerPortal.Client.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<GetPolicyDetailsResult>("/api/admin/policies/{policyNumber}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GetPolicyDetailsResponse>("/api/admin/policies/{policyNumber}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

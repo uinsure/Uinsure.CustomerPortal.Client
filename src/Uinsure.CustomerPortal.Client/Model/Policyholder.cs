@@ -26,7 +26,7 @@ using OpenAPIDateConverter = Uinsure.CustomerPortal.Client.Client.OpenAPIDateCon
 namespace Uinsure.CustomerPortal.Client.Model
 {
     /// <summary>
-    /// Policyholder
+    /// DTO with details relating to a policy and policyholder.
     /// </summary>
     [DataContract(Name = "Policyholder")]
     public partial class Policyholder : IEquatable<Policyholder>, IValidatableObject
@@ -34,27 +34,27 @@ namespace Uinsure.CustomerPortal.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Policyholder" /> class.
         /// </summary>
-        /// <param name="applicant1Title">applicant1Title.</param>
-        /// <param name="applicant1FirstName">applicant1FirstName.</param>
-        /// <param name="applicant1LastName">applicant1LastName.</param>
-        /// <param name="applicant1DateOfBirth">applicant1DateOfBirth.</param>
-        /// <param name="applicant1Deceased">applicant1Deceased.</param>
-        /// <param name="applicant2Title">applicant2Title.</param>
-        /// <param name="applicant2FirstName">applicant2FirstName.</param>
-        /// <param name="applicant2LastName">applicant2LastName.</param>
-        /// <param name="applicant2DateOfBirth">applicant2DateOfBirth.</param>
-        /// <param name="emailAddress">emailAddress.</param>
-        /// <param name="telephoneNumber">telephoneNumber.</param>
-        /// <param name="telephoneNumberType">telephoneNumberType.</param>
-        /// <param name="correspondenceAddressLine1">correspondenceAddressLine1.</param>
-        /// <param name="correspondenceAddressLine2">correspondenceAddressLine2.</param>
-        /// <param name="correspondenceAddressLine3">correspondenceAddressLine3.</param>
-        /// <param name="correspondencePostcode">correspondencePostcode.</param>
-        /// <param name="doNotAutoRenew">doNotAutoRenew.</param>
-        /// <param name="policyDocument">policyDocument.</param>
-        /// <param name="correspondenceRiskAddressMatch">correspondenceRiskAddressMatch.</param>
-        /// <param name="customerVulnerability">customerVulnerability.</param>
-        public Policyholder(string applicant1Title = default(string), string applicant1FirstName = default(string), string applicant1LastName = default(string), DateTime? applicant1DateOfBirth = default(DateTime?), bool? applicant1Deceased = default(bool?), string applicant2Title = default(string), string applicant2FirstName = default(string), string applicant2LastName = default(string), DateTime? applicant2DateOfBirth = default(DateTime?), string emailAddress = default(string), string telephoneNumber = default(string), string telephoneNumberType = default(string), string correspondenceAddressLine1 = default(string), string correspondenceAddressLine2 = default(string), string correspondenceAddressLine3 = default(string), string correspondencePostcode = default(string), bool? doNotAutoRenew = default(bool?), string policyDocument = default(string), bool? correspondenceRiskAddressMatch = default(bool?), string customerVulnerability = default(string))
+        /// <param name="applicant1Title">Applicant 1 title..</param>
+        /// <param name="applicant1FirstName">Applicant 1 first name..</param>
+        /// <param name="applicant1LastName">Applicant 1 last name..</param>
+        /// <param name="applicant1DateOfBirth">Applicant 1 date of birth..</param>
+        /// <param name="applicant1Deceased">Is applicant 1 deceased?.</param>
+        /// <param name="applicant2Title">Applicant 2 title..</param>
+        /// <param name="applicant2FirstName">Applicant 2 first name..</param>
+        /// <param name="applicant2LastName">Applicant 2 last name,.</param>
+        /// <param name="applicant2DateOfBirth">Applicant 2 date of birth..</param>
+        /// <param name="emailAddress">Customer email address..</param>
+        /// <param name="telephoneNumber">Customer telephone number..</param>
+        /// <param name="telephoneNumberType">Type of contact number..</param>
+        /// <param name="correspondenceAddressLine1">Correspondence address line 1..</param>
+        /// <param name="correspondenceAddressLine2">Correspondence address line 2..</param>
+        /// <param name="correspondenceAddressLine3">Correspondence address line 3..</param>
+        /// <param name="correspondencePostcode">Correspondence address postcode..</param>
+        /// <param name="doNotAutoRenew">Will the policy auto-renew?.</param>
+        /// <param name="policyDocument">Is this customer receiving policy documents by post or digitally?.</param>
+        /// <param name="correspondenceRiskAddressMatch">Is the correspondence address the same as the risk address?.</param>
+        /// <param name="customerVulnerabilities">Collection containing any customer vulnerabilities..</param>
+        public Policyholder(string applicant1Title = default(string), string applicant1FirstName = default(string), string applicant1LastName = default(string), DateTime? applicant1DateOfBirth = default(DateTime?), bool? applicant1Deceased = default(bool?), string applicant2Title = default(string), string applicant2FirstName = default(string), string applicant2LastName = default(string), DateTime? applicant2DateOfBirth = default(DateTime?), string emailAddress = default(string), string telephoneNumber = default(string), string telephoneNumberType = default(string), string correspondenceAddressLine1 = default(string), string correspondenceAddressLine2 = default(string), string correspondenceAddressLine3 = default(string), string correspondencePostcode = default(string), bool? doNotAutoRenew = default(bool?), string policyDocument = default(string), bool? correspondenceRiskAddressMatch = default(bool?), List<string> customerVulnerabilities = default(List<string>))
         {
             this._Applicant1Title = applicant1Title;
             if (this.Applicant1Title != null)
@@ -151,16 +151,17 @@ namespace Uinsure.CustomerPortal.Client.Model
             {
                 this._flagCorrespondenceRiskAddressMatch = true;
             }
-            this._CustomerVulnerability = customerVulnerability;
-            if (this.CustomerVulnerability != null)
+            this._CustomerVulnerabilities = customerVulnerabilities;
+            if (this.CustomerVulnerabilities != null)
             {
-                this._flagCustomerVulnerability = true;
+                this._flagCustomerVulnerabilities = true;
             }
         }
 
         /// <summary>
-        /// Gets or Sets Applicant1Title
+        /// Applicant 1 title.
         /// </summary>
+        /// <value>Applicant 1 title.</value>
         [DataMember(Name = "Applicant1Title", EmitDefaultValue = true)]
         public string Applicant1Title
         {
@@ -183,8 +184,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagApplicant1Title;
         }
         /// <summary>
-        /// Gets or Sets Applicant1FirstName
+        /// Applicant 1 first name.
         /// </summary>
+        /// <value>Applicant 1 first name.</value>
         [DataMember(Name = "Applicant1FirstName", EmitDefaultValue = true)]
         public string Applicant1FirstName
         {
@@ -207,8 +209,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagApplicant1FirstName;
         }
         /// <summary>
-        /// Gets or Sets Applicant1LastName
+        /// Applicant 1 last name.
         /// </summary>
+        /// <value>Applicant 1 last name.</value>
         [DataMember(Name = "Applicant1LastName", EmitDefaultValue = true)]
         public string Applicant1LastName
         {
@@ -231,8 +234,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagApplicant1LastName;
         }
         /// <summary>
-        /// Gets or Sets Applicant1DateOfBirth
+        /// Applicant 1 date of birth.
         /// </summary>
+        /// <value>Applicant 1 date of birth.</value>
         [DataMember(Name = "Applicant1DateOfBirth", EmitDefaultValue = true)]
         public DateTime? Applicant1DateOfBirth
         {
@@ -255,8 +259,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagApplicant1DateOfBirth;
         }
         /// <summary>
-        /// Gets or Sets Applicant1Deceased
+        /// Is applicant 1 deceased?
         /// </summary>
+        /// <value>Is applicant 1 deceased?</value>
         [DataMember(Name = "Applicant1Deceased", EmitDefaultValue = true)]
         public bool? Applicant1Deceased
         {
@@ -279,8 +284,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagApplicant1Deceased;
         }
         /// <summary>
-        /// Gets or Sets Applicant2Title
+        /// Applicant 2 title.
         /// </summary>
+        /// <value>Applicant 2 title.</value>
         [DataMember(Name = "Applicant2Title", EmitDefaultValue = true)]
         public string Applicant2Title
         {
@@ -303,8 +309,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagApplicant2Title;
         }
         /// <summary>
-        /// Gets or Sets Applicant2FirstName
+        /// Applicant 2 first name.
         /// </summary>
+        /// <value>Applicant 2 first name.</value>
         [DataMember(Name = "Applicant2FirstName", EmitDefaultValue = true)]
         public string Applicant2FirstName
         {
@@ -327,8 +334,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagApplicant2FirstName;
         }
         /// <summary>
-        /// Gets or Sets Applicant2LastName
+        /// Applicant 2 last name,
         /// </summary>
+        /// <value>Applicant 2 last name,</value>
         [DataMember(Name = "Applicant2LastName", EmitDefaultValue = true)]
         public string Applicant2LastName
         {
@@ -351,8 +359,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagApplicant2LastName;
         }
         /// <summary>
-        /// Gets or Sets Applicant2DateOfBirth
+        /// Applicant 2 date of birth.
         /// </summary>
+        /// <value>Applicant 2 date of birth.</value>
         [DataMember(Name = "Applicant2DateOfBirth", EmitDefaultValue = true)]
         public DateTime? Applicant2DateOfBirth
         {
@@ -375,8 +384,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagApplicant2DateOfBirth;
         }
         /// <summary>
-        /// Gets or Sets EmailAddress
+        /// Customer email address.
         /// </summary>
+        /// <value>Customer email address.</value>
         [DataMember(Name = "EmailAddress", EmitDefaultValue = true)]
         public string EmailAddress
         {
@@ -399,8 +409,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagEmailAddress;
         }
         /// <summary>
-        /// Gets or Sets TelephoneNumber
+        /// Customer telephone number.
         /// </summary>
+        /// <value>Customer telephone number.</value>
         [DataMember(Name = "TelephoneNumber", EmitDefaultValue = true)]
         public string TelephoneNumber
         {
@@ -423,8 +434,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagTelephoneNumber;
         }
         /// <summary>
-        /// Gets or Sets TelephoneNumberType
+        /// Type of contact number.
         /// </summary>
+        /// <value>Type of contact number.</value>
         [DataMember(Name = "TelephoneNumberType", EmitDefaultValue = true)]
         public string TelephoneNumberType
         {
@@ -447,8 +459,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagTelephoneNumberType;
         }
         /// <summary>
-        /// Gets or Sets CorrespondenceAddressLine1
+        /// Correspondence address line 1.
         /// </summary>
+        /// <value>Correspondence address line 1.</value>
         [DataMember(Name = "CorrespondenceAddressLine1", EmitDefaultValue = true)]
         public string CorrespondenceAddressLine1
         {
@@ -471,8 +484,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagCorrespondenceAddressLine1;
         }
         /// <summary>
-        /// Gets or Sets CorrespondenceAddressLine2
+        /// Correspondence address line 2.
         /// </summary>
+        /// <value>Correspondence address line 2.</value>
         [DataMember(Name = "CorrespondenceAddressLine2", EmitDefaultValue = true)]
         public string CorrespondenceAddressLine2
         {
@@ -495,8 +509,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagCorrespondenceAddressLine2;
         }
         /// <summary>
-        /// Gets or Sets CorrespondenceAddressLine3
+        /// Correspondence address line 3.
         /// </summary>
+        /// <value>Correspondence address line 3.</value>
         [DataMember(Name = "CorrespondenceAddressLine3", EmitDefaultValue = true)]
         public string CorrespondenceAddressLine3
         {
@@ -519,8 +534,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagCorrespondenceAddressLine3;
         }
         /// <summary>
-        /// Gets or Sets CorrespondencePostcode
+        /// Correspondence address postcode.
         /// </summary>
+        /// <value>Correspondence address postcode.</value>
         [DataMember(Name = "CorrespondencePostcode", EmitDefaultValue = true)]
         public string CorrespondencePostcode
         {
@@ -543,8 +559,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagCorrespondencePostcode;
         }
         /// <summary>
-        /// Gets or Sets DoNotAutoRenew
+        /// Will the policy auto-renew?
         /// </summary>
+        /// <value>Will the policy auto-renew?</value>
         [DataMember(Name = "DoNotAutoRenew", EmitDefaultValue = true)]
         public bool? DoNotAutoRenew
         {
@@ -567,8 +584,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagDoNotAutoRenew;
         }
         /// <summary>
-        /// Gets or Sets PolicyDocument
+        /// Is this customer receiving policy documents by post or digitally?
         /// </summary>
+        /// <value>Is this customer receiving policy documents by post or digitally?</value>
         [DataMember(Name = "PolicyDocument", EmitDefaultValue = true)]
         public string PolicyDocument
         {
@@ -591,8 +609,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagPolicyDocument;
         }
         /// <summary>
-        /// Gets or Sets CorrespondenceRiskAddressMatch
+        /// Is the correspondence address the same as the risk address?
         /// </summary>
+        /// <value>Is the correspondence address the same as the risk address?</value>
         [DataMember(Name = "CorrespondenceRiskAddressMatch", EmitDefaultValue = true)]
         public bool? CorrespondenceRiskAddressMatch
         {
@@ -615,8 +634,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagCorrespondenceRiskAddressMatch;
         }
         /// <summary>
-        /// Gets or Sets IsRiskAddressDifferent
+        /// Returns true if the values of Risk address differ from those in Correspondence address (sans address line 4).
         /// </summary>
+        /// <value>Returns true if the values of Risk address differ from those in Correspondence address (sans address line 4).</value>
         [DataMember(Name = "IsRiskAddressDifferent", EmitDefaultValue = true)]
         public bool IsRiskAddressDifferent { get; private set; }
 
@@ -629,34 +649,21 @@ namespace Uinsure.CustomerPortal.Client.Model
             return false;
         }
         /// <summary>
-        /// Gets or Sets CustomerVulnerability
+        /// Collection containing any customer vulnerabilities.
         /// </summary>
-        [DataMember(Name = "CustomerVulnerability", EmitDefaultValue = true)]
-        public string CustomerVulnerability
+        /// <value>Collection containing any customer vulnerabilities.</value>
+        [DataMember(Name = "CustomerVulnerabilities", EmitDefaultValue = true)]
+        public List<string> CustomerVulnerabilities
         {
-            get{ return _CustomerVulnerability;}
+            get{ return _CustomerVulnerabilities;}
             set
             {
-                _CustomerVulnerability = value;
-                _flagCustomerVulnerability = true;
+                _CustomerVulnerabilities = value;
+                _flagCustomerVulnerabilities = true;
             }
         }
-        private string _CustomerVulnerability;
-        private bool _flagCustomerVulnerability;
-
-        /// <summary>
-        /// Returns false as CustomerVulnerability should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeCustomerVulnerability()
-        {
-            return _flagCustomerVulnerability;
-        }
-        /// <summary>
-        /// Gets or Sets CustomerVulnerabilities
-        /// </summary>
-        [DataMember(Name = "CustomerVulnerabilities", EmitDefaultValue = true)]
-        public List<string> CustomerVulnerabilities { get; private set; }
+        private List<string> _CustomerVulnerabilities;
+        private bool _flagCustomerVulnerabilities;
 
         /// <summary>
         /// Returns false as CustomerVulnerabilities should not be serialized given that it's read-only.
@@ -664,7 +671,7 @@ namespace Uinsure.CustomerPortal.Client.Model
         /// <returns>false (boolean)</returns>
         public bool ShouldSerializeCustomerVulnerabilities()
         {
-            return false;
+            return _flagCustomerVulnerabilities;
         }
         /// <summary>
         /// Returns the string presentation of the object
@@ -694,7 +701,6 @@ namespace Uinsure.CustomerPortal.Client.Model
             sb.Append("  PolicyDocument: ").Append(PolicyDocument).Append("\n");
             sb.Append("  CorrespondenceRiskAddressMatch: ").Append(CorrespondenceRiskAddressMatch).Append("\n");
             sb.Append("  IsRiskAddressDifferent: ").Append(IsRiskAddressDifferent).Append("\n");
-            sb.Append("  CustomerVulnerability: ").Append(CustomerVulnerability).Append("\n");
             sb.Append("  CustomerVulnerabilities: ").Append(CustomerVulnerabilities).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -831,11 +837,6 @@ namespace Uinsure.CustomerPortal.Client.Model
                     this.IsRiskAddressDifferent.Equals(input.IsRiskAddressDifferent)
                 ) && 
                 (
-                    this.CustomerVulnerability == input.CustomerVulnerability ||
-                    (this.CustomerVulnerability != null &&
-                    this.CustomerVulnerability.Equals(input.CustomerVulnerability))
-                ) && 
-                (
                     this.CustomerVulnerabilities == input.CustomerVulnerabilities ||
                     this.CustomerVulnerabilities != null &&
                     input.CustomerVulnerabilities != null &&
@@ -929,10 +930,6 @@ namespace Uinsure.CustomerPortal.Client.Model
                     hashCode = (hashCode * 59) + this.CorrespondenceRiskAddressMatch.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.IsRiskAddressDifferent.GetHashCode();
-                if (this.CustomerVulnerability != null)
-                {
-                    hashCode = (hashCode * 59) + this.CustomerVulnerability.GetHashCode();
-                }
                 if (this.CustomerVulnerabilities != null)
                 {
                     hashCode = (hashCode * 59) + this.CustomerVulnerabilities.GetHashCode();

@@ -62,7 +62,7 @@ namespace Uinsure.CustomerPortal.Client.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.ApiRenewalsDetailsGet();
-            //Assert.IsType<RenewalDetails>(response);
+            //Assert.IsType<UinsureCustomerPortalInfrastructureQueryDTORenewalDetails>(response);
         }
 
         /// <summary>

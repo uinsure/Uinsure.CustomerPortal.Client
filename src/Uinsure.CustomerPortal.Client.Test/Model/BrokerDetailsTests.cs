@@ -91,156 +91,156 @@ namespace Uinsure.CustomerPortal.Client.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'UinsureDBApplicationSource'
+        /// Test the property 'ApplicationSource'
         /// </summary>
         [Fact]
-        public void UinsureDBApplicationSourceTest()
+        public void ApplicationSourceTest()
         {
-            // TODO unit test for the property 'UinsureDBApplicationSource'
+            // TODO unit test for the property 'ApplicationSource'
         }
 
         /// <summary>
-        /// Test the property 'UinsureDBBrokerFirstName'
+        /// Test the property 'FirstName'
         /// </summary>
         [Fact]
-        public void UinsureDBBrokerFirstNameTest()
+        public void FirstNameTest()
         {
-            // TODO unit test for the property 'UinsureDBBrokerFirstName'
+            // TODO unit test for the property 'FirstName'
         }
 
         /// <summary>
-        /// Test the property 'UinsureDBBrokerLastName'
+        /// Test the property 'LastName'
         /// </summary>
         [Fact]
-        public void UinsureDBBrokerLastNameTest()
+        public void LastNameTest()
         {
-            // TODO unit test for the property 'UinsureDBBrokerLastName'
+            // TODO unit test for the property 'LastName'
         }
 
         /// <summary>
-        /// Test the property 'UinsureDBBrokerFullName'
+        /// Test the property 'FullName'
         /// </summary>
         [Fact]
-        public void UinsureDBBrokerFullNameTest()
+        public void FullNameTest()
         {
-            // TODO unit test for the property 'UinsureDBBrokerFullName'
+            // TODO unit test for the property 'FullName'
         }
 
         /// <summary>
-        /// Test the property 'UinsureDBCompanyName'
+        /// Test the property 'CompanyName'
         /// </summary>
         [Fact]
-        public void UinsureDBCompanyNameTest()
+        public void CompanyNameTest()
         {
-            // TODO unit test for the property 'UinsureDBCompanyName'
+            // TODO unit test for the property 'CompanyName'
         }
 
         /// <summary>
-        /// Test the property 'UinsureDBDistributionGroupName'
+        /// Test the property 'DistributionGroupName'
         /// </summary>
         [Fact]
-        public void UinsureDBDistributionGroupNameTest()
+        public void DistributionGroupNameTest()
         {
-            // TODO unit test for the property 'UinsureDBDistributionGroupName'
+            // TODO unit test for the property 'DistributionGroupName'
         }
 
         /// <summary>
-        /// Test the property 'UinsureDBDrillDownStatus'
+        /// Test the property 'DrillDownStatus'
         /// </summary>
         [Fact]
-        public void UinsureDBDrillDownStatusTest()
+        public void DrillDownStatusTest()
         {
-            // TODO unit test for the property 'UinsureDBDrillDownStatus'
+            // TODO unit test for the property 'DrillDownStatus'
         }
 
         /// <summary>
-        /// Test the property 'UinsureDBNetworkName'
+        /// Test the property 'NetworkName'
         /// </summary>
         [Fact]
-        public void UinsureDBNetworkNameTest()
+        public void NetworkNameTest()
         {
-            // TODO unit test for the property 'UinsureDBNetworkName'
+            // TODO unit test for the property 'NetworkName'
         }
 
         /// <summary>
-        /// Test the property 'UinsureDBOriginalBrokerFirstName'
+        /// Test the property 'OriginalFirstName'
         /// </summary>
         [Fact]
-        public void UinsureDBOriginalBrokerFirstNameTest()
+        public void OriginalFirstNameTest()
         {
-            // TODO unit test for the property 'UinsureDBOriginalBrokerFirstName'
+            // TODO unit test for the property 'OriginalFirstName'
         }
 
         /// <summary>
-        /// Test the property 'UinsureDBOriginalBrokerLastName'
+        /// Test the property 'OriginalLastName'
         /// </summary>
         [Fact]
-        public void UinsureDBOriginalBrokerLastNameTest()
+        public void OriginalLastNameTest()
         {
-            // TODO unit test for the property 'UinsureDBOriginalBrokerLastName'
+            // TODO unit test for the property 'OriginalLastName'
         }
 
         /// <summary>
-        /// Test the property 'UinsureDBOriginalBrokerFullName'
+        /// Test the property 'OriginalFullName'
         /// </summary>
         [Fact]
-        public void UinsureDBOriginalBrokerFullNameTest()
+        public void OriginalFullNameTest()
         {
-            // TODO unit test for the property 'UinsureDBOriginalBrokerFullName'
+            // TODO unit test for the property 'OriginalFullName'
         }
 
         /// <summary>
-        /// Test the property 'UinsureDBOriginalCompanyName'
+        /// Test the property 'OriginalCompanyName'
         /// </summary>
         [Fact]
-        public void UinsureDBOriginalCompanyNameTest()
+        public void OriginalCompanyNameTest()
         {
-            // TODO unit test for the property 'UinsureDBOriginalCompanyName'
+            // TODO unit test for the property 'OriginalCompanyName'
         }
 
         /// <summary>
-        /// Test the property 'UinsureDBOriginalDistributionGroupName'
+        /// Test the property 'OriginalDistributionGroupName'
         /// </summary>
         [Fact]
-        public void UinsureDBOriginalDistributionGroupNameTest()
+        public void OriginalDistributionGroupNameTest()
         {
-            // TODO unit test for the property 'UinsureDBOriginalDistributionGroupName'
+            // TODO unit test for the property 'OriginalDistributionGroupName'
         }
 
         /// <summary>
-        /// Test the property 'UinsureDBOriginalNetworkName'
+        /// Test the property 'OriginalNetworkName'
         /// </summary>
         [Fact]
-        public void UinsureDBOriginalNetworkNameTest()
+        public void OriginalNetworkNameTest()
         {
-            // TODO unit test for the property 'UinsureDBOriginalNetworkName'
+            // TODO unit test for the property 'OriginalNetworkName'
         }
 
         /// <summary>
-        /// Test the property 'UinsureDBOriginalPolicyNumber'
+        /// Test the property 'OriginalPolicyNumber'
         /// </summary>
         [Fact]
-        public void UinsureDBOriginalPolicyNumberTest()
+        public void OriginalPolicyNumberTest()
         {
-            // TODO unit test for the property 'UinsureDBOriginalPolicyNumber'
+            // TODO unit test for the property 'OriginalPolicyNumber'
         }
 
         /// <summary>
-        /// Test the property 'UinsureDBSaleType'
+        /// Test the property 'SaleType'
         /// </summary>
         [Fact]
-        public void UinsureDBSaleTypeTest()
+        public void SaleTypeTest()
         {
-            // TODO unit test for the property 'UinsureDBSaleType'
+            // TODO unit test for the property 'SaleType'
         }
 
         /// <summary>
-        /// Test the property 'UinsureDBSource'
+        /// Test the property 'Source'
         /// </summary>
         [Fact]
-        public void UinsureDBSourceTest()
+        public void SourceTest()
         {
-            // TODO unit test for the property 'UinsureDBSource'
+            // TODO unit test for the property 'Source'
         }
     }
 }

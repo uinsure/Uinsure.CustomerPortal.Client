@@ -63,7 +63,7 @@ namespace Uinsure.CustomerPortal.Client.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //FindPoliciesRequest? findPoliciesRequest = null;
             //var response = instance.ApiAdminPoliciesFindPost(findPoliciesRequest);
-            //Assert.IsType<List<FindPoliciesResult>>(response);
+            //Assert.IsType<List<UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult>>(response);
         }
 
         /// <summary>
@@ -74,8 +74,10 @@ namespace Uinsure.CustomerPortal.Client.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string policyNumber = null;
-            //var response = instance.ApiAdminPoliciesPolicyNumberGet(policyNumber);
-            //Assert.IsType<GetPolicyDetailsResult>(response);
+            //bool? useAccountReference = null;
+            //string? policyStatus = null;
+            //var response = instance.ApiAdminPoliciesPolicyNumberGet(policyNumber, useAccountReference, policyStatus);
+            //Assert.IsType<GetPolicyDetailsResponse>(response);
         }
     }
 }
