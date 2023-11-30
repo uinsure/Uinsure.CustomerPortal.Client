@@ -26,7 +26,7 @@ using OpenAPIDateConverter = Uinsure.CustomerPortal.Client.Client.OpenAPIDateCon
 namespace Uinsure.CustomerPortal.Client.Model
 {
     /// <summary>
-    /// Ancillaries
+    /// DTO containing details relating to ancillaries on a policy
     /// </summary>
     [DataContract(Name = "Ancillaries")]
     public partial class Ancillaries : IEquatable<Ancillaries>, IValidatableObject
@@ -34,12 +34,12 @@ namespace Uinsure.CustomerPortal.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Ancillaries" /> class.
         /// </summary>
-        /// <param name="bTLBuildingsManufactureOfDrugs">bTLBuildingsManufactureOfDrugs.</param>
-        /// <param name="bTLFlatDeclaration">bTLFlatDeclaration.</param>
-        /// <param name="bTLRACover">bTLRACover.</param>
-        /// <param name="bTLTenantType">bTLTenantType.</param>
-        /// <param name="isFamilyLegalProtectionIncluded">isFamilyLegalProtectionIncluded.</param>
-        /// <param name="isHomeEmergencyCoverIncluded">isHomeEmergencyCoverIncluded.</param>
+        /// <param name="bTLBuildingsManufactureOfDrugs">BTL/Landlords - Is Manufacture of drugs cover included?.</param>
+        /// <param name="bTLFlatDeclaration">BTL/Landlords - Has the customer agreed to the declarations for insuring a flat property?.</param>
+        /// <param name="bTLRACover">BTL/Landlords - Is Rent guarantee cover included?.</param>
+        /// <param name="bTLTenantType">BTL/Landlords - The type of occupants the insured property will be let to.</param>
+        /// <param name="isFamilyLegalProtectionIncluded">Home insurance - Is Family legal protection cover included.  BTL/Landlords - Is Legal protection cover included?.</param>
+        /// <param name="isHomeEmergencyCoverIncluded">Home insurance - Is Home emergency cover included?  BTL/Landlords - Is Home let emergency cover included?.</param>
         public Ancillaries(bool? bTLBuildingsManufactureOfDrugs = default(bool?), string bTLFlatDeclaration = default(string), bool? bTLRACover = default(bool?), string bTLTenantType = default(string), bool? isFamilyLegalProtectionIncluded = default(bool?), bool? isHomeEmergencyCoverIncluded = default(bool?))
         {
             this._BTLBuildingsManufactureOfDrugs = bTLBuildingsManufactureOfDrugs;
@@ -75,8 +75,9 @@ namespace Uinsure.CustomerPortal.Client.Model
         }
 
         /// <summary>
-        /// Gets or Sets BTLBuildingsManufactureOfDrugs
+        /// BTL/Landlords - Is Manufacture of drugs cover included?
         /// </summary>
+        /// <value>BTL/Landlords - Is Manufacture of drugs cover included?</value>
         [DataMember(Name = "BTLBuildingsManufactureOfDrugs", EmitDefaultValue = true)]
         public bool? BTLBuildingsManufactureOfDrugs
         {
@@ -99,8 +100,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagBTLBuildingsManufactureOfDrugs;
         }
         /// <summary>
-        /// Gets or Sets BTLFlatDeclaration
+        /// BTL/Landlords - Has the customer agreed to the declarations for insuring a flat property?
         /// </summary>
+        /// <value>BTL/Landlords - Has the customer agreed to the declarations for insuring a flat property?</value>
         [DataMember(Name = "BTLFlatDeclaration", EmitDefaultValue = true)]
         public string BTLFlatDeclaration
         {
@@ -123,8 +125,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagBTLFlatDeclaration;
         }
         /// <summary>
-        /// Gets or Sets BTLRACover
+        /// BTL/Landlords - Is Rent guarantee cover included?
         /// </summary>
+        /// <value>BTL/Landlords - Is Rent guarantee cover included?</value>
         [DataMember(Name = "BTLRACover", EmitDefaultValue = true)]
         public bool? BTLRACover
         {
@@ -147,8 +150,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagBTLRACover;
         }
         /// <summary>
-        /// Gets or Sets BTLTenantType
+        /// BTL/Landlords - The type of occupants the insured property will be let to
         /// </summary>
+        /// <value>BTL/Landlords - The type of occupants the insured property will be let to</value>
         [DataMember(Name = "BTLTenantType", EmitDefaultValue = true)]
         public string BTLTenantType
         {
@@ -171,8 +175,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagBTLTenantType;
         }
         /// <summary>
-        /// Gets or Sets IsFamilyLegalProtectionIncluded
+        /// Home insurance - Is Family legal protection cover included.  BTL/Landlords - Is Legal protection cover included?
         /// </summary>
+        /// <value>Home insurance - Is Family legal protection cover included.  BTL/Landlords - Is Legal protection cover included?</value>
         [DataMember(Name = "IsFamilyLegalProtectionIncluded", EmitDefaultValue = true)]
         public bool? IsFamilyLegalProtectionIncluded
         {
@@ -195,8 +200,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagIsFamilyLegalProtectionIncluded;
         }
         /// <summary>
-        /// Gets or Sets IsHomeEmergencyCoverIncluded
+        /// Home insurance - Is Home emergency cover included?  BTL/Landlords - Is Home let emergency cover included?
         /// </summary>
+        /// <value>Home insurance - Is Home emergency cover included?  BTL/Landlords - Is Home let emergency cover included?</value>
         [DataMember(Name = "IsHomeEmergencyCoverIncluded", EmitDefaultValue = true)]
         public bool? IsHomeEmergencyCoverIncluded
         {

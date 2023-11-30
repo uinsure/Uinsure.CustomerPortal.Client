@@ -26,7 +26,7 @@ using OpenAPIDateConverter = Uinsure.CustomerPortal.Client.Client.OpenAPIDateCon
 namespace Uinsure.CustomerPortal.Client.Model
 {
     /// <summary>
-    /// PaymentDetails
+    /// DTO with details relating to policy payment.
     /// </summary>
     [DataContract(Name = "PaymentDetails")]
     public partial class PaymentDetails : IEquatable<PaymentDetails>, IValidatableObject
@@ -34,18 +34,18 @@ namespace Uinsure.CustomerPortal.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PaymentDetails" /> class.
         /// </summary>
-        /// <param name="totalAmountPayable">totalAmountPayable.</param>
-        /// <param name="monthlyPremium">monthlyPremium.</param>
-        /// <param name="cardPayment">cardPayment.</param>
-        /// <param name="chequeBACS">chequeBACS.</param>
-        /// <param name="creditCharge">creditCharge.</param>
-        /// <param name="insurancePremium">insurancePremium.</param>
-        /// <param name="insurancePremiumTax">insurancePremiumTax.</param>
-        /// <param name="monthlyPayments">monthlyPayments.</param>
-        /// <param name="policyAdministrationFee">policyAdministrationFee.</param>
-        /// <param name="familyLegalProtection">familyLegalProtection.</param>
-        /// <param name="homeEmergencyCover">homeEmergencyCover.</param>
-        /// <param name="premiumFunded">premiumFunded.</param>
+        /// <param name="totalAmountPayable">Total amount payable for this policy..</param>
+        /// <param name="monthlyPremium">Cost of monthly payments for this policy if paid monthly..</param>
+        /// <param name="cardPayment">Was payment taken via Card?.</param>
+        /// <param name="chequeBACS">Was payment taken via ChequeBACS?.</param>
+        /// <param name="creditCharge">Credit charge for paying monthly..</param>
+        /// <param name="insurancePremium">Cost of insurance premium..</param>
+        /// <param name="insurancePremiumTax">Insurance premium tax..</param>
+        /// <param name="monthlyPayments">Is this policy paid monthly?.</param>
+        /// <param name="policyAdministrationFee">Policy administration fee.</param>
+        /// <param name="familyLegalProtection">Cost of Family legal protection/Legal protection cover if included..</param>
+        /// <param name="homeEmergencyCover">Cost of Home/Home let emergency cover if included..</param>
+        /// <param name="premiumFunded">Is this policy premium funded?.</param>
         public PaymentDetails(double? totalAmountPayable = default(double?), double? monthlyPremium = default(double?), bool? cardPayment = default(bool?), bool? chequeBACS = default(bool?), double? creditCharge = default(double?), double? insurancePremium = default(double?), double? insurancePremiumTax = default(double?), bool? monthlyPayments = default(bool?), double? policyAdministrationFee = default(double?), double? familyLegalProtection = default(double?), double? homeEmergencyCover = default(double?), bool? premiumFunded = default(bool?))
         {
             this._TotalAmountPayable = totalAmountPayable;
@@ -111,8 +111,9 @@ namespace Uinsure.CustomerPortal.Client.Model
         }
 
         /// <summary>
-        /// Gets or Sets TotalAmountPayable
+        /// Total amount payable for this policy.
         /// </summary>
+        /// <value>Total amount payable for this policy.</value>
         [DataMember(Name = "TotalAmountPayable", EmitDefaultValue = true)]
         public double? TotalAmountPayable
         {
@@ -135,8 +136,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagTotalAmountPayable;
         }
         /// <summary>
-        /// Gets or Sets MonthlyPremium
+        /// Cost of monthly payments for this policy if paid monthly.
         /// </summary>
+        /// <value>Cost of monthly payments for this policy if paid monthly.</value>
         [DataMember(Name = "MonthlyPremium", EmitDefaultValue = true)]
         public double? MonthlyPremium
         {
@@ -159,8 +161,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagMonthlyPremium;
         }
         /// <summary>
-        /// Gets or Sets CardPayment
+        /// Was payment taken via Card?
         /// </summary>
+        /// <value>Was payment taken via Card?</value>
         [DataMember(Name = "CardPayment", EmitDefaultValue = true)]
         public bool? CardPayment
         {
@@ -183,8 +186,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagCardPayment;
         }
         /// <summary>
-        /// Gets or Sets ChequeBACS
+        /// Was payment taken via ChequeBACS?
         /// </summary>
+        /// <value>Was payment taken via ChequeBACS?</value>
         [DataMember(Name = "ChequeBACS", EmitDefaultValue = true)]
         public bool? ChequeBACS
         {
@@ -207,8 +211,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagChequeBACS;
         }
         /// <summary>
-        /// Gets or Sets CreditCharge
+        /// Credit charge for paying monthly.
         /// </summary>
+        /// <value>Credit charge for paying monthly.</value>
         [DataMember(Name = "CreditCharge", EmitDefaultValue = true)]
         public double? CreditCharge
         {
@@ -231,8 +236,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagCreditCharge;
         }
         /// <summary>
-        /// Gets or Sets InsurancePremium
+        /// Cost of insurance premium.
         /// </summary>
+        /// <value>Cost of insurance premium.</value>
         [DataMember(Name = "InsurancePremium", EmitDefaultValue = true)]
         public double? InsurancePremium
         {
@@ -255,8 +261,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagInsurancePremium;
         }
         /// <summary>
-        /// Gets or Sets InsurancePremiumTax
+        /// Insurance premium tax.
         /// </summary>
+        /// <value>Insurance premium tax.</value>
         [DataMember(Name = "InsurancePremiumTax", EmitDefaultValue = true)]
         public double? InsurancePremiumTax
         {
@@ -279,8 +286,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagInsurancePremiumTax;
         }
         /// <summary>
-        /// Gets or Sets MonthlyPayments
+        /// Is this policy paid monthly?
         /// </summary>
+        /// <value>Is this policy paid monthly?</value>
         [DataMember(Name = "MonthlyPayments", EmitDefaultValue = true)]
         public bool? MonthlyPayments
         {
@@ -303,8 +311,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagMonthlyPayments;
         }
         /// <summary>
-        /// Gets or Sets PolicyAdministrationFee
+        /// Policy administration fee
         /// </summary>
+        /// <value>Policy administration fee</value>
         [DataMember(Name = "PolicyAdministrationFee", EmitDefaultValue = true)]
         public double? PolicyAdministrationFee
         {
@@ -327,8 +336,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagPolicyAdministrationFee;
         }
         /// <summary>
-        /// Gets or Sets FamilyLegalProtection
+        /// Cost of Family legal protection/Legal protection cover if included.
         /// </summary>
+        /// <value>Cost of Family legal protection/Legal protection cover if included.</value>
         [DataMember(Name = "FamilyLegalProtection", EmitDefaultValue = true)]
         public double? FamilyLegalProtection
         {
@@ -351,8 +361,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagFamilyLegalProtection;
         }
         /// <summary>
-        /// Gets or Sets HomeEmergencyCover
+        /// Cost of Home/Home let emergency cover if included.
         /// </summary>
+        /// <value>Cost of Home/Home let emergency cover if included.</value>
         [DataMember(Name = "HomeEmergencyCover", EmitDefaultValue = true)]
         public double? HomeEmergencyCover
         {
@@ -375,8 +386,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagHomeEmergencyCover;
         }
         /// <summary>
-        /// Gets or Sets PremiumFunded
+        /// Is this policy premium funded?
         /// </summary>
+        /// <value>Is this policy premium funded?</value>
         [DataMember(Name = "PremiumFunded", EmitDefaultValue = true)]
         public bool? PremiumFunded
         {

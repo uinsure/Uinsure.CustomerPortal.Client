@@ -26,7 +26,7 @@ using OpenAPIDateConverter = Uinsure.CustomerPortal.Client.Client.OpenAPIDateCon
 namespace Uinsure.CustomerPortal.Client.Model
 {
     /// <summary>
-    /// RiskProperty
+    /// DTO with details relating to the risk property of a policy
     /// </summary>
     [DataContract(Name = "RiskProperty")]
     public partial class RiskProperty : IEquatable<RiskProperty>, IValidatableObject
@@ -34,21 +34,21 @@ namespace Uinsure.CustomerPortal.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RiskProperty" /> class.
         /// </summary>
-        /// <param name="riskAddressLine1">riskAddressLine1.</param>
-        /// <param name="riskAddressLine2">riskAddressLine2.</param>
-        /// <param name="riskAddressLine3">riskAddressLine3.</param>
-        /// <param name="riskAddressLine4">riskAddressLine4.</param>
-        /// <param name="riskAddressPostcode">riskAddressPostcode.</param>
-        /// <param name="riskAddressPostcodeArea">riskAddressPostcodeArea.</param>
-        /// <param name="longitude">longitude.</param>
-        /// <param name="latitude">latitude.</param>
-        /// <param name="propertyTypeName">propertyTypeName.</param>
-        /// <param name="numberOfBedrooms">numberOfBedrooms.</param>
-        /// <param name="yearOfConstruction">yearOfConstruction.</param>
-        /// <param name="yearOfConstructionRange">yearOfConstructionRange.</param>
-        /// <param name="isYearOfConstructionRange">isYearOfConstructionRange.</param>
-        /// <param name="riskAddressRoyalMailReference">riskAddressRoyalMailReference.</param>
-        /// <param name="mortgageProvider">mortgageProvider.</param>
+        /// <param name="riskAddressLine1">Risk address line 1..</param>
+        /// <param name="riskAddressLine2">Risk address line 2..</param>
+        /// <param name="riskAddressLine3">Risk address line 3..</param>
+        /// <param name="riskAddressLine4">Risk address line 4..</param>
+        /// <param name="riskAddressPostcode">Risk address post code..</param>
+        /// <param name="riskAddressPostcodeArea">Risk address post code area..</param>
+        /// <param name="longitude">Risk address longitude..</param>
+        /// <param name="latitude">Risk address latitude..</param>
+        /// <param name="propertyTypeName">Risk address property type..</param>
+        /// <param name="numberOfBedrooms">Risk address number of bedrooms..</param>
+        /// <param name="yearOfConstruction">Risk address year of construction..</param>
+        /// <param name="yearOfConstructionRange">Risk address year range of construction..</param>
+        /// <param name="isYearOfConstructionRange">Is the year of construction of the risk property provided a range?.</param>
+        /// <param name="riskAddressRoyalMailReference">Risk address UDPRN..</param>
+        /// <param name="mortgageProvider">Mortgage provider..</param>
         public RiskProperty(string riskAddressLine1 = default(string), string riskAddressLine2 = default(string), string riskAddressLine3 = default(string), string riskAddressLine4 = default(string), string riskAddressPostcode = default(string), string riskAddressPostcodeArea = default(string), double? longitude = default(double?), double? latitude = default(double?), string propertyTypeName = default(string), int? numberOfBedrooms = default(int?), int? yearOfConstruction = default(int?), string yearOfConstructionRange = default(string), bool? isYearOfConstructionRange = default(bool?), string riskAddressRoyalMailReference = default(string), string mortgageProvider = default(string))
         {
             this._RiskAddressLine1 = riskAddressLine1;
@@ -129,8 +129,9 @@ namespace Uinsure.CustomerPortal.Client.Model
         }
 
         /// <summary>
-        /// Gets or Sets RiskAddressLine1
+        /// Risk address line 1.
         /// </summary>
+        /// <value>Risk address line 1.</value>
         [DataMember(Name = "RiskAddressLine1", EmitDefaultValue = true)]
         public string RiskAddressLine1
         {
@@ -153,8 +154,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagRiskAddressLine1;
         }
         /// <summary>
-        /// Gets or Sets RiskAddressLine2
+        /// Risk address line 2.
         /// </summary>
+        /// <value>Risk address line 2.</value>
         [DataMember(Name = "RiskAddressLine2", EmitDefaultValue = true)]
         public string RiskAddressLine2
         {
@@ -177,8 +179,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagRiskAddressLine2;
         }
         /// <summary>
-        /// Gets or Sets RiskAddressLine3
+        /// Risk address line 3.
         /// </summary>
+        /// <value>Risk address line 3.</value>
         [DataMember(Name = "RiskAddressLine3", EmitDefaultValue = true)]
         public string RiskAddressLine3
         {
@@ -201,8 +204,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagRiskAddressLine3;
         }
         /// <summary>
-        /// Gets or Sets RiskAddressLine4
+        /// Risk address line 4.
         /// </summary>
+        /// <value>Risk address line 4.</value>
         [DataMember(Name = "RiskAddressLine4", EmitDefaultValue = true)]
         public string RiskAddressLine4
         {
@@ -225,8 +229,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagRiskAddressLine4;
         }
         /// <summary>
-        /// Gets or Sets RiskAddressPostcode
+        /// Risk address post code.
         /// </summary>
+        /// <value>Risk address post code.</value>
         [DataMember(Name = "RiskAddressPostcode", EmitDefaultValue = true)]
         public string RiskAddressPostcode
         {
@@ -249,8 +254,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagRiskAddressPostcode;
         }
         /// <summary>
-        /// Gets or Sets RiskAddressPostcodeArea
+        /// Risk address post code area.
         /// </summary>
+        /// <value>Risk address post code area.</value>
         [DataMember(Name = "RiskAddressPostcodeArea", EmitDefaultValue = true)]
         public string RiskAddressPostcodeArea
         {
@@ -273,8 +279,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagRiskAddressPostcodeArea;
         }
         /// <summary>
-        /// Gets or Sets Longitude
+        /// Risk address longitude.
         /// </summary>
+        /// <value>Risk address longitude.</value>
         [DataMember(Name = "Longitude", EmitDefaultValue = true)]
         public double? Longitude
         {
@@ -297,8 +304,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagLongitude;
         }
         /// <summary>
-        /// Gets or Sets Latitude
+        /// Risk address latitude.
         /// </summary>
+        /// <value>Risk address latitude.</value>
         [DataMember(Name = "Latitude", EmitDefaultValue = true)]
         public double? Latitude
         {
@@ -321,8 +329,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagLatitude;
         }
         /// <summary>
-        /// Gets or Sets PropertyTypeName
+        /// Risk address property type.
         /// </summary>
+        /// <value>Risk address property type.</value>
         [DataMember(Name = "PropertyTypeName", EmitDefaultValue = true)]
         public string PropertyTypeName
         {
@@ -345,8 +354,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagPropertyTypeName;
         }
         /// <summary>
-        /// Gets or Sets NumberOfBedrooms
+        /// Risk address number of bedrooms.
         /// </summary>
+        /// <value>Risk address number of bedrooms.</value>
         [DataMember(Name = "NumberOfBedrooms", EmitDefaultValue = true)]
         public int? NumberOfBedrooms
         {
@@ -369,8 +379,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagNumberOfBedrooms;
         }
         /// <summary>
-        /// Gets or Sets YearOfConstruction
+        /// Risk address year of construction.
         /// </summary>
+        /// <value>Risk address year of construction.</value>
         [DataMember(Name = "YearOfConstruction", EmitDefaultValue = true)]
         public int? YearOfConstruction
         {
@@ -393,8 +404,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagYearOfConstruction;
         }
         /// <summary>
-        /// Gets or Sets YearOfConstructionRange
+        /// Risk address year range of construction.
         /// </summary>
+        /// <value>Risk address year range of construction.</value>
         [DataMember(Name = "YearOfConstructionRange", EmitDefaultValue = true)]
         public string YearOfConstructionRange
         {
@@ -417,8 +429,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagYearOfConstructionRange;
         }
         /// <summary>
-        /// Gets or Sets IsYearOfConstructionRange
+        /// Is the year of construction of the risk property provided a range?
         /// </summary>
+        /// <value>Is the year of construction of the risk property provided a range?</value>
         [DataMember(Name = "IsYearOfConstructionRange", EmitDefaultValue = true)]
         public bool? IsYearOfConstructionRange
         {
@@ -441,8 +454,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagIsYearOfConstructionRange;
         }
         /// <summary>
-        /// Gets or Sets RiskAddressRoyalMailReference
+        /// Risk address UDPRN.
         /// </summary>
+        /// <value>Risk address UDPRN.</value>
         [DataMember(Name = "RiskAddressRoyalMailReference", EmitDefaultValue = true)]
         public string RiskAddressRoyalMailReference
         {
@@ -465,8 +479,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagRiskAddressRoyalMailReference;
         }
         /// <summary>
-        /// Gets or Sets MortgageProvider
+        /// Mortgage provider.
         /// </summary>
+        /// <value>Mortgage provider.</value>
         [DataMember(Name = "MortgageProvider", EmitDefaultValue = true)]
         public string MortgageProvider
         {

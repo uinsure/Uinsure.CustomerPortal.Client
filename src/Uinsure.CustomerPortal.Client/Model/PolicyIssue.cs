@@ -26,7 +26,7 @@ using OpenAPIDateConverter = Uinsure.CustomerPortal.Client.Client.OpenAPIDateCon
 namespace Uinsure.CustomerPortal.Client.Model
 {
     /// <summary>
-    /// PolicyIssue
+    /// Issue information relating to a policy
     /// </summary>
     [DataContract(Name = "PolicyIssue")]
     public partial class PolicyIssue : IEquatable<PolicyIssue>, IValidatableObject
@@ -34,8 +34,8 @@ namespace Uinsure.CustomerPortal.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PolicyIssue" /> class.
         /// </summary>
-        /// <param name="dataQualityIssueFlag">dataQualityIssueFlag.</param>
-        /// <param name="policyIssueFlag">policyIssueFlag.</param>
+        /// <param name="dataQualityIssueFlag">Is there a data quality issue impacting all policies?.</param>
+        /// <param name="policyIssueFlag">Is there a data issue with this specific policy?.</param>
         public PolicyIssue(bool? dataQualityIssueFlag = default(bool?), bool? policyIssueFlag = default(bool?))
         {
             this._DataQualityIssueFlag = dataQualityIssueFlag;
@@ -51,8 +51,9 @@ namespace Uinsure.CustomerPortal.Client.Model
         }
 
         /// <summary>
-        /// Gets or Sets DataQualityIssueFlag
+        /// Is there a data quality issue impacting all policies?
         /// </summary>
+        /// <value>Is there a data quality issue impacting all policies?</value>
         [DataMember(Name = "DataQualityIssueFlag", EmitDefaultValue = true)]
         public bool? DataQualityIssueFlag
         {
@@ -75,8 +76,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagDataQualityIssueFlag;
         }
         /// <summary>
-        /// Gets or Sets PolicyIssueFlag
+        /// Is there a data issue with this specific policy?
         /// </summary>
+        /// <value>Is there a data issue with this specific policy?</value>
         [DataMember(Name = "PolicyIssueFlag", EmitDefaultValue = true)]
         public bool? PolicyIssueFlag
         {

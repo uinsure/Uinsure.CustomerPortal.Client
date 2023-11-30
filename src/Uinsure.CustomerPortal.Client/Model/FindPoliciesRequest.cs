@@ -39,7 +39,7 @@ namespace Uinsure.CustomerPortal.Client.Model
         /// <param name="dateOfBirth">A valid date in the ISO 8601 format corresponding to either applicant on a policy and must be in the past.</param>
         /// <param name="riskAddressPostcode">A full or partial postcode corresponding to the risk address on a policy.</param>
         /// <param name="phoneNumber">A full or partial phone number associated to a policy.</param>
-        /// <param name="policyStatus">A full match on the Policy status.</param>
+        /// <param name="policyStatus">A full match on the Policy status  This accepts one or more values but will reject if duplicates are provided.</param>
         /// <param name="includePoliciesWithIssues">Default returns policies with no issues but setting this flag to true will allow the result set to contain policies with issues as well.</param>
         public FindPoliciesRequest(string agreementNumber = default(string), string surname = default(string), DateTime? dateOfBirth = default(DateTime?), string riskAddressPostcode = default(string), string phoneNumber = default(string), string policyStatus = default(string), bool? includePoliciesWithIssues = default(bool?))
         {
@@ -206,9 +206,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagPhoneNumber;
         }
         /// <summary>
-        /// A full match on the Policy status
+        /// A full match on the Policy status  This accepts one or more values but will reject if duplicates are provided
         /// </summary>
-        /// <value>A full match on the Policy status</value>
+        /// <value>A full match on the Policy status  This accepts one or more values but will reject if duplicates are provided</value>
         [DataMember(Name = "PolicyStatus", EmitDefaultValue = true)]
         public string PolicyStatus
         {
@@ -440,7 +440,7 @@ namespace Uinsure.CustomerPortal.Client.Model
 
             if (this.PolicyStatus != null) {
                 // PolicyStatus (string) pattern
-                Regex regexPolicyStatus = new Regex(@"^(Live|Expired|Renewal|Future|Cancelled)$", RegexOptions.CultureInvariant);
+                Regex regexPolicyStatus = new Regex(@"^(Live|Expired|Future|Cancelled|Renewal)(,(?!.*\b\1\b)(Live|Expired|Future|Cancelled|Renewal))*$", RegexOptions.CultureInvariant);
                 if (!regexPolicyStatus.Match(this.PolicyStatus).Success)
                 {
                     yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PolicyStatus, must match a pattern of " + regexPolicyStatus, new [] { "PolicyStatus" });

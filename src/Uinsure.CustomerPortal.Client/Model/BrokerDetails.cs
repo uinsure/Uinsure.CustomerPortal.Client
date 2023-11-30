@@ -26,7 +26,7 @@ using OpenAPIDateConverter = Uinsure.CustomerPortal.Client.Client.OpenAPIDateCon
 namespace Uinsure.CustomerPortal.Client.Model
 {
     /// <summary>
-    /// BrokerDetails
+    /// DTO with details relating to a Broker and their company
     /// </summary>
     [DataContract(Name = "BrokerDetails")]
     public partial class BrokerDetails : IEquatable<BrokerDetails>, IValidatableObject
@@ -34,28 +34,28 @@ namespace Uinsure.CustomerPortal.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="BrokerDetails" /> class.
         /// </summary>
-        /// <param name="brokerCommissionRate">brokerCommissionRate.</param>
-        /// <param name="networkCommissionRate">networkCommissionRate.</param>
-        /// <param name="saleTypeNew">saleTypeNew.</param>
-        /// <param name="uinsureCommissionRate">uinsureCommissionRate.</param>
-        /// <param name="uinsureDBApplicationSource">uinsureDBApplicationSource.</param>
-        /// <param name="uinsureDBBrokerFirstName">uinsureDBBrokerFirstName.</param>
-        /// <param name="uinsureDBBrokerLastName">uinsureDBBrokerLastName.</param>
-        /// <param name="uinsureDBBrokerFullName">uinsureDBBrokerFullName.</param>
-        /// <param name="uinsureDBCompanyName">uinsureDBCompanyName.</param>
-        /// <param name="uinsureDBDistributionGroupName">uinsureDBDistributionGroupName.</param>
-        /// <param name="uinsureDBDrillDownStatus">uinsureDBDrillDownStatus.</param>
-        /// <param name="uinsureDBNetworkName">uinsureDBNetworkName.</param>
-        /// <param name="uinsureDBOriginalBrokerFirstName">uinsureDBOriginalBrokerFirstName.</param>
-        /// <param name="uinsureDBOriginalBrokerLastName">uinsureDBOriginalBrokerLastName.</param>
-        /// <param name="uinsureDBOriginalBrokerFullName">uinsureDBOriginalBrokerFullName.</param>
-        /// <param name="uinsureDBOriginalCompanyName">uinsureDBOriginalCompanyName.</param>
-        /// <param name="uinsureDBOriginalDistributionGroupName">uinsureDBOriginalDistributionGroupName.</param>
-        /// <param name="uinsureDBOriginalNetworkName">uinsureDBOriginalNetworkName.</param>
-        /// <param name="uinsureDBOriginalPolicyNumber">uinsureDBOriginalPolicyNumber.</param>
-        /// <param name="uinsureDBSaleType">uinsureDBSaleType.</param>
-        /// <param name="uinsureDBSource">uinsureDBSource.</param>
-        public BrokerDetails(double? brokerCommissionRate = default(double?), double? networkCommissionRate = default(double?), string saleTypeNew = default(string), double? uinsureCommissionRate = default(double?), string uinsureDBApplicationSource = default(string), string uinsureDBBrokerFirstName = default(string), string uinsureDBBrokerLastName = default(string), string uinsureDBBrokerFullName = default(string), string uinsureDBCompanyName = default(string), string uinsureDBDistributionGroupName = default(string), string uinsureDBDrillDownStatus = default(string), string uinsureDBNetworkName = default(string), string uinsureDBOriginalBrokerFirstName = default(string), string uinsureDBOriginalBrokerLastName = default(string), string uinsureDBOriginalBrokerFullName = default(string), string uinsureDBOriginalCompanyName = default(string), string uinsureDBOriginalDistributionGroupName = default(string), string uinsureDBOriginalNetworkName = default(string), string uinsureDBOriginalPolicyNumber = default(string), string uinsureDBSaleType = default(string), string uinsureDBSource = default(string))
+        /// <param name="brokerCommissionRate">Broker commission rate.</param>
+        /// <param name="networkCommissionRate">Network commission rate.</param>
+        /// <param name="saleTypeNew">Type of sale.</param>
+        /// <param name="uinsureCommissionRate">Uinsure commission rate.</param>
+        /// <param name="applicationSource">Application source..</param>
+        /// <param name="firstName">Broker&#39;s first name..</param>
+        /// <param name="lastName">Broker&#39;s last name..</param>
+        /// <param name="fullName">Broker&#39;s full name..</param>
+        /// <param name="companyName">Company name..</param>
+        /// <param name="distributionGroupName">Distribution group name..</param>
+        /// <param name="drillDownStatus">Drilldown status..</param>
+        /// <param name="networkName">Network name..</param>
+        /// <param name="originalFirstName">Broker&#39;s original first name..</param>
+        /// <param name="originalLastName">Broker&#39;s original last name..</param>
+        /// <param name="originalFullName">Broker&#39;s original full name..</param>
+        /// <param name="originalCompanyName">Broker&#39;s original company name..</param>
+        /// <param name="originalDistributionGroupName">Broker&#39;s original distribution group name..</param>
+        /// <param name="originalNetworkName">Original network name..</param>
+        /// <param name="originalPolicyNumber">Policy number..</param>
+        /// <param name="saleType">Type of sale..</param>
+        /// <param name="source">Source..</param>
+        public BrokerDetails(double? brokerCommissionRate = default(double?), double? networkCommissionRate = default(double?), string saleTypeNew = default(string), double? uinsureCommissionRate = default(double?), string applicationSource = default(string), string firstName = default(string), string lastName = default(string), string fullName = default(string), string companyName = default(string), string distributionGroupName = default(string), string drillDownStatus = default(string), string networkName = default(string), string originalFirstName = default(string), string originalLastName = default(string), string originalFullName = default(string), string originalCompanyName = default(string), string originalDistributionGroupName = default(string), string originalNetworkName = default(string), string originalPolicyNumber = default(string), string saleType = default(string), string source = default(string))
         {
             this._BrokerCommissionRate = brokerCommissionRate;
             if (this.BrokerCommissionRate != null)
@@ -77,96 +77,97 @@ namespace Uinsure.CustomerPortal.Client.Model
             {
                 this._flagUinsureCommissionRate = true;
             }
-            this._UinsureDBApplicationSource = uinsureDBApplicationSource;
-            if (this.UinsureDBApplicationSource != null)
+            this._ApplicationSource = applicationSource;
+            if (this.ApplicationSource != null)
             {
-                this._flagUinsureDBApplicationSource = true;
+                this._flagApplicationSource = true;
             }
-            this._UinsureDBBrokerFirstName = uinsureDBBrokerFirstName;
-            if (this.UinsureDBBrokerFirstName != null)
+            this._FirstName = firstName;
+            if (this.FirstName != null)
             {
-                this._flagUinsureDBBrokerFirstName = true;
+                this._flagFirstName = true;
             }
-            this._UinsureDBBrokerLastName = uinsureDBBrokerLastName;
-            if (this.UinsureDBBrokerLastName != null)
+            this._LastName = lastName;
+            if (this.LastName != null)
             {
-                this._flagUinsureDBBrokerLastName = true;
+                this._flagLastName = true;
             }
-            this._UinsureDBBrokerFullName = uinsureDBBrokerFullName;
-            if (this.UinsureDBBrokerFullName != null)
+            this._FullName = fullName;
+            if (this.FullName != null)
             {
-                this._flagUinsureDBBrokerFullName = true;
+                this._flagFullName = true;
             }
-            this._UinsureDBCompanyName = uinsureDBCompanyName;
-            if (this.UinsureDBCompanyName != null)
+            this._CompanyName = companyName;
+            if (this.CompanyName != null)
             {
-                this._flagUinsureDBCompanyName = true;
+                this._flagCompanyName = true;
             }
-            this._UinsureDBDistributionGroupName = uinsureDBDistributionGroupName;
-            if (this.UinsureDBDistributionGroupName != null)
+            this._DistributionGroupName = distributionGroupName;
+            if (this.DistributionGroupName != null)
             {
-                this._flagUinsureDBDistributionGroupName = true;
+                this._flagDistributionGroupName = true;
             }
-            this._UinsureDBDrillDownStatus = uinsureDBDrillDownStatus;
-            if (this.UinsureDBDrillDownStatus != null)
+            this._DrillDownStatus = drillDownStatus;
+            if (this.DrillDownStatus != null)
             {
-                this._flagUinsureDBDrillDownStatus = true;
+                this._flagDrillDownStatus = true;
             }
-            this._UinsureDBNetworkName = uinsureDBNetworkName;
-            if (this.UinsureDBNetworkName != null)
+            this._NetworkName = networkName;
+            if (this.NetworkName != null)
             {
-                this._flagUinsureDBNetworkName = true;
+                this._flagNetworkName = true;
             }
-            this._UinsureDBOriginalBrokerFirstName = uinsureDBOriginalBrokerFirstName;
-            if (this.UinsureDBOriginalBrokerFirstName != null)
+            this._OriginalFirstName = originalFirstName;
+            if (this.OriginalFirstName != null)
             {
-                this._flagUinsureDBOriginalBrokerFirstName = true;
+                this._flagOriginalFirstName = true;
             }
-            this._UinsureDBOriginalBrokerLastName = uinsureDBOriginalBrokerLastName;
-            if (this.UinsureDBOriginalBrokerLastName != null)
+            this._OriginalLastName = originalLastName;
+            if (this.OriginalLastName != null)
             {
-                this._flagUinsureDBOriginalBrokerLastName = true;
+                this._flagOriginalLastName = true;
             }
-            this._UinsureDBOriginalBrokerFullName = uinsureDBOriginalBrokerFullName;
-            if (this.UinsureDBOriginalBrokerFullName != null)
+            this._OriginalFullName = originalFullName;
+            if (this.OriginalFullName != null)
             {
-                this._flagUinsureDBOriginalBrokerFullName = true;
+                this._flagOriginalFullName = true;
             }
-            this._UinsureDBOriginalCompanyName = uinsureDBOriginalCompanyName;
-            if (this.UinsureDBOriginalCompanyName != null)
+            this._OriginalCompanyName = originalCompanyName;
+            if (this.OriginalCompanyName != null)
             {
-                this._flagUinsureDBOriginalCompanyName = true;
+                this._flagOriginalCompanyName = true;
             }
-            this._UinsureDBOriginalDistributionGroupName = uinsureDBOriginalDistributionGroupName;
-            if (this.UinsureDBOriginalDistributionGroupName != null)
+            this._OriginalDistributionGroupName = originalDistributionGroupName;
+            if (this.OriginalDistributionGroupName != null)
             {
-                this._flagUinsureDBOriginalDistributionGroupName = true;
+                this._flagOriginalDistributionGroupName = true;
             }
-            this._UinsureDBOriginalNetworkName = uinsureDBOriginalNetworkName;
-            if (this.UinsureDBOriginalNetworkName != null)
+            this._OriginalNetworkName = originalNetworkName;
+            if (this.OriginalNetworkName != null)
             {
-                this._flagUinsureDBOriginalNetworkName = true;
+                this._flagOriginalNetworkName = true;
             }
-            this._UinsureDBOriginalPolicyNumber = uinsureDBOriginalPolicyNumber;
-            if (this.UinsureDBOriginalPolicyNumber != null)
+            this._OriginalPolicyNumber = originalPolicyNumber;
+            if (this.OriginalPolicyNumber != null)
             {
-                this._flagUinsureDBOriginalPolicyNumber = true;
+                this._flagOriginalPolicyNumber = true;
             }
-            this._UinsureDBSaleType = uinsureDBSaleType;
-            if (this.UinsureDBSaleType != null)
+            this._SaleType = saleType;
+            if (this.SaleType != null)
             {
-                this._flagUinsureDBSaleType = true;
+                this._flagSaleType = true;
             }
-            this._UinsureDBSource = uinsureDBSource;
-            if (this.UinsureDBSource != null)
+            this._Source = source;
+            if (this.Source != null)
             {
-                this._flagUinsureDBSource = true;
+                this._flagSource = true;
             }
         }
 
         /// <summary>
-        /// Gets or Sets BrokerCommissionRate
+        /// Broker commission rate
         /// </summary>
+        /// <value>Broker commission rate</value>
         [DataMember(Name = "BrokerCommissionRate", EmitDefaultValue = true)]
         public double? BrokerCommissionRate
         {
@@ -189,8 +190,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagBrokerCommissionRate;
         }
         /// <summary>
-        /// Gets or Sets NetworkCommissionRate
+        /// Network commission rate
         /// </summary>
+        /// <value>Network commission rate</value>
         [DataMember(Name = "NetworkCommissionRate", EmitDefaultValue = true)]
         public double? NetworkCommissionRate
         {
@@ -213,8 +215,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagNetworkCommissionRate;
         }
         /// <summary>
-        /// Gets or Sets SaleTypeNew
+        /// Type of sale
         /// </summary>
+        /// <value>Type of sale</value>
         [DataMember(Name = "SaleTypeNew", EmitDefaultValue = true)]
         public string SaleTypeNew
         {
@@ -237,8 +240,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagSaleTypeNew;
         }
         /// <summary>
-        /// Gets or Sets UinsureCommissionRate
+        /// Uinsure commission rate
         /// </summary>
+        /// <value>Uinsure commission rate</value>
         [DataMember(Name = "UinsureCommissionRate", EmitDefaultValue = true)]
         public double? UinsureCommissionRate
         {
@@ -261,412 +265,429 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagUinsureCommissionRate;
         }
         /// <summary>
-        /// Gets or Sets UinsureDBApplicationSource
+        /// Application source.
         /// </summary>
-        [DataMember(Name = "UinsureDBApplicationSource", EmitDefaultValue = true)]
-        public string UinsureDBApplicationSource
+        /// <value>Application source.</value>
+        [DataMember(Name = "ApplicationSource", EmitDefaultValue = true)]
+        public string ApplicationSource
         {
-            get{ return _UinsureDBApplicationSource;}
+            get{ return _ApplicationSource;}
             set
             {
-                _UinsureDBApplicationSource = value;
-                _flagUinsureDBApplicationSource = true;
+                _ApplicationSource = value;
+                _flagApplicationSource = true;
             }
         }
-        private string _UinsureDBApplicationSource;
-        private bool _flagUinsureDBApplicationSource;
+        private string _ApplicationSource;
+        private bool _flagApplicationSource;
 
         /// <summary>
-        /// Returns false as UinsureDBApplicationSource should not be serialized given that it's read-only.
+        /// Returns false as ApplicationSource should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUinsureDBApplicationSource()
+        public bool ShouldSerializeApplicationSource()
         {
-            return _flagUinsureDBApplicationSource;
+            return _flagApplicationSource;
         }
         /// <summary>
-        /// Gets or Sets UinsureDBBrokerFirstName
+        /// Broker&#39;s first name.
         /// </summary>
-        [DataMember(Name = "UinsureDBBrokerFirstName", EmitDefaultValue = true)]
-        public string UinsureDBBrokerFirstName
+        /// <value>Broker&#39;s first name.</value>
+        [DataMember(Name = "FirstName", EmitDefaultValue = true)]
+        public string FirstName
         {
-            get{ return _UinsureDBBrokerFirstName;}
+            get{ return _FirstName;}
             set
             {
-                _UinsureDBBrokerFirstName = value;
-                _flagUinsureDBBrokerFirstName = true;
+                _FirstName = value;
+                _flagFirstName = true;
             }
         }
-        private string _UinsureDBBrokerFirstName;
-        private bool _flagUinsureDBBrokerFirstName;
+        private string _FirstName;
+        private bool _flagFirstName;
 
         /// <summary>
-        /// Returns false as UinsureDBBrokerFirstName should not be serialized given that it's read-only.
+        /// Returns false as FirstName should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUinsureDBBrokerFirstName()
+        public bool ShouldSerializeFirstName()
         {
-            return _flagUinsureDBBrokerFirstName;
+            return _flagFirstName;
         }
         /// <summary>
-        /// Gets or Sets UinsureDBBrokerLastName
+        /// Broker&#39;s last name.
         /// </summary>
-        [DataMember(Name = "UinsureDBBrokerLastName", EmitDefaultValue = true)]
-        public string UinsureDBBrokerLastName
+        /// <value>Broker&#39;s last name.</value>
+        [DataMember(Name = "LastName", EmitDefaultValue = true)]
+        public string LastName
         {
-            get{ return _UinsureDBBrokerLastName;}
+            get{ return _LastName;}
             set
             {
-                _UinsureDBBrokerLastName = value;
-                _flagUinsureDBBrokerLastName = true;
+                _LastName = value;
+                _flagLastName = true;
             }
         }
-        private string _UinsureDBBrokerLastName;
-        private bool _flagUinsureDBBrokerLastName;
+        private string _LastName;
+        private bool _flagLastName;
 
         /// <summary>
-        /// Returns false as UinsureDBBrokerLastName should not be serialized given that it's read-only.
+        /// Returns false as LastName should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUinsureDBBrokerLastName()
+        public bool ShouldSerializeLastName()
         {
-            return _flagUinsureDBBrokerLastName;
+            return _flagLastName;
         }
         /// <summary>
-        /// Gets or Sets UinsureDBBrokerFullName
+        /// Broker&#39;s full name.
         /// </summary>
-        [DataMember(Name = "UinsureDBBrokerFullName", EmitDefaultValue = true)]
-        public string UinsureDBBrokerFullName
+        /// <value>Broker&#39;s full name.</value>
+        [DataMember(Name = "FullName", EmitDefaultValue = true)]
+        public string FullName
         {
-            get{ return _UinsureDBBrokerFullName;}
+            get{ return _FullName;}
             set
             {
-                _UinsureDBBrokerFullName = value;
-                _flagUinsureDBBrokerFullName = true;
+                _FullName = value;
+                _flagFullName = true;
             }
         }
-        private string _UinsureDBBrokerFullName;
-        private bool _flagUinsureDBBrokerFullName;
+        private string _FullName;
+        private bool _flagFullName;
 
         /// <summary>
-        /// Returns false as UinsureDBBrokerFullName should not be serialized given that it's read-only.
+        /// Returns false as FullName should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUinsureDBBrokerFullName()
+        public bool ShouldSerializeFullName()
         {
-            return _flagUinsureDBBrokerFullName;
+            return _flagFullName;
         }
         /// <summary>
-        /// Gets or Sets UinsureDBCompanyName
+        /// Company name.
         /// </summary>
-        [DataMember(Name = "UinsureDBCompanyName", EmitDefaultValue = true)]
-        public string UinsureDBCompanyName
+        /// <value>Company name.</value>
+        [DataMember(Name = "CompanyName", EmitDefaultValue = true)]
+        public string CompanyName
         {
-            get{ return _UinsureDBCompanyName;}
+            get{ return _CompanyName;}
             set
             {
-                _UinsureDBCompanyName = value;
-                _flagUinsureDBCompanyName = true;
+                _CompanyName = value;
+                _flagCompanyName = true;
             }
         }
-        private string _UinsureDBCompanyName;
-        private bool _flagUinsureDBCompanyName;
+        private string _CompanyName;
+        private bool _flagCompanyName;
 
         /// <summary>
-        /// Returns false as UinsureDBCompanyName should not be serialized given that it's read-only.
+        /// Returns false as CompanyName should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUinsureDBCompanyName()
+        public bool ShouldSerializeCompanyName()
         {
-            return _flagUinsureDBCompanyName;
+            return _flagCompanyName;
         }
         /// <summary>
-        /// Gets or Sets UinsureDBDistributionGroupName
+        /// Distribution group name.
         /// </summary>
-        [DataMember(Name = "UinsureDBDistributionGroupName", EmitDefaultValue = true)]
-        public string UinsureDBDistributionGroupName
+        /// <value>Distribution group name.</value>
+        [DataMember(Name = "DistributionGroupName", EmitDefaultValue = true)]
+        public string DistributionGroupName
         {
-            get{ return _UinsureDBDistributionGroupName;}
+            get{ return _DistributionGroupName;}
             set
             {
-                _UinsureDBDistributionGroupName = value;
-                _flagUinsureDBDistributionGroupName = true;
+                _DistributionGroupName = value;
+                _flagDistributionGroupName = true;
             }
         }
-        private string _UinsureDBDistributionGroupName;
-        private bool _flagUinsureDBDistributionGroupName;
+        private string _DistributionGroupName;
+        private bool _flagDistributionGroupName;
 
         /// <summary>
-        /// Returns false as UinsureDBDistributionGroupName should not be serialized given that it's read-only.
+        /// Returns false as DistributionGroupName should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUinsureDBDistributionGroupName()
+        public bool ShouldSerializeDistributionGroupName()
         {
-            return _flagUinsureDBDistributionGroupName;
+            return _flagDistributionGroupName;
         }
         /// <summary>
-        /// Gets or Sets UinsureDBDrillDownStatus
+        /// Drilldown status.
         /// </summary>
-        [DataMember(Name = "UinsureDBDrillDownStatus", EmitDefaultValue = true)]
-        public string UinsureDBDrillDownStatus
+        /// <value>Drilldown status.</value>
+        [DataMember(Name = "DrillDownStatus", EmitDefaultValue = true)]
+        public string DrillDownStatus
         {
-            get{ return _UinsureDBDrillDownStatus;}
+            get{ return _DrillDownStatus;}
             set
             {
-                _UinsureDBDrillDownStatus = value;
-                _flagUinsureDBDrillDownStatus = true;
+                _DrillDownStatus = value;
+                _flagDrillDownStatus = true;
             }
         }
-        private string _UinsureDBDrillDownStatus;
-        private bool _flagUinsureDBDrillDownStatus;
+        private string _DrillDownStatus;
+        private bool _flagDrillDownStatus;
 
         /// <summary>
-        /// Returns false as UinsureDBDrillDownStatus should not be serialized given that it's read-only.
+        /// Returns false as DrillDownStatus should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUinsureDBDrillDownStatus()
+        public bool ShouldSerializeDrillDownStatus()
         {
-            return _flagUinsureDBDrillDownStatus;
+            return _flagDrillDownStatus;
         }
         /// <summary>
-        /// Gets or Sets UinsureDBNetworkName
+        /// Network name.
         /// </summary>
-        [DataMember(Name = "UinsureDBNetworkName", EmitDefaultValue = true)]
-        public string UinsureDBNetworkName
+        /// <value>Network name.</value>
+        [DataMember(Name = "NetworkName", EmitDefaultValue = true)]
+        public string NetworkName
         {
-            get{ return _UinsureDBNetworkName;}
+            get{ return _NetworkName;}
             set
             {
-                _UinsureDBNetworkName = value;
-                _flagUinsureDBNetworkName = true;
+                _NetworkName = value;
+                _flagNetworkName = true;
             }
         }
-        private string _UinsureDBNetworkName;
-        private bool _flagUinsureDBNetworkName;
+        private string _NetworkName;
+        private bool _flagNetworkName;
 
         /// <summary>
-        /// Returns false as UinsureDBNetworkName should not be serialized given that it's read-only.
+        /// Returns false as NetworkName should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUinsureDBNetworkName()
+        public bool ShouldSerializeNetworkName()
         {
-            return _flagUinsureDBNetworkName;
+            return _flagNetworkName;
         }
         /// <summary>
-        /// Gets or Sets UinsureDBOriginalBrokerFirstName
+        /// Broker&#39;s original first name.
         /// </summary>
-        [DataMember(Name = "UinsureDBOriginalBrokerFirstName", EmitDefaultValue = true)]
-        public string UinsureDBOriginalBrokerFirstName
+        /// <value>Broker&#39;s original first name.</value>
+        [DataMember(Name = "OriginalFirstName", EmitDefaultValue = true)]
+        public string OriginalFirstName
         {
-            get{ return _UinsureDBOriginalBrokerFirstName;}
+            get{ return _OriginalFirstName;}
             set
             {
-                _UinsureDBOriginalBrokerFirstName = value;
-                _flagUinsureDBOriginalBrokerFirstName = true;
+                _OriginalFirstName = value;
+                _flagOriginalFirstName = true;
             }
         }
-        private string _UinsureDBOriginalBrokerFirstName;
-        private bool _flagUinsureDBOriginalBrokerFirstName;
+        private string _OriginalFirstName;
+        private bool _flagOriginalFirstName;
 
         /// <summary>
-        /// Returns false as UinsureDBOriginalBrokerFirstName should not be serialized given that it's read-only.
+        /// Returns false as OriginalFirstName should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUinsureDBOriginalBrokerFirstName()
+        public bool ShouldSerializeOriginalFirstName()
         {
-            return _flagUinsureDBOriginalBrokerFirstName;
+            return _flagOriginalFirstName;
         }
         /// <summary>
-        /// Gets or Sets UinsureDBOriginalBrokerLastName
+        /// Broker&#39;s original last name.
         /// </summary>
-        [DataMember(Name = "UinsureDBOriginalBrokerLastName", EmitDefaultValue = true)]
-        public string UinsureDBOriginalBrokerLastName
+        /// <value>Broker&#39;s original last name.</value>
+        [DataMember(Name = "OriginalLastName", EmitDefaultValue = true)]
+        public string OriginalLastName
         {
-            get{ return _UinsureDBOriginalBrokerLastName;}
+            get{ return _OriginalLastName;}
             set
             {
-                _UinsureDBOriginalBrokerLastName = value;
-                _flagUinsureDBOriginalBrokerLastName = true;
+                _OriginalLastName = value;
+                _flagOriginalLastName = true;
             }
         }
-        private string _UinsureDBOriginalBrokerLastName;
-        private bool _flagUinsureDBOriginalBrokerLastName;
+        private string _OriginalLastName;
+        private bool _flagOriginalLastName;
 
         /// <summary>
-        /// Returns false as UinsureDBOriginalBrokerLastName should not be serialized given that it's read-only.
+        /// Returns false as OriginalLastName should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUinsureDBOriginalBrokerLastName()
+        public bool ShouldSerializeOriginalLastName()
         {
-            return _flagUinsureDBOriginalBrokerLastName;
+            return _flagOriginalLastName;
         }
         /// <summary>
-        /// Gets or Sets UinsureDBOriginalBrokerFullName
+        /// Broker&#39;s original full name.
         /// </summary>
-        [DataMember(Name = "UinsureDBOriginalBrokerFullName", EmitDefaultValue = true)]
-        public string UinsureDBOriginalBrokerFullName
+        /// <value>Broker&#39;s original full name.</value>
+        [DataMember(Name = "OriginalFullName", EmitDefaultValue = true)]
+        public string OriginalFullName
         {
-            get{ return _UinsureDBOriginalBrokerFullName;}
+            get{ return _OriginalFullName;}
             set
             {
-                _UinsureDBOriginalBrokerFullName = value;
-                _flagUinsureDBOriginalBrokerFullName = true;
+                _OriginalFullName = value;
+                _flagOriginalFullName = true;
             }
         }
-        private string _UinsureDBOriginalBrokerFullName;
-        private bool _flagUinsureDBOriginalBrokerFullName;
+        private string _OriginalFullName;
+        private bool _flagOriginalFullName;
 
         /// <summary>
-        /// Returns false as UinsureDBOriginalBrokerFullName should not be serialized given that it's read-only.
+        /// Returns false as OriginalFullName should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUinsureDBOriginalBrokerFullName()
+        public bool ShouldSerializeOriginalFullName()
         {
-            return _flagUinsureDBOriginalBrokerFullName;
+            return _flagOriginalFullName;
         }
         /// <summary>
-        /// Gets or Sets UinsureDBOriginalCompanyName
+        /// Broker&#39;s original company name.
         /// </summary>
-        [DataMember(Name = "UinsureDBOriginalCompanyName", EmitDefaultValue = true)]
-        public string UinsureDBOriginalCompanyName
+        /// <value>Broker&#39;s original company name.</value>
+        [DataMember(Name = "OriginalCompanyName", EmitDefaultValue = true)]
+        public string OriginalCompanyName
         {
-            get{ return _UinsureDBOriginalCompanyName;}
+            get{ return _OriginalCompanyName;}
             set
             {
-                _UinsureDBOriginalCompanyName = value;
-                _flagUinsureDBOriginalCompanyName = true;
+                _OriginalCompanyName = value;
+                _flagOriginalCompanyName = true;
             }
         }
-        private string _UinsureDBOriginalCompanyName;
-        private bool _flagUinsureDBOriginalCompanyName;
+        private string _OriginalCompanyName;
+        private bool _flagOriginalCompanyName;
 
         /// <summary>
-        /// Returns false as UinsureDBOriginalCompanyName should not be serialized given that it's read-only.
+        /// Returns false as OriginalCompanyName should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUinsureDBOriginalCompanyName()
+        public bool ShouldSerializeOriginalCompanyName()
         {
-            return _flagUinsureDBOriginalCompanyName;
+            return _flagOriginalCompanyName;
         }
         /// <summary>
-        /// Gets or Sets UinsureDBOriginalDistributionGroupName
+        /// Broker&#39;s original distribution group name.
         /// </summary>
-        [DataMember(Name = "UinsureDBOriginalDistributionGroupName", EmitDefaultValue = true)]
-        public string UinsureDBOriginalDistributionGroupName
+        /// <value>Broker&#39;s original distribution group name.</value>
+        [DataMember(Name = "OriginalDistributionGroupName", EmitDefaultValue = true)]
+        public string OriginalDistributionGroupName
         {
-            get{ return _UinsureDBOriginalDistributionGroupName;}
+            get{ return _OriginalDistributionGroupName;}
             set
             {
-                _UinsureDBOriginalDistributionGroupName = value;
-                _flagUinsureDBOriginalDistributionGroupName = true;
+                _OriginalDistributionGroupName = value;
+                _flagOriginalDistributionGroupName = true;
             }
         }
-        private string _UinsureDBOriginalDistributionGroupName;
-        private bool _flagUinsureDBOriginalDistributionGroupName;
+        private string _OriginalDistributionGroupName;
+        private bool _flagOriginalDistributionGroupName;
 
         /// <summary>
-        /// Returns false as UinsureDBOriginalDistributionGroupName should not be serialized given that it's read-only.
+        /// Returns false as OriginalDistributionGroupName should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUinsureDBOriginalDistributionGroupName()
+        public bool ShouldSerializeOriginalDistributionGroupName()
         {
-            return _flagUinsureDBOriginalDistributionGroupName;
+            return _flagOriginalDistributionGroupName;
         }
         /// <summary>
-        /// Gets or Sets UinsureDBOriginalNetworkName
+        /// Original network name.
         /// </summary>
-        [DataMember(Name = "UinsureDBOriginalNetworkName", EmitDefaultValue = true)]
-        public string UinsureDBOriginalNetworkName
+        /// <value>Original network name.</value>
+        [DataMember(Name = "OriginalNetworkName", EmitDefaultValue = true)]
+        public string OriginalNetworkName
         {
-            get{ return _UinsureDBOriginalNetworkName;}
+            get{ return _OriginalNetworkName;}
             set
             {
-                _UinsureDBOriginalNetworkName = value;
-                _flagUinsureDBOriginalNetworkName = true;
+                _OriginalNetworkName = value;
+                _flagOriginalNetworkName = true;
             }
         }
-        private string _UinsureDBOriginalNetworkName;
-        private bool _flagUinsureDBOriginalNetworkName;
+        private string _OriginalNetworkName;
+        private bool _flagOriginalNetworkName;
 
         /// <summary>
-        /// Returns false as UinsureDBOriginalNetworkName should not be serialized given that it's read-only.
+        /// Returns false as OriginalNetworkName should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUinsureDBOriginalNetworkName()
+        public bool ShouldSerializeOriginalNetworkName()
         {
-            return _flagUinsureDBOriginalNetworkName;
+            return _flagOriginalNetworkName;
         }
         /// <summary>
-        /// Gets or Sets UinsureDBOriginalPolicyNumber
+        /// Policy number.
         /// </summary>
-        [DataMember(Name = "UinsureDBOriginalPolicyNumber", EmitDefaultValue = true)]
-        public string UinsureDBOriginalPolicyNumber
+        /// <value>Policy number.</value>
+        [DataMember(Name = "OriginalPolicyNumber", EmitDefaultValue = true)]
+        public string OriginalPolicyNumber
         {
-            get{ return _UinsureDBOriginalPolicyNumber;}
+            get{ return _OriginalPolicyNumber;}
             set
             {
-                _UinsureDBOriginalPolicyNumber = value;
-                _flagUinsureDBOriginalPolicyNumber = true;
+                _OriginalPolicyNumber = value;
+                _flagOriginalPolicyNumber = true;
             }
         }
-        private string _UinsureDBOriginalPolicyNumber;
-        private bool _flagUinsureDBOriginalPolicyNumber;
+        private string _OriginalPolicyNumber;
+        private bool _flagOriginalPolicyNumber;
 
         /// <summary>
-        /// Returns false as UinsureDBOriginalPolicyNumber should not be serialized given that it's read-only.
+        /// Returns false as OriginalPolicyNumber should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUinsureDBOriginalPolicyNumber()
+        public bool ShouldSerializeOriginalPolicyNumber()
         {
-            return _flagUinsureDBOriginalPolicyNumber;
+            return _flagOriginalPolicyNumber;
         }
         /// <summary>
-        /// Gets or Sets UinsureDBSaleType
+        /// Type of sale.
         /// </summary>
-        [DataMember(Name = "UinsureDBSaleType", EmitDefaultValue = true)]
-        public string UinsureDBSaleType
+        /// <value>Type of sale.</value>
+        [DataMember(Name = "SaleType", EmitDefaultValue = true)]
+        public string SaleType
         {
-            get{ return _UinsureDBSaleType;}
+            get{ return _SaleType;}
             set
             {
-                _UinsureDBSaleType = value;
-                _flagUinsureDBSaleType = true;
+                _SaleType = value;
+                _flagSaleType = true;
             }
         }
-        private string _UinsureDBSaleType;
-        private bool _flagUinsureDBSaleType;
+        private string _SaleType;
+        private bool _flagSaleType;
 
         /// <summary>
-        /// Returns false as UinsureDBSaleType should not be serialized given that it's read-only.
+        /// Returns false as SaleType should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUinsureDBSaleType()
+        public bool ShouldSerializeSaleType()
         {
-            return _flagUinsureDBSaleType;
+            return _flagSaleType;
         }
         /// <summary>
-        /// Gets or Sets UinsureDBSource
+        /// Source.
         /// </summary>
-        [DataMember(Name = "UinsureDBSource", EmitDefaultValue = true)]
-        public string UinsureDBSource
+        /// <value>Source.</value>
+        [DataMember(Name = "Source", EmitDefaultValue = true)]
+        public string Source
         {
-            get{ return _UinsureDBSource;}
+            get{ return _Source;}
             set
             {
-                _UinsureDBSource = value;
-                _flagUinsureDBSource = true;
+                _Source = value;
+                _flagSource = true;
             }
         }
-        private string _UinsureDBSource;
-        private bool _flagUinsureDBSource;
+        private string _Source;
+        private bool _flagSource;
 
         /// <summary>
-        /// Returns false as UinsureDBSource should not be serialized given that it's read-only.
+        /// Returns false as Source should not be serialized given that it's read-only.
         /// </summary>
         /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeUinsureDBSource()
+        public bool ShouldSerializeSource()
         {
-            return _flagUinsureDBSource;
+            return _flagSource;
         }
         /// <summary>
         /// Returns the string presentation of the object
@@ -680,23 +701,23 @@ namespace Uinsure.CustomerPortal.Client.Model
             sb.Append("  NetworkCommissionRate: ").Append(NetworkCommissionRate).Append("\n");
             sb.Append("  SaleTypeNew: ").Append(SaleTypeNew).Append("\n");
             sb.Append("  UinsureCommissionRate: ").Append(UinsureCommissionRate).Append("\n");
-            sb.Append("  UinsureDBApplicationSource: ").Append(UinsureDBApplicationSource).Append("\n");
-            sb.Append("  UinsureDBBrokerFirstName: ").Append(UinsureDBBrokerFirstName).Append("\n");
-            sb.Append("  UinsureDBBrokerLastName: ").Append(UinsureDBBrokerLastName).Append("\n");
-            sb.Append("  UinsureDBBrokerFullName: ").Append(UinsureDBBrokerFullName).Append("\n");
-            sb.Append("  UinsureDBCompanyName: ").Append(UinsureDBCompanyName).Append("\n");
-            sb.Append("  UinsureDBDistributionGroupName: ").Append(UinsureDBDistributionGroupName).Append("\n");
-            sb.Append("  UinsureDBDrillDownStatus: ").Append(UinsureDBDrillDownStatus).Append("\n");
-            sb.Append("  UinsureDBNetworkName: ").Append(UinsureDBNetworkName).Append("\n");
-            sb.Append("  UinsureDBOriginalBrokerFirstName: ").Append(UinsureDBOriginalBrokerFirstName).Append("\n");
-            sb.Append("  UinsureDBOriginalBrokerLastName: ").Append(UinsureDBOriginalBrokerLastName).Append("\n");
-            sb.Append("  UinsureDBOriginalBrokerFullName: ").Append(UinsureDBOriginalBrokerFullName).Append("\n");
-            sb.Append("  UinsureDBOriginalCompanyName: ").Append(UinsureDBOriginalCompanyName).Append("\n");
-            sb.Append("  UinsureDBOriginalDistributionGroupName: ").Append(UinsureDBOriginalDistributionGroupName).Append("\n");
-            sb.Append("  UinsureDBOriginalNetworkName: ").Append(UinsureDBOriginalNetworkName).Append("\n");
-            sb.Append("  UinsureDBOriginalPolicyNumber: ").Append(UinsureDBOriginalPolicyNumber).Append("\n");
-            sb.Append("  UinsureDBSaleType: ").Append(UinsureDBSaleType).Append("\n");
-            sb.Append("  UinsureDBSource: ").Append(UinsureDBSource).Append("\n");
+            sb.Append("  ApplicationSource: ").Append(ApplicationSource).Append("\n");
+            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+            sb.Append("  LastName: ").Append(LastName).Append("\n");
+            sb.Append("  FullName: ").Append(FullName).Append("\n");
+            sb.Append("  CompanyName: ").Append(CompanyName).Append("\n");
+            sb.Append("  DistributionGroupName: ").Append(DistributionGroupName).Append("\n");
+            sb.Append("  DrillDownStatus: ").Append(DrillDownStatus).Append("\n");
+            sb.Append("  NetworkName: ").Append(NetworkName).Append("\n");
+            sb.Append("  OriginalFirstName: ").Append(OriginalFirstName).Append("\n");
+            sb.Append("  OriginalLastName: ").Append(OriginalLastName).Append("\n");
+            sb.Append("  OriginalFullName: ").Append(OriginalFullName).Append("\n");
+            sb.Append("  OriginalCompanyName: ").Append(OriginalCompanyName).Append("\n");
+            sb.Append("  OriginalDistributionGroupName: ").Append(OriginalDistributionGroupName).Append("\n");
+            sb.Append("  OriginalNetworkName: ").Append(OriginalNetworkName).Append("\n");
+            sb.Append("  OriginalPolicyNumber: ").Append(OriginalPolicyNumber).Append("\n");
+            sb.Append("  SaleType: ").Append(SaleType).Append("\n");
+            sb.Append("  Source: ").Append(Source).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -753,89 +774,89 @@ namespace Uinsure.CustomerPortal.Client.Model
                     this.UinsureCommissionRate.Equals(input.UinsureCommissionRate))
                 ) && 
                 (
-                    this.UinsureDBApplicationSource == input.UinsureDBApplicationSource ||
-                    (this.UinsureDBApplicationSource != null &&
-                    this.UinsureDBApplicationSource.Equals(input.UinsureDBApplicationSource))
+                    this.ApplicationSource == input.ApplicationSource ||
+                    (this.ApplicationSource != null &&
+                    this.ApplicationSource.Equals(input.ApplicationSource))
                 ) && 
                 (
-                    this.UinsureDBBrokerFirstName == input.UinsureDBBrokerFirstName ||
-                    (this.UinsureDBBrokerFirstName != null &&
-                    this.UinsureDBBrokerFirstName.Equals(input.UinsureDBBrokerFirstName))
+                    this.FirstName == input.FirstName ||
+                    (this.FirstName != null &&
+                    this.FirstName.Equals(input.FirstName))
                 ) && 
                 (
-                    this.UinsureDBBrokerLastName == input.UinsureDBBrokerLastName ||
-                    (this.UinsureDBBrokerLastName != null &&
-                    this.UinsureDBBrokerLastName.Equals(input.UinsureDBBrokerLastName))
+                    this.LastName == input.LastName ||
+                    (this.LastName != null &&
+                    this.LastName.Equals(input.LastName))
                 ) && 
                 (
-                    this.UinsureDBBrokerFullName == input.UinsureDBBrokerFullName ||
-                    (this.UinsureDBBrokerFullName != null &&
-                    this.UinsureDBBrokerFullName.Equals(input.UinsureDBBrokerFullName))
+                    this.FullName == input.FullName ||
+                    (this.FullName != null &&
+                    this.FullName.Equals(input.FullName))
                 ) && 
                 (
-                    this.UinsureDBCompanyName == input.UinsureDBCompanyName ||
-                    (this.UinsureDBCompanyName != null &&
-                    this.UinsureDBCompanyName.Equals(input.UinsureDBCompanyName))
+                    this.CompanyName == input.CompanyName ||
+                    (this.CompanyName != null &&
+                    this.CompanyName.Equals(input.CompanyName))
                 ) && 
                 (
-                    this.UinsureDBDistributionGroupName == input.UinsureDBDistributionGroupName ||
-                    (this.UinsureDBDistributionGroupName != null &&
-                    this.UinsureDBDistributionGroupName.Equals(input.UinsureDBDistributionGroupName))
+                    this.DistributionGroupName == input.DistributionGroupName ||
+                    (this.DistributionGroupName != null &&
+                    this.DistributionGroupName.Equals(input.DistributionGroupName))
                 ) && 
                 (
-                    this.UinsureDBDrillDownStatus == input.UinsureDBDrillDownStatus ||
-                    (this.UinsureDBDrillDownStatus != null &&
-                    this.UinsureDBDrillDownStatus.Equals(input.UinsureDBDrillDownStatus))
+                    this.DrillDownStatus == input.DrillDownStatus ||
+                    (this.DrillDownStatus != null &&
+                    this.DrillDownStatus.Equals(input.DrillDownStatus))
                 ) && 
                 (
-                    this.UinsureDBNetworkName == input.UinsureDBNetworkName ||
-                    (this.UinsureDBNetworkName != null &&
-                    this.UinsureDBNetworkName.Equals(input.UinsureDBNetworkName))
+                    this.NetworkName == input.NetworkName ||
+                    (this.NetworkName != null &&
+                    this.NetworkName.Equals(input.NetworkName))
                 ) && 
                 (
-                    this.UinsureDBOriginalBrokerFirstName == input.UinsureDBOriginalBrokerFirstName ||
-                    (this.UinsureDBOriginalBrokerFirstName != null &&
-                    this.UinsureDBOriginalBrokerFirstName.Equals(input.UinsureDBOriginalBrokerFirstName))
+                    this.OriginalFirstName == input.OriginalFirstName ||
+                    (this.OriginalFirstName != null &&
+                    this.OriginalFirstName.Equals(input.OriginalFirstName))
                 ) && 
                 (
-                    this.UinsureDBOriginalBrokerLastName == input.UinsureDBOriginalBrokerLastName ||
-                    (this.UinsureDBOriginalBrokerLastName != null &&
-                    this.UinsureDBOriginalBrokerLastName.Equals(input.UinsureDBOriginalBrokerLastName))
+                    this.OriginalLastName == input.OriginalLastName ||
+                    (this.OriginalLastName != null &&
+                    this.OriginalLastName.Equals(input.OriginalLastName))
                 ) && 
                 (
-                    this.UinsureDBOriginalBrokerFullName == input.UinsureDBOriginalBrokerFullName ||
-                    (this.UinsureDBOriginalBrokerFullName != null &&
-                    this.UinsureDBOriginalBrokerFullName.Equals(input.UinsureDBOriginalBrokerFullName))
+                    this.OriginalFullName == input.OriginalFullName ||
+                    (this.OriginalFullName != null &&
+                    this.OriginalFullName.Equals(input.OriginalFullName))
                 ) && 
                 (
-                    this.UinsureDBOriginalCompanyName == input.UinsureDBOriginalCompanyName ||
-                    (this.UinsureDBOriginalCompanyName != null &&
-                    this.UinsureDBOriginalCompanyName.Equals(input.UinsureDBOriginalCompanyName))
+                    this.OriginalCompanyName == input.OriginalCompanyName ||
+                    (this.OriginalCompanyName != null &&
+                    this.OriginalCompanyName.Equals(input.OriginalCompanyName))
                 ) && 
                 (
-                    this.UinsureDBOriginalDistributionGroupName == input.UinsureDBOriginalDistributionGroupName ||
-                    (this.UinsureDBOriginalDistributionGroupName != null &&
-                    this.UinsureDBOriginalDistributionGroupName.Equals(input.UinsureDBOriginalDistributionGroupName))
+                    this.OriginalDistributionGroupName == input.OriginalDistributionGroupName ||
+                    (this.OriginalDistributionGroupName != null &&
+                    this.OriginalDistributionGroupName.Equals(input.OriginalDistributionGroupName))
                 ) && 
                 (
-                    this.UinsureDBOriginalNetworkName == input.UinsureDBOriginalNetworkName ||
-                    (this.UinsureDBOriginalNetworkName != null &&
-                    this.UinsureDBOriginalNetworkName.Equals(input.UinsureDBOriginalNetworkName))
+                    this.OriginalNetworkName == input.OriginalNetworkName ||
+                    (this.OriginalNetworkName != null &&
+                    this.OriginalNetworkName.Equals(input.OriginalNetworkName))
                 ) && 
                 (
-                    this.UinsureDBOriginalPolicyNumber == input.UinsureDBOriginalPolicyNumber ||
-                    (this.UinsureDBOriginalPolicyNumber != null &&
-                    this.UinsureDBOriginalPolicyNumber.Equals(input.UinsureDBOriginalPolicyNumber))
+                    this.OriginalPolicyNumber == input.OriginalPolicyNumber ||
+                    (this.OriginalPolicyNumber != null &&
+                    this.OriginalPolicyNumber.Equals(input.OriginalPolicyNumber))
                 ) && 
                 (
-                    this.UinsureDBSaleType == input.UinsureDBSaleType ||
-                    (this.UinsureDBSaleType != null &&
-                    this.UinsureDBSaleType.Equals(input.UinsureDBSaleType))
+                    this.SaleType == input.SaleType ||
+                    (this.SaleType != null &&
+                    this.SaleType.Equals(input.SaleType))
                 ) && 
                 (
-                    this.UinsureDBSource == input.UinsureDBSource ||
-                    (this.UinsureDBSource != null &&
-                    this.UinsureDBSource.Equals(input.UinsureDBSource))
+                    this.Source == input.Source ||
+                    (this.Source != null &&
+                    this.Source.Equals(input.Source))
                 );
         }
 
@@ -864,73 +885,73 @@ namespace Uinsure.CustomerPortal.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.UinsureCommissionRate.GetHashCode();
                 }
-                if (this.UinsureDBApplicationSource != null)
+                if (this.ApplicationSource != null)
                 {
-                    hashCode = (hashCode * 59) + this.UinsureDBApplicationSource.GetHashCode();
+                    hashCode = (hashCode * 59) + this.ApplicationSource.GetHashCode();
                 }
-                if (this.UinsureDBBrokerFirstName != null)
+                if (this.FirstName != null)
                 {
-                    hashCode = (hashCode * 59) + this.UinsureDBBrokerFirstName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.FirstName.GetHashCode();
                 }
-                if (this.UinsureDBBrokerLastName != null)
+                if (this.LastName != null)
                 {
-                    hashCode = (hashCode * 59) + this.UinsureDBBrokerLastName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.LastName.GetHashCode();
                 }
-                if (this.UinsureDBBrokerFullName != null)
+                if (this.FullName != null)
                 {
-                    hashCode = (hashCode * 59) + this.UinsureDBBrokerFullName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.FullName.GetHashCode();
                 }
-                if (this.UinsureDBCompanyName != null)
+                if (this.CompanyName != null)
                 {
-                    hashCode = (hashCode * 59) + this.UinsureDBCompanyName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.CompanyName.GetHashCode();
                 }
-                if (this.UinsureDBDistributionGroupName != null)
+                if (this.DistributionGroupName != null)
                 {
-                    hashCode = (hashCode * 59) + this.UinsureDBDistributionGroupName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DistributionGroupName.GetHashCode();
                 }
-                if (this.UinsureDBDrillDownStatus != null)
+                if (this.DrillDownStatus != null)
                 {
-                    hashCode = (hashCode * 59) + this.UinsureDBDrillDownStatus.GetHashCode();
+                    hashCode = (hashCode * 59) + this.DrillDownStatus.GetHashCode();
                 }
-                if (this.UinsureDBNetworkName != null)
+                if (this.NetworkName != null)
                 {
-                    hashCode = (hashCode * 59) + this.UinsureDBNetworkName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.NetworkName.GetHashCode();
                 }
-                if (this.UinsureDBOriginalBrokerFirstName != null)
+                if (this.OriginalFirstName != null)
                 {
-                    hashCode = (hashCode * 59) + this.UinsureDBOriginalBrokerFirstName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.OriginalFirstName.GetHashCode();
                 }
-                if (this.UinsureDBOriginalBrokerLastName != null)
+                if (this.OriginalLastName != null)
                 {
-                    hashCode = (hashCode * 59) + this.UinsureDBOriginalBrokerLastName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.OriginalLastName.GetHashCode();
                 }
-                if (this.UinsureDBOriginalBrokerFullName != null)
+                if (this.OriginalFullName != null)
                 {
-                    hashCode = (hashCode * 59) + this.UinsureDBOriginalBrokerFullName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.OriginalFullName.GetHashCode();
                 }
-                if (this.UinsureDBOriginalCompanyName != null)
+                if (this.OriginalCompanyName != null)
                 {
-                    hashCode = (hashCode * 59) + this.UinsureDBOriginalCompanyName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.OriginalCompanyName.GetHashCode();
                 }
-                if (this.UinsureDBOriginalDistributionGroupName != null)
+                if (this.OriginalDistributionGroupName != null)
                 {
-                    hashCode = (hashCode * 59) + this.UinsureDBOriginalDistributionGroupName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.OriginalDistributionGroupName.GetHashCode();
                 }
-                if (this.UinsureDBOriginalNetworkName != null)
+                if (this.OriginalNetworkName != null)
                 {
-                    hashCode = (hashCode * 59) + this.UinsureDBOriginalNetworkName.GetHashCode();
+                    hashCode = (hashCode * 59) + this.OriginalNetworkName.GetHashCode();
                 }
-                if (this.UinsureDBOriginalPolicyNumber != null)
+                if (this.OriginalPolicyNumber != null)
                 {
-                    hashCode = (hashCode * 59) + this.UinsureDBOriginalPolicyNumber.GetHashCode();
+                    hashCode = (hashCode * 59) + this.OriginalPolicyNumber.GetHashCode();
                 }
-                if (this.UinsureDBSaleType != null)
+                if (this.SaleType != null)
                 {
-                    hashCode = (hashCode * 59) + this.UinsureDBSaleType.GetHashCode();
+                    hashCode = (hashCode * 59) + this.SaleType.GetHashCode();
                 }
-                if (this.UinsureDBSource != null)
+                if (this.Source != null)
                 {
-                    hashCode = (hashCode * 59) + this.UinsureDBSource.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Source.GetHashCode();
                 }
                 return hashCode;
             }
