@@ -488,6 +488,7 @@ components:
       additionalProperties: false
       description: DTO containing a details relating to a single claim
       example:
+        ClaimTypeDescription: ClaimTypeDescription
         IncludeInClaimsCalculation: true
         ClaimStatus: ClaimStatus
         DetailedStatus: DetailedStatus
@@ -525,6 +526,10 @@ components:
           description: Type of claim
           nullable: true
           type: string
+        ClaimTypeDescription:
+          description: Description of the type of claim
+          nullable: true
+          type: string
         DetailedStatus:
           description: Detailed status of the claim
           nullable: true
@@ -558,7 +563,8 @@ components:
         SubsidenceClaims: 0
         LastContentsClaimDate: 2000-01-23T04:56:07.000+00:00
         History:
-        - IncludeInClaimsCalculation: true
+        - ClaimTypeDescription: ClaimTypeDescription
+          IncludeInClaimsCalculation: true
           ClaimStatus: ClaimStatus
           DetailedStatus: DetailedStatus
           InsurerName: InsurerName
@@ -569,7 +575,8 @@ components:
           ClaimSection: ClaimSection
           LossDescription: LossDescription
           ClaimType: ClaimType
-        - IncludeInClaimsCalculation: true
+        - ClaimTypeDescription: ClaimTypeDescription
+          IncludeInClaimsCalculation: true
           ClaimStatus: ClaimStatus
           DetailedStatus: DetailedStatus
           InsurerName: InsurerName
@@ -736,6 +743,7 @@ components:
           BuildingsExcess: 6.027456183070403
           BuildingsNcdNextRenewal: 3
           ContentsNoClaimYears: 2
+        ConfirmedRelatedApplicant1: ConfirmedRelatedApplicant1
         UnderwriterName: UnderwriterName
         Issues:
           DataQualityIssueFlag: true
@@ -753,6 +761,7 @@ components:
           MonthlyPayments: true
           PremiumFunded: true
           InsurancePremium: 3.5571952270680973
+        ConfirmedRelatedPolicies: ConfirmedRelatedPolicies
         Renewal:
           FirstBounceDateTime: 2000-01-23T04:56:07.000+00:00
           PackSentEmailAddress: PackSentEmailAddress
@@ -767,6 +776,9 @@ components:
         PolicyNumbersPossiblyRelatedByRiskAddress:
         - PolicyNumbersPossiblyRelatedByRiskAddress
         - PolicyNumbersPossiblyRelatedByRiskAddress
+        PolicyNumbersConfirmedRelatedByRiskAddress:
+        - PolicyNumbersConfirmedRelatedByRiskAddress
+        - PolicyNumbersConfirmedRelatedByRiskAddress
         CompanyName: CompanyName
         PossiblyRelatedPolicies: PossiblyRelatedPolicies
         Ancillaries:
@@ -853,7 +865,8 @@ components:
           SubsidenceClaims: 0
           LastContentsClaimDate: 2000-01-23T04:56:07.000+00:00
           History:
-          - IncludeInClaimsCalculation: true
+          - ClaimTypeDescription: ClaimTypeDescription
+            IncludeInClaimsCalculation: true
             ClaimStatus: ClaimStatus
             DetailedStatus: DetailedStatus
             InsurerName: InsurerName
@@ -864,7 +877,8 @@ components:
             ClaimSection: ClaimSection
             LossDescription: LossDescription
             ClaimType: ClaimType
-          - IncludeInClaimsCalculation: true
+          - ClaimTypeDescription: ClaimTypeDescription
+            IncludeInClaimsCalculation: true
             ClaimStatus: ClaimStatus
             DetailedStatus: DetailedStatus
             InsurerName: InsurerName
@@ -891,6 +905,9 @@ components:
           CoverAwayFromHome: true
           Description: Description
           Value: 6
+        PolicyNumbersConfirmedRelatedByApplicant1:
+        - PolicyNumbersConfirmedRelatedByApplicant1
+        - PolicyNumbersConfirmedRelatedByApplicant1
         PolicyEndDate: 2000-01-23T04:56:07.000+00:00
         CoverTypeName: CoverTypeName
         ProductTypeName: ProductTypeName
@@ -949,6 +966,19 @@ components:
             type: string
           nullable: true
           type: array
+        ConfirmedRelatedPolicies:
+          deprecated: true
+          description: The original pipe-delimited string of policy numbers that is
+            confirmed to be related by risk address. See Uinsure.CustomerPortal.API.Controllers.Admin.ResponseContracts.GetPolicyDetailsResponse.PolicyNumbersPossiblyRelatedByRiskAddress.
+          nullable: true
+          type: string
+        PolicyNumbersConfirmedRelatedByRiskAddress:
+          description: A collection of policy numbers that is confirmed to be related
+            to this policy.
+          items:
+            type: string
+          nullable: true
+          type: array
         PossiblyRelatedApplicant1:
           deprecated: true
           description: The original pipe-delimited string of policy numbers possibly
@@ -958,6 +988,19 @@ components:
         PolicyNumbersPossiblyRelatedByApplicant1:
           description: A collection of policy numbers where the policyholder may be
             related to this policy.
+          items:
+            type: string
+          nullable: true
+          type: array
+        ConfirmedRelatedApplicant1:
+          deprecated: true
+          description: The original pipe-delimited string of policy numbers confirmed
+            to be related by applicant 1. See Uinsure.CustomerPortal.API.Controllers.Admin.ResponseContracts.GetPolicyDetailsResponse.PolicyNumbersPossiblyRelatedByApplicant1.
+          nullable: true
+          type: string
+        PolicyNumbersConfirmedRelatedByApplicant1:
+          description: A collection of policy numbers where the policyholder is confirmed
+            to be related to this policy.
           items:
             type: string
           nullable: true

@@ -44,8 +44,12 @@ namespace Uinsure.CustomerPortal.Client.Model
         /// <param name="provider">Provider name..</param>
         /// <param name="possiblyRelatedPolicies">The original pipe-delimited string of policy numbers possibly related by risk address. See Uinsure.CustomerPortal.API.Controllers.Admin.ResponseContracts.GetPolicyDetailsResponse.PolicyNumbersPossiblyRelatedByRiskAddress..</param>
         /// <param name="policyNumbersPossiblyRelatedByRiskAddress">A collection of policy numbers that may be related to this policy..</param>
+        /// <param name="confirmedRelatedPolicies">The original pipe-delimited string of policy numbers that is confirmed to be related by risk address. See Uinsure.CustomerPortal.API.Controllers.Admin.ResponseContracts.GetPolicyDetailsResponse.PolicyNumbersPossiblyRelatedByRiskAddress..</param>
+        /// <param name="policyNumbersConfirmedRelatedByRiskAddress">A collection of policy numbers that is confirmed to be related to this policy..</param>
         /// <param name="possiblyRelatedApplicant1">The original pipe-delimited string of policy numbers possibly related by applicant 1. See Uinsure.CustomerPortal.API.Controllers.Admin.ResponseContracts.GetPolicyDetailsResponse.PolicyNumbersPossiblyRelatedByApplicant1..</param>
         /// <param name="policyNumbersPossiblyRelatedByApplicant1">A collection of policy numbers where the policyholder may be related to this policy..</param>
+        /// <param name="confirmedRelatedApplicant1">The original pipe-delimited string of policy numbers confirmed to be related by applicant 1. See Uinsure.CustomerPortal.API.Controllers.Admin.ResponseContracts.GetPolicyDetailsResponse.PolicyNumbersPossiblyRelatedByApplicant1..</param>
+        /// <param name="policyNumbersConfirmedRelatedByApplicant1">A collection of policy numbers where the policyholder is confirmed to be related to this policy..</param>
         /// <param name="companyName">BTL/Landlords - Company name of a Let property is insured in a company name..</param>
         /// <param name="policyStatus">Policy status..</param>
         /// <param name="policyholder">policyholder.</param>
@@ -59,7 +63,7 @@ namespace Uinsure.CustomerPortal.Client.Model
         /// <param name="specifiedItems">High-value specified items covered on this policy..</param>
         /// <param name="endorsements">Endorsements that apply to this policy..</param>
         /// <param name="claims">claims.</param>
-        public GetPolicyDetailsResponse(string policyNumber = default(string), string accountReference = default(string), DateTime? policyStartDate = default(DateTime?), DateTime? policyEndDate = default(DateTime?), string underwriterName = default(string), string coverTypeName = default(string), string productTypeName = default(string), string provider = default(string), string possiblyRelatedPolicies = default(string), List<string> policyNumbersPossiblyRelatedByRiskAddress = default(List<string>), string possiblyRelatedApplicant1 = default(string), List<string> policyNumbersPossiblyRelatedByApplicant1 = default(List<string>), string companyName = default(string), string policyStatus = default(string), Policyholder policyholder = default(Policyholder), PolicyCover policy = default(PolicyCover), RiskProperty property = default(RiskProperty), PolicyIssue issues = default(PolicyIssue), Ancillaries ancillaries = default(Ancillaries), BrokerDetails broker = default(BrokerDetails), PolicyRenewalDetails renewal = default(PolicyRenewalDetails), PaymentDetails payments = default(PaymentDetails), List<SpecifiedItem> specifiedItems = default(List<SpecifiedItem>), List<Endorsement> endorsements = default(List<Endorsement>), ClaimsSummary claims = default(ClaimsSummary))
+        public GetPolicyDetailsResponse(string policyNumber = default(string), string accountReference = default(string), DateTime? policyStartDate = default(DateTime?), DateTime? policyEndDate = default(DateTime?), string underwriterName = default(string), string coverTypeName = default(string), string productTypeName = default(string), string provider = default(string), string possiblyRelatedPolicies = default(string), List<string> policyNumbersPossiblyRelatedByRiskAddress = default(List<string>), string confirmedRelatedPolicies = default(string), List<string> policyNumbersConfirmedRelatedByRiskAddress = default(List<string>), string possiblyRelatedApplicant1 = default(string), List<string> policyNumbersPossiblyRelatedByApplicant1 = default(List<string>), string confirmedRelatedApplicant1 = default(string), List<string> policyNumbersConfirmedRelatedByApplicant1 = default(List<string>), string companyName = default(string), string policyStatus = default(string), Policyholder policyholder = default(Policyholder), PolicyCover policy = default(PolicyCover), RiskProperty property = default(RiskProperty), PolicyIssue issues = default(PolicyIssue), Ancillaries ancillaries = default(Ancillaries), BrokerDetails broker = default(BrokerDetails), PolicyRenewalDetails renewal = default(PolicyRenewalDetails), PaymentDetails payments = default(PaymentDetails), List<SpecifiedItem> specifiedItems = default(List<SpecifiedItem>), List<Endorsement> endorsements = default(List<Endorsement>), ClaimsSummary claims = default(ClaimsSummary))
         {
             this._PolicyNumber = policyNumber;
             if (this.PolicyNumber != null)
@@ -111,6 +115,16 @@ namespace Uinsure.CustomerPortal.Client.Model
             {
                 this._flagPolicyNumbersPossiblyRelatedByRiskAddress = true;
             }
+            this._ConfirmedRelatedPolicies = confirmedRelatedPolicies;
+            if (this.ConfirmedRelatedPolicies != null)
+            {
+                this._flagConfirmedRelatedPolicies = true;
+            }
+            this._PolicyNumbersConfirmedRelatedByRiskAddress = policyNumbersConfirmedRelatedByRiskAddress;
+            if (this.PolicyNumbersConfirmedRelatedByRiskAddress != null)
+            {
+                this._flagPolicyNumbersConfirmedRelatedByRiskAddress = true;
+            }
             this._PossiblyRelatedApplicant1 = possiblyRelatedApplicant1;
             if (this.PossiblyRelatedApplicant1 != null)
             {
@@ -120,6 +134,16 @@ namespace Uinsure.CustomerPortal.Client.Model
             if (this.PolicyNumbersPossiblyRelatedByApplicant1 != null)
             {
                 this._flagPolicyNumbersPossiblyRelatedByApplicant1 = true;
+            }
+            this._ConfirmedRelatedApplicant1 = confirmedRelatedApplicant1;
+            if (this.ConfirmedRelatedApplicant1 != null)
+            {
+                this._flagConfirmedRelatedApplicant1 = true;
+            }
+            this._PolicyNumbersConfirmedRelatedByApplicant1 = policyNumbersConfirmedRelatedByApplicant1;
+            if (this.PolicyNumbersConfirmedRelatedByApplicant1 != null)
+            {
+                this._flagPolicyNumbersConfirmedRelatedByApplicant1 = true;
             }
             this._CompanyName = companyName;
             if (this.CompanyName != null)
@@ -440,6 +464,57 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagPolicyNumbersPossiblyRelatedByRiskAddress;
         }
         /// <summary>
+        /// The original pipe-delimited string of policy numbers that is confirmed to be related by risk address. See Uinsure.CustomerPortal.API.Controllers.Admin.ResponseContracts.GetPolicyDetailsResponse.PolicyNumbersPossiblyRelatedByRiskAddress.
+        /// </summary>
+        /// <value>The original pipe-delimited string of policy numbers that is confirmed to be related by risk address. See Uinsure.CustomerPortal.API.Controllers.Admin.ResponseContracts.GetPolicyDetailsResponse.PolicyNumbersPossiblyRelatedByRiskAddress.</value>
+        [DataMember(Name = "ConfirmedRelatedPolicies", EmitDefaultValue = true)]
+        [Obsolete]
+        public string ConfirmedRelatedPolicies
+        {
+            get{ return _ConfirmedRelatedPolicies;}
+            set
+            {
+                _ConfirmedRelatedPolicies = value;
+                _flagConfirmedRelatedPolicies = true;
+            }
+        }
+        private string _ConfirmedRelatedPolicies;
+        private bool _flagConfirmedRelatedPolicies;
+
+        /// <summary>
+        /// Returns false as ConfirmedRelatedPolicies should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeConfirmedRelatedPolicies()
+        {
+            return _flagConfirmedRelatedPolicies;
+        }
+        /// <summary>
+        /// A collection of policy numbers that is confirmed to be related to this policy.
+        /// </summary>
+        /// <value>A collection of policy numbers that is confirmed to be related to this policy.</value>
+        [DataMember(Name = "PolicyNumbersConfirmedRelatedByRiskAddress", EmitDefaultValue = true)]
+        public List<string> PolicyNumbersConfirmedRelatedByRiskAddress
+        {
+            get{ return _PolicyNumbersConfirmedRelatedByRiskAddress;}
+            set
+            {
+                _PolicyNumbersConfirmedRelatedByRiskAddress = value;
+                _flagPolicyNumbersConfirmedRelatedByRiskAddress = true;
+            }
+        }
+        private List<string> _PolicyNumbersConfirmedRelatedByRiskAddress;
+        private bool _flagPolicyNumbersConfirmedRelatedByRiskAddress;
+
+        /// <summary>
+        /// Returns false as PolicyNumbersConfirmedRelatedByRiskAddress should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializePolicyNumbersConfirmedRelatedByRiskAddress()
+        {
+            return _flagPolicyNumbersConfirmedRelatedByRiskAddress;
+        }
+        /// <summary>
         /// The original pipe-delimited string of policy numbers possibly related by applicant 1. See Uinsure.CustomerPortal.API.Controllers.Admin.ResponseContracts.GetPolicyDetailsResponse.PolicyNumbersPossiblyRelatedByApplicant1.
         /// </summary>
         /// <value>The original pipe-delimited string of policy numbers possibly related by applicant 1. See Uinsure.CustomerPortal.API.Controllers.Admin.ResponseContracts.GetPolicyDetailsResponse.PolicyNumbersPossiblyRelatedByApplicant1.</value>
@@ -489,6 +564,57 @@ namespace Uinsure.CustomerPortal.Client.Model
         public bool ShouldSerializePolicyNumbersPossiblyRelatedByApplicant1()
         {
             return _flagPolicyNumbersPossiblyRelatedByApplicant1;
+        }
+        /// <summary>
+        /// The original pipe-delimited string of policy numbers confirmed to be related by applicant 1. See Uinsure.CustomerPortal.API.Controllers.Admin.ResponseContracts.GetPolicyDetailsResponse.PolicyNumbersPossiblyRelatedByApplicant1.
+        /// </summary>
+        /// <value>The original pipe-delimited string of policy numbers confirmed to be related by applicant 1. See Uinsure.CustomerPortal.API.Controllers.Admin.ResponseContracts.GetPolicyDetailsResponse.PolicyNumbersPossiblyRelatedByApplicant1.</value>
+        [DataMember(Name = "ConfirmedRelatedApplicant1", EmitDefaultValue = true)]
+        [Obsolete]
+        public string ConfirmedRelatedApplicant1
+        {
+            get{ return _ConfirmedRelatedApplicant1;}
+            set
+            {
+                _ConfirmedRelatedApplicant1 = value;
+                _flagConfirmedRelatedApplicant1 = true;
+            }
+        }
+        private string _ConfirmedRelatedApplicant1;
+        private bool _flagConfirmedRelatedApplicant1;
+
+        /// <summary>
+        /// Returns false as ConfirmedRelatedApplicant1 should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeConfirmedRelatedApplicant1()
+        {
+            return _flagConfirmedRelatedApplicant1;
+        }
+        /// <summary>
+        /// A collection of policy numbers where the policyholder is confirmed to be related to this policy.
+        /// </summary>
+        /// <value>A collection of policy numbers where the policyholder is confirmed to be related to this policy.</value>
+        [DataMember(Name = "PolicyNumbersConfirmedRelatedByApplicant1", EmitDefaultValue = true)]
+        public List<string> PolicyNumbersConfirmedRelatedByApplicant1
+        {
+            get{ return _PolicyNumbersConfirmedRelatedByApplicant1;}
+            set
+            {
+                _PolicyNumbersConfirmedRelatedByApplicant1 = value;
+                _flagPolicyNumbersConfirmedRelatedByApplicant1 = true;
+            }
+        }
+        private List<string> _PolicyNumbersConfirmedRelatedByApplicant1;
+        private bool _flagPolicyNumbersConfirmedRelatedByApplicant1;
+
+        /// <summary>
+        /// Returns false as PolicyNumbersConfirmedRelatedByApplicant1 should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializePolicyNumbersConfirmedRelatedByApplicant1()
+        {
+            return _flagPolicyNumbersConfirmedRelatedByApplicant1;
         }
         /// <summary>
         /// BTL/Landlords - Company name of a Let property is insured in a company name.
@@ -824,8 +950,12 @@ namespace Uinsure.CustomerPortal.Client.Model
             sb.Append("  Provider: ").Append(Provider).Append("\n");
             sb.Append("  PossiblyRelatedPolicies: ").Append(PossiblyRelatedPolicies).Append("\n");
             sb.Append("  PolicyNumbersPossiblyRelatedByRiskAddress: ").Append(PolicyNumbersPossiblyRelatedByRiskAddress).Append("\n");
+            sb.Append("  ConfirmedRelatedPolicies: ").Append(ConfirmedRelatedPolicies).Append("\n");
+            sb.Append("  PolicyNumbersConfirmedRelatedByRiskAddress: ").Append(PolicyNumbersConfirmedRelatedByRiskAddress).Append("\n");
             sb.Append("  PossiblyRelatedApplicant1: ").Append(PossiblyRelatedApplicant1).Append("\n");
             sb.Append("  PolicyNumbersPossiblyRelatedByApplicant1: ").Append(PolicyNumbersPossiblyRelatedByApplicant1).Append("\n");
+            sb.Append("  ConfirmedRelatedApplicant1: ").Append(ConfirmedRelatedApplicant1).Append("\n");
+            sb.Append("  PolicyNumbersConfirmedRelatedByApplicant1: ").Append(PolicyNumbersConfirmedRelatedByApplicant1).Append("\n");
             sb.Append("  CompanyName: ").Append(CompanyName).Append("\n");
             sb.Append("  PolicyStatus: ").Append(PolicyStatus).Append("\n");
             sb.Append("  Policyholder: ").Append(Policyholder).Append("\n");
@@ -926,6 +1056,17 @@ namespace Uinsure.CustomerPortal.Client.Model
                     this.PolicyNumbersPossiblyRelatedByRiskAddress.SequenceEqual(input.PolicyNumbersPossiblyRelatedByRiskAddress)
                 ) && 
                 (
+                    this.ConfirmedRelatedPolicies == input.ConfirmedRelatedPolicies ||
+                    (this.ConfirmedRelatedPolicies != null &&
+                    this.ConfirmedRelatedPolicies.Equals(input.ConfirmedRelatedPolicies))
+                ) && 
+                (
+                    this.PolicyNumbersConfirmedRelatedByRiskAddress == input.PolicyNumbersConfirmedRelatedByRiskAddress ||
+                    this.PolicyNumbersConfirmedRelatedByRiskAddress != null &&
+                    input.PolicyNumbersConfirmedRelatedByRiskAddress != null &&
+                    this.PolicyNumbersConfirmedRelatedByRiskAddress.SequenceEqual(input.PolicyNumbersConfirmedRelatedByRiskAddress)
+                ) && 
+                (
                     this.PossiblyRelatedApplicant1 == input.PossiblyRelatedApplicant1 ||
                     (this.PossiblyRelatedApplicant1 != null &&
                     this.PossiblyRelatedApplicant1.Equals(input.PossiblyRelatedApplicant1))
@@ -935,6 +1076,17 @@ namespace Uinsure.CustomerPortal.Client.Model
                     this.PolicyNumbersPossiblyRelatedByApplicant1 != null &&
                     input.PolicyNumbersPossiblyRelatedByApplicant1 != null &&
                     this.PolicyNumbersPossiblyRelatedByApplicant1.SequenceEqual(input.PolicyNumbersPossiblyRelatedByApplicant1)
+                ) && 
+                (
+                    this.ConfirmedRelatedApplicant1 == input.ConfirmedRelatedApplicant1 ||
+                    (this.ConfirmedRelatedApplicant1 != null &&
+                    this.ConfirmedRelatedApplicant1.Equals(input.ConfirmedRelatedApplicant1))
+                ) && 
+                (
+                    this.PolicyNumbersConfirmedRelatedByApplicant1 == input.PolicyNumbersConfirmedRelatedByApplicant1 ||
+                    this.PolicyNumbersConfirmedRelatedByApplicant1 != null &&
+                    input.PolicyNumbersConfirmedRelatedByApplicant1 != null &&
+                    this.PolicyNumbersConfirmedRelatedByApplicant1.SequenceEqual(input.PolicyNumbersConfirmedRelatedByApplicant1)
                 ) && 
                 (
                     this.CompanyName == input.CompanyName ||
@@ -1054,6 +1206,14 @@ namespace Uinsure.CustomerPortal.Client.Model
                 {
                     hashCode = (hashCode * 59) + this.PolicyNumbersPossiblyRelatedByRiskAddress.GetHashCode();
                 }
+                if (this.ConfirmedRelatedPolicies != null)
+                {
+                    hashCode = (hashCode * 59) + this.ConfirmedRelatedPolicies.GetHashCode();
+                }
+                if (this.PolicyNumbersConfirmedRelatedByRiskAddress != null)
+                {
+                    hashCode = (hashCode * 59) + this.PolicyNumbersConfirmedRelatedByRiskAddress.GetHashCode();
+                }
                 if (this.PossiblyRelatedApplicant1 != null)
                 {
                     hashCode = (hashCode * 59) + this.PossiblyRelatedApplicant1.GetHashCode();
@@ -1061,6 +1221,14 @@ namespace Uinsure.CustomerPortal.Client.Model
                 if (this.PolicyNumbersPossiblyRelatedByApplicant1 != null)
                 {
                     hashCode = (hashCode * 59) + this.PolicyNumbersPossiblyRelatedByApplicant1.GetHashCode();
+                }
+                if (this.ConfirmedRelatedApplicant1 != null)
+                {
+                    hashCode = (hashCode * 59) + this.ConfirmedRelatedApplicant1.GetHashCode();
+                }
+                if (this.PolicyNumbersConfirmedRelatedByApplicant1 != null)
+                {
+                    hashCode = (hashCode * 59) + this.PolicyNumbersConfirmedRelatedByApplicant1.GetHashCode();
                 }
                 if (this.CompanyName != null)
                 {
