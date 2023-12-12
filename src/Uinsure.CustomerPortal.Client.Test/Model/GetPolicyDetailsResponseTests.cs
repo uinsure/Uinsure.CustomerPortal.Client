@@ -145,15 +145,6 @@ namespace Uinsure.CustomerPortal.Client.Test.Model
         }
 
         /// <summary>
-        /// Test the property 'ConfirmedRelatedPolicies'
-        /// </summary>
-        [Fact]
-        public void ConfirmedRelatedPoliciesTest()
-        {
-            // TODO unit test for the property 'ConfirmedRelatedPolicies'
-        }
-
-        /// <summary>
         /// Test the property 'PolicyNumbersConfirmedRelatedByRiskAddress'
         /// </summary>
         [Fact]
@@ -178,15 +169,6 @@ namespace Uinsure.CustomerPortal.Client.Test.Model
         public void PolicyNumbersPossiblyRelatedByApplicant1Test()
         {
             // TODO unit test for the property 'PolicyNumbersPossiblyRelatedByApplicant1'
-        }
-
-        /// <summary>
-        /// Test the property 'ConfirmedRelatedApplicant1'
-        /// </summary>
-        [Fact]
-        public void ConfirmedRelatedApplicant1Test()
-        {
-            // TODO unit test for the property 'ConfirmedRelatedApplicant1'
         }
 
         /// <summary>
