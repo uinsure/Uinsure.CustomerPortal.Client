@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **LossDate** | **DateTime?** | Date of loss | [optional] 
 **LossDescription** | **string** | Description of loss | [optional] 
 **ClaimType** | **string** | Type of claim | [optional] 
+**ClaimTypeDescription** | **string** | Description of the type of claim | [optional] 
 **DetailedStatus** | **string** | Detailed status of the claim | [optional] 
 **ClaimSection** | **string** | Claim section | [optional] 
 **ClosedDate** | **DateTime?** | Date that the claim was closed | [optional] 

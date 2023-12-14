@@ -109,6 +109,15 @@ namespace Uinsure.CustomerPortal.Client.Test.Model
         }
 
         /// <summary>
+        /// Test the property 'ClaimTypeDescription'
+        /// </summary>
+        [Fact]
+        public void ClaimTypeDescriptionTest()
+        {
+            // TODO unit test for the property 'ClaimTypeDescription'
+        }
+
+        /// <summary>
         /// Test the property 'DetailedStatus'
         /// </summary>
         [Fact]

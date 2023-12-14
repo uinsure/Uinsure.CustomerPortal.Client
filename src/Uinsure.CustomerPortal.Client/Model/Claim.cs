@@ -40,12 +40,13 @@ namespace Uinsure.CustomerPortal.Client.Model
         /// <param name="lossDate">Date of loss.</param>
         /// <param name="lossDescription">Description of loss.</param>
         /// <param name="claimType">Type of claim.</param>
+        /// <param name="claimTypeDescription">Description of the type of claim.</param>
         /// <param name="detailedStatus">Detailed status of the claim.</param>
         /// <param name="claimSection">Claim section.</param>
         /// <param name="closedDate">Date that the claim was closed.</param>
         /// <param name="includeInClaimsCalculation">Will this claim affect the quote calculation?.</param>
         /// <param name="totalClaimCost">Total cost of the claim.</param>
-        public Claim(string claimReference = default(string), string insurerName = default(string), string claimStatus = default(string), DateTime? lossDate = default(DateTime?), string lossDescription = default(string), string claimType = default(string), string detailedStatus = default(string), string claimSection = default(string), DateTime? closedDate = default(DateTime?), bool? includeInClaimsCalculation = default(bool?), double? totalClaimCost = default(double?))
+        public Claim(string claimReference = default(string), string insurerName = default(string), string claimStatus = default(string), DateTime? lossDate = default(DateTime?), string lossDescription = default(string), string claimType = default(string), string claimTypeDescription = default(string), string detailedStatus = default(string), string claimSection = default(string), DateTime? closedDate = default(DateTime?), bool? includeInClaimsCalculation = default(bool?), double? totalClaimCost = default(double?))
         {
             this._ClaimReference = claimReference;
             if (this.ClaimReference != null)
@@ -76,6 +77,11 @@ namespace Uinsure.CustomerPortal.Client.Model
             if (this.ClaimType != null)
             {
                 this._flagClaimType = true;
+            }
+            this._ClaimTypeDescription = claimTypeDescription;
+            if (this.ClaimTypeDescription != null)
+            {
+                this._flagClaimTypeDescription = true;
             }
             this._DetailedStatus = detailedStatus;
             if (this.DetailedStatus != null)
@@ -255,6 +261,31 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagClaimType;
         }
         /// <summary>
+        /// Description of the type of claim
+        /// </summary>
+        /// <value>Description of the type of claim</value>
+        [DataMember(Name = "ClaimTypeDescription", EmitDefaultValue = true)]
+        public string ClaimTypeDescription
+        {
+            get{ return _ClaimTypeDescription;}
+            set
+            {
+                _ClaimTypeDescription = value;
+                _flagClaimTypeDescription = true;
+            }
+        }
+        private string _ClaimTypeDescription;
+        private bool _flagClaimTypeDescription;
+
+        /// <summary>
+        /// Returns false as ClaimTypeDescription should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeClaimTypeDescription()
+        {
+            return _flagClaimTypeDescription;
+        }
+        /// <summary>
         /// Detailed status of the claim
         /// </summary>
         /// <value>Detailed status of the claim</value>
@@ -393,6 +424,7 @@ namespace Uinsure.CustomerPortal.Client.Model
             sb.Append("  LossDate: ").Append(LossDate).Append("\n");
             sb.Append("  LossDescription: ").Append(LossDescription).Append("\n");
             sb.Append("  ClaimType: ").Append(ClaimType).Append("\n");
+            sb.Append("  ClaimTypeDescription: ").Append(ClaimTypeDescription).Append("\n");
             sb.Append("  DetailedStatus: ").Append(DetailedStatus).Append("\n");
             sb.Append("  ClaimSection: ").Append(ClaimSection).Append("\n");
             sb.Append("  ClosedDate: ").Append(ClosedDate).Append("\n");
@@ -464,6 +496,11 @@ namespace Uinsure.CustomerPortal.Client.Model
                     this.ClaimType.Equals(input.ClaimType))
                 ) && 
                 (
+                    this.ClaimTypeDescription == input.ClaimTypeDescription ||
+                    (this.ClaimTypeDescription != null &&
+                    this.ClaimTypeDescription.Equals(input.ClaimTypeDescription))
+                ) && 
+                (
                     this.DetailedStatus == input.DetailedStatus ||
                     (this.DetailedStatus != null &&
                     this.DetailedStatus.Equals(input.DetailedStatus))
@@ -522,6 +559,10 @@ namespace Uinsure.CustomerPortal.Client.Model
                 if (this.ClaimType != null)
                 {
                     hashCode = (hashCode * 59) + this.ClaimType.GetHashCode();
+                }
+                if (this.ClaimTypeDescription != null)
+                {
+                    hashCode = (hashCode * 59) + this.ClaimTypeDescription.GetHashCode();
                 }
                 if (this.DetailedStatus != null)
                 {
