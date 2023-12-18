@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost*
 
 <a id="apiadminpoliciesfindpost"></a>
 # **ApiAdminPoliciesFindPost**
-> List&lt;FindPoliciesResult&gt; ApiAdminPoliciesFindPost (FindPoliciesRequest? findPoliciesRequest = null)
+> List&lt;UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult&gt; ApiAdminPoliciesFindPost (FindPoliciesRequest? findPoliciesRequest = null)
 
 Finds policies matching any or all from agreement number, surname, date of birth, risk address postcode, telephone number or policy status.
 
@@ -38,7 +38,7 @@ namespace Example
             try
             {
                 // Finds policies matching any or all from agreement number, surname, date of birth, risk address postcode, telephone number or policy status.
-                List<FindPoliciesResult> result = apiInstance.ApiAdminPoliciesFindPost(findPoliciesRequest);
+                List<UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult> result = apiInstance.ApiAdminPoliciesFindPost(findPoliciesRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -59,7 +59,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Finds policies matching any or all from agreement number, surname, date of birth, risk address postcode, telephone number or policy status.
-    ApiResponse<List<FindPoliciesResult>> response = apiInstance.ApiAdminPoliciesFindPostWithHttpInfo(findPoliciesRequest);
+    ApiResponse<List<UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult>> response = apiInstance.ApiAdminPoliciesFindPostWithHttpInfo(findPoliciesRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -80,7 +80,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**List&lt;FindPoliciesResult&gt;**](FindPoliciesResult.md)
+[**List&lt;UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult&gt;**](UinsureCustomerPortalInfrastructureQueryDTOFindPoliciesResult.md)
 
 ### Authorization
 
@@ -104,7 +104,7 @@ catch (ApiException e)
 
 <a id="apiadminpoliciespolicynumberget"></a>
 # **ApiAdminPoliciesPolicyNumberGet**
-> GetPolicyDetailsResult ApiAdminPoliciesPolicyNumberGet (string policyNumber)
+> GetPolicyDetailsResponse ApiAdminPoliciesPolicyNumberGet (string policyNumber, bool? useAccountReference = null, string? policyStatus = null)
 
 Returns the policy details for a specified policy number
 
@@ -131,11 +131,13 @@ namespace Example
 
             var apiInstance = new PoliciesQueryApi(config);
             var policyNumber = "policyNumber_example";  // string | Sanitised URL-safe policy number
+            var useAccountReference = true;  // bool? | An optional flag to determine whether or not to search for details using the Policy Number or the Account Reference  The policy number can contain version information (e.g. UINH0123456/7) whereas an Account Reference should never contain  it (e.g. UINH0123456) (optional) 
+            var policyStatus = "policyStatus_example";  // string? | An optional filter parameter which will look for any details matching a valid policy status. (optional) 
 
             try
             {
                 // Returns the policy details for a specified policy number
-                GetPolicyDetailsResult result = apiInstance.ApiAdminPoliciesPolicyNumberGet(policyNumber);
+                GetPolicyDetailsResponse result = apiInstance.ApiAdminPoliciesPolicyNumberGet(policyNumber, useAccountReference, policyStatus);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -156,7 +158,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Returns the policy details for a specified policy number
-    ApiResponse<GetPolicyDetailsResult> response = apiInstance.ApiAdminPoliciesPolicyNumberGetWithHttpInfo(policyNumber);
+    ApiResponse<GetPolicyDetailsResponse> response = apiInstance.ApiAdminPoliciesPolicyNumberGetWithHttpInfo(policyNumber, useAccountReference, policyStatus);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -174,10 +176,12 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **policyNumber** | **string** | Sanitised URL-safe policy number |  |
+| **useAccountReference** | **bool?** | An optional flag to determine whether or not to search for details using the Policy Number or the Account Reference  The policy number can contain version information (e.g. UINH0123456/7) whereas an Account Reference should never contain  it (e.g. UINH0123456) | [optional]  |
+| **policyStatus** | **string?** | An optional filter parameter which will look for any details matching a valid policy status. | [optional]  |
 
 ### Return type
 
-[**GetPolicyDetailsResult**](GetPolicyDetailsResult.md)
+[**GetPolicyDetailsResponse**](GetPolicyDetailsResponse.md)
 
 ### Authorization
 

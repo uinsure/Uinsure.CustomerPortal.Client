@@ -26,7 +26,7 @@ using OpenAPIDateConverter = Uinsure.CustomerPortal.Client.Client.OpenAPIDateCon
 namespace Uinsure.CustomerPortal.Client.Model
 {
     /// <summary>
-    /// SpecifiedItem
+    /// DTO with details relating to a high-value specified item.
     /// </summary>
     [DataContract(Name = "SpecifiedItem")]
     public partial class SpecifiedItem : IEquatable<SpecifiedItem>, IValidatableObject
@@ -34,11 +34,11 @@ namespace Uinsure.CustomerPortal.Client.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SpecifiedItem" /> class.
         /// </summary>
-        /// <param name="type">type.</param>
-        /// <param name="description">description.</param>
-        /// <param name="value">value.</param>
-        /// <param name="coverAtHome">coverAtHome.</param>
-        /// <param name="coverAwayFromHome">coverAwayFromHome.</param>
+        /// <param name="type">Specified item type..</param>
+        /// <param name="description">Description of the specified item..</param>
+        /// <param name="value">Value of the specified item..</param>
+        /// <param name="coverAtHome">Is the specified item covered in the home..</param>
+        /// <param name="coverAwayFromHome">Is the specified item covered away from the home..</param>
         public SpecifiedItem(string type = default(string), string description = default(string), int value = default(int), bool coverAtHome = default(bool), bool coverAwayFromHome = default(bool))
         {
             this._Type = type;
@@ -69,8 +69,9 @@ namespace Uinsure.CustomerPortal.Client.Model
         }
 
         /// <summary>
-        /// Gets or Sets Type
+        /// Specified item type.
         /// </summary>
+        /// <value>Specified item type.</value>
         [DataMember(Name = "Type", EmitDefaultValue = true)]
         public string Type
         {
@@ -93,8 +94,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagType;
         }
         /// <summary>
-        /// Gets or Sets Description
+        /// Description of the specified item.
         /// </summary>
+        /// <value>Description of the specified item.</value>
         [DataMember(Name = "Description", EmitDefaultValue = true)]
         public string Description
         {
@@ -117,8 +119,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagDescription;
         }
         /// <summary>
-        /// Gets or Sets Value
+        /// Value of the specified item.
         /// </summary>
+        /// <value>Value of the specified item.</value>
         [DataMember(Name = "Value", EmitDefaultValue = false)]
         public int Value
         {
@@ -141,8 +144,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagValue;
         }
         /// <summary>
-        /// Gets or Sets CoverAtHome
+        /// Is the specified item covered in the home.
         /// </summary>
+        /// <value>Is the specified item covered in the home.</value>
         [DataMember(Name = "CoverAtHome", EmitDefaultValue = true)]
         public bool CoverAtHome
         {
@@ -165,8 +169,9 @@ namespace Uinsure.CustomerPortal.Client.Model
             return _flagCoverAtHome;
         }
         /// <summary>
-        /// Gets or Sets CoverAwayFromHome
+        /// Is the specified item covered away from the home.
         /// </summary>
+        /// <value>Is the specified item covered away from the home.</value>
         [DataMember(Name = "CoverAwayFromHome", EmitDefaultValue = true)]
         public bool CoverAwayFromHome
         {

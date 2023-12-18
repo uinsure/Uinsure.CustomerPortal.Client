@@ -10,7 +10,7 @@ All URIs are relative to *http://localhost*
 
 <a id="apirenewalsdetailsget"></a>
 # **ApiRenewalsDetailsGet**
-> RenewalDetails ApiRenewalsDetailsGet ()
+> UinsureCustomerPortalInfrastructureQueryDTORenewalDetails ApiRenewalsDetailsGet ()
 
 Gets the renewal details for a customer's policy
 
@@ -38,7 +38,7 @@ namespace Example
             try
             {
                 // Gets the renewal details for a customer's policy
-                RenewalDetails result = apiInstance.ApiRenewalsDetailsGet();
+                UinsureCustomerPortalInfrastructureQueryDTORenewalDetails result = apiInstance.ApiRenewalsDetailsGet();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -59,7 +59,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Gets the renewal details for a customer's policy
-    ApiResponse<RenewalDetails> response = apiInstance.ApiRenewalsDetailsGetWithHttpInfo();
+    ApiResponse<UinsureCustomerPortalInfrastructureQueryDTORenewalDetails> response = apiInstance.ApiRenewalsDetailsGetWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -76,7 +76,7 @@ catch (ApiException e)
 This endpoint does not need any parameter.
 ### Return type
 
-[**RenewalDetails**](RenewalDetails.md)
+[**UinsureCustomerPortalInfrastructureQueryDTORenewalDetails**](UinsureCustomerPortalInfrastructureQueryDTORenewalDetails.md)
 
 ### Authorization
 

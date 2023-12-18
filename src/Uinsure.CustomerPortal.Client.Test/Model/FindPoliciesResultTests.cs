@@ -116,5 +116,23 @@ namespace Uinsure.CustomerPortal.Client.Test.Model
         {
             // TODO unit test for the property 'Applicant2'
         }
+
+        /// <summary>
+        /// Test the property 'DataQualityIssueFlag'
+        /// </summary>
+        [Fact]
+        public void DataQualityIssueFlagTest()
+        {
+            // TODO unit test for the property 'DataQualityIssueFlag'
+        }
+
+        /// <summary>
+        /// Test the property 'PolicyIssueFlag'
+        /// </summary>
+        [Fact]
+        public void PolicyIssueFlagTest()
+        {
+            // TODO unit test for the property 'PolicyIssueFlag'
+        }
     }
 }
